@@ -1,17 +1,17 @@
 <template>
-<div>
+<main class="flex flex-column min-vh-100">
     <nuxt/>
-    <my-footer/>
-</div>
+    <page-footer/>
+</main>
 </template>
 
 <script>
-import MyFooter from '~components/Footer.vue'
+import PageFooter from '~components/Footer.vue'
 
 
 export default {
     components: {
-        MyFooter
+        PageFooter
     }
 }
 </script>
