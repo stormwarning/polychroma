@@ -1,13 +1,14 @@
 <template>
-<section class="container">
-    <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
+<section class="container flex-auto bg-light-gray">
+    <!-- <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" /> -->
+    <gradient></gradient>
     <h1 class="title">
-    USERS
+        USERS
     </h1>
     <ul class="users">
-        <li v-for="(user, index) in users" class="user">
+        <li class="user" v-for="(user, index) in users" v-bind:key="index">
             <nuxt-link :to="{ name: 'id', params: { id: index }}" class="button">
-
+                {{ user.name }}
             </nuxt-link>
         </li>
     </ul>
@@ -15,10 +16,15 @@
 </template>
 
 <script>
+import Gradient from '~components/Gradient.vue'
 import axios from '~plugins/axios'
 
 
 export default {
+    components: {
+        Gradient
+    },
+
     data () {
         return {
             users: []
