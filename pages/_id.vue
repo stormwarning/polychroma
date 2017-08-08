@@ -5,7 +5,7 @@
         User
     </h1>
     <h2 class="info">
-
+        {{ user.name }}
     </h2>
     <nuxt-link class="button" to="/">
         Users
