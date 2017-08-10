@@ -1,32 +1,34 @@
 <template>
-<article>
-    <div>
-        <span>Colour A</span>
-        <input type="color">
-    </div>
-    <div>
-        <span>Colour B</span>
-        <input type="color">
-    </div>
-
-    <div>
-        <span>Result</span>
-        <textarea>
-        </textarea>
-    </div>
-</article>
+<figure class="pa5" :style="{ backgroundImage: gradientCSS }">
+    <span class="f6 ttu tracked black-30">Result</span>
+    <pre><code>{{ gradientCSS }}</code></pre>
+</figure>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            color1: '',
-            color2: '',
-        }
-    }
+    props: [
+        'stops',
+    ],
+
+    computed: {
+        gradientCSS: (stops) => {
+            let dir = '30deg'
+            let string = 'linear-gradient('
+            let colors = stops.$options.propsData.stops
+
+            return `${string}${dir}${colors.map(stop => `, ${stop.color}`).join('')})`
+        },
+    },
+
+    methods: {
+    },
 }
 </script>
 
-<style>
+<style scoped>
+figure {
+    grid-area: result;
+    margin: 0;
+}
 </style>

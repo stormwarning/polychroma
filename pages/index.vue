@@ -1,23 +1,18 @@
 <template>
-<section class="container flex-auto bg-light-gray">
-    <!-- <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" /> -->
-    <gradient></gradient>
-    <h1 class="title">
-        USERS
-    </h1>
-    <ul class="users">
-        <li class="user" v-for="(user, index) in users" v-bind:key="index">
-            <nuxt-link :to="{ name: 'id', params: { id: index }}" class="button">
-                {{ user.name }}
-            </nuxt-link>
-        </li>
-    </ul>
+<section class="bg-light-gray">
+    <fieldset class="bn pa5 ma0">
+        <div v-for="(stop, index) in stops" v-bind:key="index">
+            <span class="f6 ttu tracked black-30">Colour {{ index + 1 }}<br> <code>{{ stop.color }}</code></span>
+            <input class="db" type="color" v-model="stop.color">
+        </div>
+    </fieldset>
+
+    <gradient :stops="stops"></gradient>
 </section>
 </template>
 
 <script>
 import Gradient from '~components/Gradient.vue'
-import axios from '~plugins/axios'
 
 
 export default {
@@ -27,36 +22,28 @@ export default {
 
     data () {
         return {
-            users: []
-        }
-    },
-
-    asyncData (context) {
-        return axios.get('/api/users').then((res) => {
-            return {users: res.data}
-        })
-    },
-
-    head () {
-        return {
-            title: 'Users'
+            stops: [
+                {
+                    color: '#ed2f18',
+                },
+                {
+                    color: '#6cfcfe',
+                },
+            ],
         }
     },
 }
 </script>
 
 <style scoped>
-.title {
-    margin: 30px 0;
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "controls result";
+    grid-area: main;
 }
 
-.users {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.user {
-    margin: 10px 0;
+fieldset {
+    grid-area: controls;
 }
 </style>
