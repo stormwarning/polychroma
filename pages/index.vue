@@ -2,8 +2,9 @@
 <section class="bg-light-gray">
     <fieldset class="bn pa5 ma0">
         <div v-for="(stop, index) in stops" v-bind:key="index">
-            <span class="f6 ttu tracked black-30">Colour {{ index + 1 }}<br> <code>{{ stop.color }}</code></span>
-            <input class="db" type="color" v-model="stop.color">
+            <span class="f6 ttu tracked black-30">Colour {{ index + 1 }}</span>
+            <color-picker v-model="stop.color"></color-picker>
+            <!-- <input class="db" type="color" v-model="stop.color"> -->
         </div>
     </fieldset>
 
@@ -12,22 +13,28 @@
 </template>
 
 <script>
+import Chrome from 'vue-color/src/components/Chrome.vue'
 import Gradient from '~components/Gradient.vue'
 
 
 export default {
     components: {
-        Gradient
+        'color-picker': Chrome,
+        Gradient,
     },
 
     data () {
         return {
             stops: [
                 {
-                    color: '#ed2f18',
+                    color: {
+                        hex: '#ed2f18',
+                    },
                 },
                 {
-                    color: '#6cfcfe',
+                    color: {
+                        hex: '#6cfcfe',
+                    },
                 },
             ],
         }
