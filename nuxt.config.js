@@ -7,7 +7,7 @@ module.exports = {
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', meta: 'description', content: 'Nuxt.js project' },
+            { hid: 'description', meta: 'description', content: 'Generate better CSS gradients using alternative colour spaces & Bezier interpolation.' },
         ],
         link: [
             { rel: 'stylesheet', href: 'https://unpkg.com/tachyons@4.7.4/css/tachyons.min.css' },
@@ -20,10 +20,20 @@ module.exports = {
     */
     // css: ['~assets/css/main.css'],
 
-    /*
-    ** Add axios globally
-    */
     build: {
-        vendor: ['axios'],
+        vendor: ['vue-color'],
+        extend (config, { isDev, isClient }) {
+            return {
+                test: /\.js$/,
+                loader: 'babel',
+                include: [
+                    '/node_modules/vue-color',
+                ],
+            }
+        },
     },
+
+    plugins: [
+        { src: '~plugins/analytics.js', ssr: false }
+    ],
 }
