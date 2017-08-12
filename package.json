@@ -1,7 +1,7 @@
 {
   "name": "polychroma",
-  "version": "0.1.0",
-  "description": "Colour tools via chroma.js",
+  "version": "0.2.0",
+  "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff <rustyangel@gmail.com>",
   "private": true,
   "scripts": {
@@ -15,7 +15,6 @@
     "alias": "polychroma"
   },
   "dependencies": {
-    "axios": "^0.16.x",
     "chroma-js": "^1.3.4",
     "micro": "^7.3.x",
     "micro-route": "^2.4.0",
