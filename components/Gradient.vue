@@ -2,24 +2,46 @@
 <figure class="flex pa5" :style="{ backgroundImage: gradientCSS }">
     <div class="ma-auto bg-white">
         <div class="pa4 f6 ttu tracked lh-solid black-90">Result</div>
-        <pre class="pa4 mt0 nr4 mb4 nl4 ttl bg-light-gray"><code>{{ gradientCSS }}</code></pre>
+        <pre class="pa4 mt0 nr4 mb4 nl4 ttl ws-normal bg-light-gray"><code>{{ gradientCSS }}</code></pre>
     </div>
 </figure>
 </template>
 
 <script>
+import chroma from 'chroma-js'
+
+
 export default {
     props: [
+        'dir',
         'stops',
+        'mode',
     ],
 
     computed: {
         gradientCSS: (stops) => {
+            // const dir = this.dir
+            // const stops = this.stops
+            // const mode = this.mode
+
+            const steps = stops.$options.propsData.stops.length + 5
             let dir = '30deg'
             let string = 'linear-gradient('
-            let colors = stops.$options.propsData.stops
+            let keyColors = []
+            let scale
+            let colors = []
+            let positions = []
 
-            return `${string}${dir}${colors.map(stop => `, ${stop.color.hex}`).join('')})`
+            stops.$options.propsData.stops.map(stop => keyColors.push(stop.color.hex))
+            scale = chroma.scale(keyColors).mode('lab').correctLightness()
+
+            ;[...Array(steps).keys()].map((col, index) => {
+                let t = index / (steps - 1)
+                colors.push(scale(t).hex())
+                positions.push(Math.floor(t * 100))
+            })
+
+            return `${string}${dir}${colors.map((stop, index) => `, ${stop} ${positions[index]}%`).join('')})`
         },
     },
 
