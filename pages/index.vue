@@ -4,11 +4,10 @@
         <div class="mb4" v-for="(stop, index) in stops" v-bind:key="index">
             <span class="dib mb2 f6 ttu tracked black-30">Colour {{ index + 1 }}</span>
             <color-picker v-model="stop.color"></color-picker>
-            <!-- <input class="db" type="color" v-model="stop.color"> -->
         </div>
     </fieldset>
 
-    <gradient :stops="stops"></gradient>
+    <gradient :stops="stops" :mode="mode" :dir="direction"></gradient>
 </section>
 </template>
 
@@ -31,6 +30,8 @@ export default {
 
     data () {
         return {
+            direction: '30deg',
+
             stops: [
                 {
                     color: {
@@ -43,6 +44,8 @@ export default {
                     },
                 },
             ],
+
+            mode: 'lab',
         }
     },
 }
@@ -59,4 +62,6 @@ section {
 fieldset {
     grid-area: controls;
 }
+
+fieldset > div { width: 225px; }
 </style>
