@@ -21,19 +21,23 @@ module.exports = {
     // css: ['~assets/css/main.css'],
 
     build: {
-        vendor: ['vue-color'],
+        vendor: [
+            'chroma-js',
+            // 'vue-color',
+        ],
         extend (config, { isDev, isClient }) {
-            return {
+            config.module.rules.push({
                 test: /\.js$/,
                 loader: 'babel',
                 include: [
                     '/node_modules/vue-color',
                 ],
-            }
+            })
         },
     },
 
     plugins: [
-        { src: '~plugins/analytics.js', ssr: false }
+        // { src: '~plugins/vue-color.js' },
+        { src: '~plugins/analytics.js', ssr: false },
     ],
 }
