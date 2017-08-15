@@ -1,6 +1,6 @@
 <template>
 <figure class="flex pa5" :style="{ backgroundImage: gradientCSS }">
-    <div class="ma-auto bg-white">
+    <div class="w-100 mw6 ma-auto bg-white">
         <div class="pa4 f6 ttu tracked lh-solid black-90">Result</div>
         <pre class="ph4 pv5 mt0 nr4 mb4 nl4 ttl ws-normal bg-light-gray"><code>{{ gradientCSS }}</code></pre>
     </div>
