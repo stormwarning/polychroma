@@ -2,7 +2,7 @@
 <section class="bg-light-gray">
     <header class="absolute right-2 pt4">
         <h1 class="mb0 f1 ttu tracked-mega">Polychroma</h1>
-        <span class="db b tr">v1.0.0</span>
+        <span class="db b tr">v1.0.2</span>
     </header>
 
     <form class="pa5 ma0">
