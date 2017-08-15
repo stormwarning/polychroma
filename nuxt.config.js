@@ -1,3 +1,6 @@
+const webpack = require('webpack')
+const versionNum = JSON.stringify(require('./package.json').version)
+
 module.exports = {
     /*
     ** Headers of the page
@@ -25,7 +28,7 @@ module.exports = {
             'chroma-js',
             // 'vue-color',
         ],
-        extend (config, { isDev, isClient }) {
+        extend (config, { dev, isClient, isSserver }) {
             config.module.rules.push({
                 test: /\.js$/,
                 loader: 'babel',
@@ -36,7 +39,15 @@ module.exports = {
         },
     },
 
+    env: {
+        version: versionNum,
+    },
+
     plugins: [
+        // new webpack.DefinePlugin({
+        //     VERSION: JSON.stringify(require('./package.json').version)
+        // }),
+
         // { src: '~plugins/vue-color.js' },
         { src: '~plugins/analytics.js', ssr: false },
     ],
