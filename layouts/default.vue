@@ -19,7 +19,7 @@ export default {
 <style scoped>
 main {
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr 240px;
     grid-template-areas: "main sidebar";
 }
 </style>
