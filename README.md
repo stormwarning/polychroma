@@ -1,7 +1,10 @@
 # polychroma
-> Colour tools via [chroma.js]
+> Better gradients through colour spaces.
 
-A work-in-progress.
+Generate better CSS gradients using alternative colour spaces & Bezier interpolation.
+
+### Credits
+Uses the amazing [chroma.js] library by @gka
 
 
 [chroma.js]: http://gka.github.io/chroma.js/
