@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const versionNum = JSON.stringify(require('./package.json').version)
 
+
 module.exports = {
     /*
     ** Headers of the page
@@ -55,17 +56,14 @@ module.exports = {
                 ],
             })
         },
-    },
-
-    env: {
-        version: versionNum,
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env.VERSION': versionNum
+            }),
+        ]
     },
 
     plugins: [
-        // new webpack.DefinePlugin({
-        //     VERSION: JSON.stringify(require('./package.json').version)
-        // }),
-
         // { src: '~plugins/vue-color.js' },
         { src: '~plugins/analytics.js', ssr: false },
     ],
