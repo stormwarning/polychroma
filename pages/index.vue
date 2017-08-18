@@ -1,8 +1,8 @@
 <template>
 <section class="bg-light-gray">
     <header class="absolute right-2 pt4">
-        <h1 class="mb0 f1 ttu tracked-mega">Polychroma</h1>
-        <span class="db b tr">v1.0.2</span>
+        <h1 class="mb0 f3 f1-ns ttu tracked-mega">Polychroma</h1>
+        <span class="db b tr">v{{ version }}</span>
     </header>
 
     <form class="pa5 ma0">
@@ -10,7 +10,7 @@
             <legend class="f6 ttu tracked black-30 mb2">Colour Mode</legend>
 
             <div class="flex items-center">
-                <label class="flex items-center mb2 mr3 lh-solid" v-for="(m, index) in modes" :key="index">
+                <label class="flex items-center mb2 mr3 lh-solid pointer" v-for="(m, index) in modes" :key="index">
                     <input class="mr2" type="radio" name="mode" :value="m.slug" v-model="mode">
                     <span class="f6">{{ m.label }}</span>
                 </label>
@@ -41,8 +41,6 @@ let ColorPicker
 if (process.BROWSER_BUILD) {
     ColorPicker = require('vue-color/dist/vue-color.min.js').Chrome
 }
-
-console.log(process.env.VERSION)
 
 
 export default {
@@ -92,7 +90,7 @@ export default {
     },
 
     computed: {
-        version: () => process.VERSION,
+        version: () => process.env.VERSION
     }
 }
 </script>
@@ -100,9 +98,18 @@ export default {
 <style scoped>
 section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "controls result";
+    grid-template-columns: 1fr;
+    grid-template-rows: 33vh 1fr;
+    grid-template-areas: "result" "controls";
     grid-area: main;
+
+}
+@media screen and (min-width: 30em) {
+    section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "controls result";
+    }
 }
 
 form {
