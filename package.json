@@ -1,6 +1,6 @@
 {
   "name": "polychroma",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff <rustyangel@gmail.com>",
   "private": true,
