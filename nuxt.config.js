@@ -65,6 +65,10 @@ module.exports = {
 
     plugins: [
         // { src: '~plugins/vue-color.js' },
-        { src: '~plugins/analytics.js', ssr: false },
+        // { src: '~plugins/analytics.js', ssr: false },
     ],
+
+    modules: [
+        [ '@nuxtjs/google-analytics', { ua: 'UA-58836125-4' } ],
+    ]
 }
