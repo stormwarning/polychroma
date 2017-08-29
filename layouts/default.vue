@@ -1,18 +1,18 @@
 <template>
-<main class="min-vh-100 sans-serif">
-    <nuxt/>
-    <page-footer/>
-</main>
+    <main class="min-vh-100 sans-serif">
+        <nuxt/>
+        <page-footer/>
+    </main>
 </template>
 
 <script>
-import PageFooter from '~components/Footer.vue'
+import PageFooter from '~/components/Footer.vue'
 
 
 export default {
     components: {
-        PageFooter
-    }
+        PageFooter,
+    },
 }
 </script>
 
@@ -22,7 +22,6 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 240px;
     grid-template-areas: "main" "footer";
-
 }
 @media screen and (min-width: 30em) {
     main {
