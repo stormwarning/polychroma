@@ -1,10 +1,10 @@
 <template>
-<figure class="flex pa5" :style="{ backgroundImage: gradientCSS }">
-    <div class="dn db-ns w-100 mw6 ma-auto bg-white">
-        <div class="pa4 f6 ttu tracked lh-solid black-90">Result</div>
-        <pre class="ph4 pv5 mt0 nr4 mb4 nl4 ttl ws-normal bg-light-gray"><code>{{ gradientCSS }}</code></pre>
-    </div>
-</figure>
+    <figure class="flex pa5" :style="{ backgroundImage: gradientCSS }">
+        <div class="dn db-ns w-100 mw6 ma-auto bg-white">
+            <div class="pa4 f6 ttu tracked lh-solid black-90">Result</div>
+            <pre class="ph4 pv5 mt0 nr4 mb4 nl4 ttl ws-normal bg-light-gray lh-copy"><code>{{ gradientCSS }}</code></pre>
+        </div>
+    </figure>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
 
     computed: {
         gradientCSS: function () {
-            const dir = this.dir
+            const dir = `${this.dir}deg`
             const stops = this.stops
             const mode = this.mode
 
@@ -32,9 +32,9 @@ export default {
             let positions = []
 
             stops.map(stop => keyColors.push(stop.color.hex))
-            scale = chroma.scale(keyColors).mode(mode).correctLightness()
+            scale = chroma.scale(keyColors).mode(mode).correctLightness();
 
-            ;[...Array(steps).keys()].map((col, index) => {
+            [...Array(steps).keys()].map((col, index) => {
                 let t = index / (steps - 1)
                 colors.push(scale(t).hex())
                 positions.push(Math.floor(t * 100))
@@ -56,11 +56,11 @@ figure {
 }
 
 figure > div {
-    box-shadow: 0 50px 50px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10);
 }
 
 pre {
-    box-shadow: 0 50px 50px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10);
 }
 
 .ma-auto { margin: auto; }
