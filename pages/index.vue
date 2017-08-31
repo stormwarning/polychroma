@@ -62,17 +62,18 @@
 import Gradient from '~/components/Gradient.vue'
 
 let VueSlider
-// let ColorPicker
+let ColorPicker
 
 if (process.browser) {
     VueSlider = require('vue-slider-component')
-    // ColorPicker = require('vue-color/dist/vue-color.min.js').Chrome
+    ColorPicker = require('vue-color/dist/vue-color.min.js').Chrome
 }
 
 
 export default {
     components: {
-        ColorPicker: () => import('vue-color/src/components/Chrome.vue'),
+        // ColorPicker: () => import('vue-color/src/components/Chrome.vue'),
+        ColorPicker,
         VueSlider,
         Gradient,
     },
