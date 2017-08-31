@@ -1,8 +1,8 @@
 <template>
     <section class="body-section bg-light-gray">
         <header class="absolute right-2 pt4">
-            <h1 class="mb0 f3 f1-ns ttu tracked-mega">Polychroma</h1>
-            <span class="db b tr">v{{ version }}</span>
+            <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
+            <span class="db b tr f6 f5-ns">v{{ version }}</span>
         </header>
 
         <form class="gradient-controls pa5 ma0">
@@ -30,7 +30,7 @@
                                     <path d="M9 2.0619C5.0537 2.554 2 5.92037 2 10c0 4.41828 3.58172 8 8 8s8-3.58172 8-8c0-4.07962-3.0537-7.446-7-7.9381V9H9V2.0619zM10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10z" fill-rule="nonzero" fill="#000" fill-opacity="1" :transform="rotation"></path>
                                 </svg>
                             </div>
-                            <div class="absolute right-0 bottom--1" v-if="sliderVisible">
+                            <div class="absolute right-0 z-1" v-if="sliderVisible">
                                 <vue-slider ref="slider" v-model="direction" :min="0" :max="360" width="225px" tooltip="false"></vue-slider>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <div class="pointer" @click="stop.pickerVisible = !stop.pickerVisible">
                                 <span class="dib w1 h1 br-pill" :style="{ backgroundColor: stop.color.hex }"></span>
                             </div>
-                            <div class="absolute right-0 bottom--1" v-if="stop.pickerVisible">
+                            <div class="absolute right-0 z-1" v-if="stop.pickerVisible">
                                 <color-picker v-model="stop.color"></color-picker>
                             </div>
                         </div>
@@ -136,7 +136,7 @@ export default {
     grid-template-areas: "result" "controls";
     grid-area: main;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 60em) {
     .body-section {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;

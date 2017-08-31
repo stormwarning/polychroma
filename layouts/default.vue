@@ -23,7 +23,7 @@ main {
     grid-template-rows: 1fr 240px;
     grid-template-areas: "main" "footer";
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 60em) {
     main {
         grid-template-columns: 1fr 240px;
         grid-template-rows: auto;

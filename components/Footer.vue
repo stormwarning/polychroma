@@ -10,7 +10,7 @@
 footer {
     grid-area: footer;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 60em) {
     footer {
         grid-area: sidebar;
     }
