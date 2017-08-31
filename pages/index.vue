@@ -1,18 +1,18 @@
 <template>
-    <section class="body-section bg-light-gray">
+    <section class="body-section">
         <header class="absolute right-2 pt4">
             <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
             <span class="db b tr f6 f5-ns">v{{ version }}</span>
         </header>
 
-        <form class="gradient-controls pa5 ma0">
+        <form class="gradient-controls pa4 pa5-ns ma0">
             <fieldset class="pa0 ma0 mb5 bn measure center">
                 <legend class="f6 ttu tracked black-30 mb2">Colour Mode</legend>
 
-                <div class="drop-shadow flex items-center pa4 bg-white">
+                <div class="drop-shadow flex items-center pa3 pa4-ns bg-white">
                     <label class="flex items-center mv2 mr3 lh-solid pointer" v-for="(m, index) in modes" :key="index">
                         <input class="mr2" type="radio" name="mode" :value="m.slug" v-model="mode">
-                        <span class="f6">{{ m.label }}</span>
+                        <span class="f7 f6-ns">{{ m.label }}</span>
                     </label>
                 </div>
             </fieldset>
@@ -21,8 +21,8 @@
                 <legend class="f6 ttu tracked black-30 mb2">Gradient Options</legend>
 
                 <section class="drop-shadow gradient-options bg-white">
-                    <div class="w-100 flex items-center justify-between pa4 bb b--black-10">
-                        <span class="dib f6 ttu tracked black-30">Direction</span>
+                    <div class="w-100 flex items-center justify-between pa3 pa4-ns bb b--black-10">
+                        <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
                         <div class="relative">
                             <div class="pointer" @click="sliderVisible = !sliderVisible">
                                 <svg class="w1 h1" width="20" height="20" viewBox="0 0 20 20">
@@ -35,8 +35,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-100 flex items-center justify-between pa4" v-for="(stop, index) in stops" :key="index" :class="index !== stops.length -1 ? 'bb b--black-10' : ''">
-                        <span class="dib f6 ttu tracked black-30">
+                    <div class="w-100 flex items-center justify-between pa3 pa4-ns" v-for="(stop, index) in stops" :key="index" :class="index !== stops.length -1 ? 'bb b--black-10' : ''">
+                        <span class="dib f7 f6-ns ttu tracked black-30">
                             <b v-if="index === 0" class="normal">Start</b>
                             <b v-else class="normal">End</b> Colour
                         </span>

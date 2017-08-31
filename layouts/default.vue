@@ -20,7 +20,7 @@ export default {
 main {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 240px;
+    grid-template-rows: 1fr 120px;
     grid-template-areas: "main" "footer";
 }
 @media screen and (min-width: 60em) {

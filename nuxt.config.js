@@ -6,6 +6,7 @@ module.exports = {
     ** Headers of the page
     */
     head: {
+        htmlAttrs: { class: 'bg-light-gray' },
         title: 'Polychroma — Better gradients through colour spaces.',
         meta: [
             { charset: 'utf-8' },
