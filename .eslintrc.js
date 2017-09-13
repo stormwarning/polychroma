@@ -5,30 +5,37 @@ module.exports = {
         browser: true,
         node: true,
     },
-    extends: 'standard',
     plugins: ['html'],
+    extends: 'standard',
     rules: {
+        /**
+         * Code style.
+         */
+        'array-bracket-spacing': ['error', 'never'],
+        'arrow-parens': 'off', // Allow paren-less arrow functions.
         'comma-dangle': [
             'error',
             {
                 arrays: 'always-multiline',
                 objects: 'always-multiline',
+                imports: 'always-multiline',
                 exports: 'always-multiline',
+                functions: 'always-multiline',
             },
         ],
+        'generator-star-spacing': 'off', // Allow async-await.
         indent: ['error', 4],
-        'no-multiple-empty-lines': ['error', { max: 2 }],
-        // 'space-before-function-paren': ['error', 'never'],
+        'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
 
-        'arrow-parens': 0, // allow paren-less arrow functions
-        'generator-star-spacing': 0, // allow async-await
-        'no-console': 2, // do not allow console.logs etc.
+        /**
+         * Best practices.
+         */
+        'no-console': 'warn',
+        // Allow debugger during development.
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
-        // allow debugger during development
-        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-
-        'import/no-unresolved': 0,
-        'import/no-unassigned-import': 0,
+        'import/no-unresolved': 'off',
+        'import/no-unassigned-import': 'off',
     },
     globals: {},
 }
