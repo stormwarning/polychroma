@@ -9,10 +9,10 @@
             <fieldset class="pa0 ma0 mb5 bn measure center">
                 <legend class="f6 ttu tracked black-30 mb2">Colour Mode</legend>
 
-                <div class="drop-shadow flex items-center pa3 pa4-ns bg-white">
+                <div class="drop-shadow flex items-center pa3 pa4-ns bg-white br1 overflow-hidden">
                     <label class="flex items-center mv2 mr3 lh-solid pointer" v-for="(m, index) in modes" :key="index">
-                        <input class="mr2" type="radio" name="mode" :value="m.slug" v-model="mode">
-                        <span class="f7 f6-ns">{{ m.label }}</span>
+                        <input class="mr2" type="radio" name="mode" :value="m.toLowerCase()" v-model="mode">
+                        <span class="f7 f6-ns">{{ m }}</span>
                     </label>
                 </div>
             </fieldset>
@@ -20,7 +20,7 @@
             <fieldset class="pa0 ma0 bn measure center">
                 <legend class="f6 ttu tracked black-30 mb2">Gradient Options</legend>
 
-                <section class="drop-shadow gradient-options bg-white">
+                <section class="drop-shadow gradient-options bg-white br1">
                     <div class="w-100 flex items-center justify-between pa3 pa4-ns bb b--black-10">
                         <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
                         <div class="relative">
@@ -100,22 +100,10 @@ export default {
             ],
 
             modes: [
-                {
-                    slug: 'rgb',
-                    label: 'RGB',
-                },
-                {
-                    slug: 'lab',
-                    label: 'Lab',
-                },
-                {
-                    slug: 'hsl',
-                    label: 'HSL',
-                },
-                {
-                    slug: 'lch',
-                    label: 'Lch',
-                },
+                'RGB',
+                'Lab',
+                'HSL',
+                'Lch',
             ],
 
             mode: 'lab',
@@ -150,10 +138,8 @@ export default {
 }
 
 .drop-shadow {
-    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, 0 20px 50px 0 rgba(0, 0, 0, 0.14);
 }
-
-/* .colors > section > div > div { width: 225px; } */
 
 .c-chrome {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.14), 0 20px 20px 0 rgba(0, 0, 0, 0.14) !important;
