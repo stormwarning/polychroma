@@ -1,14 +1,26 @@
 <template>
     <figure class="flex pa5" :style="{ backgroundImage: gradientCSS }">
-        <div class="dn db-l w-100 mw6 ma-auto bg-white">
-            <div class="pa4 f6 ttu tracked lh-solid black-90">Result</div>
-            <pre class="ph4 pv5 mt0 nr4 mb4 nl4 ttl ws-normal bg-light-gray lh-copy"><code>{{ gradientCSS }}</code></pre>
+        <div class="dn db-l w-100 mw6 ma-auto bg-white br1 overflow-hidden">
+            <button class="button-reset w-100 pa4 f7 f7-ns ttu tracked lh-solid black-90 bg-white ba bw2 b--white tl pointer hide-child relative" @click="copyCSS(gradientCSS)">
+                <div class="button-bg child absolute absolute--fill" :style="{ backgroundImage: gradientCSS }"></div>
+                <div class="button-text absolute absolute--fill flex ma1 bg-white">
+                    <div class="ma-auto">
+                        <svg class="relative w1 h1 mr2 v-mid" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                        </svg>
+                        <span class="relative lh-solid v-mid">{{ copyButtonText }}</span>
+                    </div>
+                </div>
+            </button>
+            <pre class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray"><code>{{ gradientCSS }}</code></pre>
         </div>
     </figure>
 </template>
 
 <script>
 import chroma from 'chroma-js'
+import { copyTextToClipboard } from '../utils/clipboard'
 
 
 export default {
@@ -17,6 +29,12 @@ export default {
         'stops',
         'mode',
     ],
+
+    data () {
+        return {
+            copyButtonText: 'Copy CSS',
+        }
+    },
 
     computed: {
         gradientCSS: function () {
@@ -45,6 +63,14 @@ export default {
     },
 
     methods: {
+        copyCSS (code) {
+            copyTextToClipboard(code)
+            this.copyButtonText = 'Copied!'
+
+            setTimeout(() => {
+                this.copyButtonText = 'Copy CSS'
+            }, 2000)
+        },
     },
 }
 </script>
@@ -56,11 +82,16 @@ figure {
 }
 
 figure>div {
-    box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10);
+    /* box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10); */
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, 0 50px 50px 0 rgba(0, 0, 0, 0.10);
 }
 
-pre {
-    box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10);
+.source-code {
+    /* color: #e2e6e8;
+    background-color: #16191b; */
+    /* box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10); */
+    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, rgba(0, 0, 0, 0.16) 0px 2px 5px; */
+    line-height: 2;
 }
 
 .ma-auto {
