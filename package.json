@@ -1,20 +1,18 @@
 {
+  "private": true,
   "name": "polychroma",
-  "version": "1.2.0",
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff <rustyangel@gmail.com>",
-  "private": true,
+  "version": "1.2.0",
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "precommit": "npm run lint",
+    "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
+    "dev": "nuxt",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
-    "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias"
-  },
-  "now": {
-    "alias": "polychroma"
+    "newlint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore dist/** .nuxt/**",
+    "start": "nuxt start"
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "^1.0.0",
@@ -24,18 +22,14 @@
     "vue-slider-component": "^2.3.9"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.3.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "prettier-eslint": "^6.4.2"
+    "@zazen/eslint-config": "^0.2.0",
+    "eslint": "^5.5.0",
+    "eslint-loader": "^2.1.0"
   },
   "engines": {
     "node": ">8.1.x"
+  },
+  "now": {
+    "alias": "polychroma"
   }
 }
