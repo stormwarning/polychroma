@@ -81,16 +81,11 @@ figure {
     margin: 0;
 }
 
-figure>div {
-    /* box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10); */
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, 0 50px 50px 0 rgba(0, 0, 0, 0.10);
+figure > div {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px, 0 50px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .source-code {
-    /* color: #e2e6e8;
-    background-color: #16191b; */
-    /* box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.10); */
-    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, rgba(0, 0, 0, 0.16) 0px 2px 5px; */
     line-height: 2;
 }
 

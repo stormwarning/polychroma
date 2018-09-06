@@ -19,15 +19,15 @@ export default {
 <style scoped>
 main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-areas: 'main' 'footer';
     grid-template-rows: 1fr 120px;
-    grid-template-areas: "main" "footer";
+    grid-template-columns: 1fr;
 }
 @media screen and (min-width: 60em) {
     main {
-        grid-template-columns: 1fr 240px;
+        grid-template-areas: 'main sidebar';
         grid-template-rows: auto;
-        grid-template-areas: "main sidebar";
+        grid-template-columns: 1fr 240px;
     }
 }
 </style>
