@@ -12,7 +12,7 @@
                 <div class="drop-shadow flex items-center pa3 pa4-ns bg-white br1 overflow-hidden">
                     <label class="flex items-center mv2 mr3 lh-solid pointer" v-for="(m, index) in modes" :key="index">
                         <input class="mr2" type="radio" name="mode" :value="m.toLowerCase()" v-model="mode">
-                        <span class="f7 f6-ns">{{ m }}</span>
+                        <span class="f7 f6-ns tracked">{{ m }}</span>
                     </label>
                 </div>
             </fieldset>
@@ -87,13 +87,13 @@ export default {
             stops: [
                 {
                     color: {
-                        hex: '#ed2f18',
+                        hex: '#000080',
                     },
                     pickerVisible: false,
                 },
                 {
                     color: {
-                        hex: '#6cfcfe',
+                        hex: '#ffff00',
                     },
                     pickerVisible: false,
                 },
