@@ -94,6 +94,11 @@ figure>div {
     line-height: 2;
 }
 
+.source-code > code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
+        monospace;
+}
+
 .ma-auto {
     margin: auto;
 }
