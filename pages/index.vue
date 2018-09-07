@@ -120,16 +120,16 @@ export default {
 <style scoped>
 .body-section {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 33vh 1fr;
-    grid-template-areas: "result" "controls";
     grid-area: main;
+    grid-template-areas: 'result' 'controls';
+    grid-template-rows: 33vh 1fr;
+    grid-template-columns: 1fr;
 }
 @media screen and (min-width: 60em) {
     .body-section {
-        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'controls result';
         grid-template-rows: auto;
-        grid-template-areas: "controls result";
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -138,10 +138,12 @@ export default {
 }
 
 .drop-shadow {
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, 0 20px 50px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px,
+        0 20px 50px 0 rgba(0, 0, 0, 0.14);
 }
 
 .c-chrome {
+    /* stylelint-disable-next-line declaration-no-important */
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.14), 0 20px 20px 0 rgba(0, 0, 0, 0.14) !important;
 }
 </style>
