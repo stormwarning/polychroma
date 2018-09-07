@@ -2,9 +2,9 @@ const webpack = require('webpack')
 const versionNum = JSON.stringify(require('./package.json').version)
 
 module.exports = {
-    /*
-    ** Headers of the page
-    */
+    /**
+      Headers of the page
+     */
     head: {
         htmlAttrs: { class: 'bg-light-gray' },
         title: 'Polychroma — Better gradients through colour spaces.',
@@ -66,10 +66,10 @@ module.exports = {
         ],
     },
 
-    /*
-    ** Global CSS
-    */
-    // css: ['~assets/css/main.css'],
+    /**
+      Global CSS
+     */
+    css: ['~assets/css/main.css'],
 
     build: {
         vendor: [

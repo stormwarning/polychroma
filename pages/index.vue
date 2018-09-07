@@ -87,13 +87,13 @@ export default {
             stops: [
                 {
                     color: {
-                        hex: '#ed2f18',
+                        hex: '#000080',
                     },
                     pickerVisible: false,
                 },
                 {
                     color: {
-                        hex: '#6cfcfe',
+                        hex: '#ffff00',
                     },
                     pickerVisible: false,
                 },
