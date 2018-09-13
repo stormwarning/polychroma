@@ -10,7 +10,7 @@
     "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
     "dev": "nuxt",
     "generate": "nuxt generate",
-    "lint": "prettier-eslint '**/*.{js,vue}' --write --ignore dist/** .nuxt/**",
+    "lint": "prettier-eslint '**/*.{js,vue}' --write --list-different --ignore '{dist,.nuxt}/**'",
     "lint:styles": "stylelint --fix",
     "start": "nuxt start"
   },
@@ -22,7 +22,7 @@
     "vue-slider-component": "^2.3.9"
   },
   "devDependencies": {
-    "@zazen/eslint-config": "^0.2.0",
+    "@zazen/eslint-config": "^0.3.0",
     "@zazen/stylelint-config": "^0.1.1",
     "eslint": "^5.5.0",
     "eslint-loader": "^2.1.0",
