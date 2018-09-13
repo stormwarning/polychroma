@@ -1,13 +1,35 @@
 <template>
-    <figure class="flex pa5" :style="{ backgroundImage: gradientCSS }">
+    <figure
+        :style="{ backgroundImage: gradientCSS }"
+        class="flex pa5">
         <div class="dn db-l w-100 mw6 ma-auto bg-white br1 overflow-hidden">
-            <button class="button-reset w-100 pa4 f7 f7-ns ttu tracked lh-solid black-90 bg-white ba bw2 b--white tl pointer hide-child relative" @click="copyCSS(gradientCSS)">
-                <div class="button-bg child absolute absolute--fill" :style="{ backgroundImage: gradientCSS }"></div>
+            <button
+                class="button-reset w-100 pa4 f7 f7-ns ttu tracked lh-solid black-90 bg-white ba bw2 b--white tl pointer hide-child relative"
+                @click="copyCSS(gradientCSS)">
+                <div
+                    :style="{ backgroundImage: gradientCSS }"
+                    class="button-bg child absolute absolute--fill"/>
                 <div class="button-text absolute absolute--fill flex ma1 bg-white">
                     <div class="ma-auto">
-                        <svg class="relative w1 h1 mr2 v-mid" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                        <svg
+                            class="relative w1 h1 mr2 v-mid"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect
+                                x="8"
+                                y="2"
+                                width="8"
+                                height="4"
+                                rx="1"
+                                ry="1"/>
                         </svg>
                         <span class="relative lh-solid v-mid">{{ copyButtonText }}</span>
                     </div>
@@ -22,13 +44,8 @@
 import chroma from 'chroma-js'
 import { copyTextToClipboard } from '../utils/clipboard'
 
-
 export default {
-    props: [
-        'dir',
-        'stops',
-        'mode',
-    ],
+    props: ['dir', 'stops', 'mode'],
 
     data () {
         return {
@@ -49,16 +66,20 @@ export default {
             let colors = []
             let positions = []
 
-            stops.map(stop => keyColors.push(stop.color.hex))
-            scale = chroma.scale(keyColors).mode(mode).correctLightness();
-
-            [...Array(steps).keys()].map((col, index) => {
+            stops.map((stop) => keyColors.push(stop.color.hex))
+            scale = chroma
+                .scale(keyColors)
+                .mode(mode)
+                .correctLightness()
+            ;[...Array(steps).keys()].map((col, index) => {
                 let t = index / (steps - 1)
                 colors.push(scale(t).hex())
                 positions.push(Math.floor(t * 100))
             })
 
-            return `${string}${dir}${colors.map((stop, index) => `, ${stop} ${positions[index]}%`).join('')})`
+            return `${string}${dir}${colors
+                .map((stop, index) => `, ${stop} ${positions[index]}%`)
+                .join('')})`
         },
     },
 

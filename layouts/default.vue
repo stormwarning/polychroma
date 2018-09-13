@@ -8,7 +8,6 @@
 <script>
 import PageFooter from '~/components/Footer.vue'
 
-
 export default {
     components: {
         PageFooter,

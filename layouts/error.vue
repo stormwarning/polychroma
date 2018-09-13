@@ -1,21 +1,23 @@
 <template>
-<section class="container">
-    <img src="../assets/img/NuxtMicro.png" alt="NuxtMicro.js Logo" class="logo" />
-    <h1 class="title">
-
-    </h1>
-    <h2 class="info">
-
-    </h2>
-    <nuxt-link class="button" to="/" v-if="error.statusCode === 404">
-        Homepage
-    </nuxt-link>
-</section>
+    <section class="container">
+        <img
+            src="../assets/img/NuxtMicro.png"
+            alt="NuxtMicro.js Logo"
+            class="logo" >
+        <h1 class="title"/>
+        <h2 class="info"/>
+        <nuxt-link
+            v-if="error.statusCode === 404"
+            class="button"
+            to="/">
+            Homepage
+        </nuxt-link>
+    </section>
 </template>
 
 <script>
 export default {
-    props: ['error']
+    props: ['error'],
 }
 </script>
 
