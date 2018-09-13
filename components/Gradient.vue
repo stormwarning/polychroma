@@ -45,7 +45,20 @@ import chroma from 'chroma-js'
 import { copyTextToClipboard } from '../utils/clipboard'
 
 export default {
-    props: ['dir', 'stops', 'mode'],
+    props: {
+        dir: {
+            type: String,
+            default: '30',
+        },
+        stops: {
+            type: Array,
+            required: true,
+        },
+        mode: {
+            type: String,
+            default: 'lab',
+        },
+    },
 
     data () {
         return {
@@ -55,11 +68,11 @@ export default {
 
     computed: {
         gradientCSS: function () {
-            const dir = `${this.dir}deg`
-            const stops = this.stops
-            const mode = this.mode
+            let dir = `${this.dir}deg`
+            let stops = this.stops
+            let mode = this.mode
 
-            const steps = mode !== 'rgb' ? stops.length + 5 : stops.length
+            let steps = mode !== 'rgb' ? stops.length + 5 : stops.length
             let string = 'linear-gradient('
             let keyColors = []
             let scale
