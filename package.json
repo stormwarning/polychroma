@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@zazen/eslint-config": "^0.3.0",
-    "@zazen/stylelint-config": "^0.1.1",
+    "@zazen/stylelint-config": "^0.2.0",
     "eslint": "^5.5.0",
     "eslint-loader": "^2.1.0",
     "stylelint": "^9.5.0"
