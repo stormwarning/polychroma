@@ -112,6 +112,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 // import ColorPicker from 'vue-color/src/components/Chrome.vue'
 import Gradient from '~/components/Gradient.vue'
 
@@ -158,12 +159,15 @@ export default {
         }
     },
 
-    computed: {
-        version: () => process.env.VERSION,
-        rotation: function () {
-            return `rotate(${this.direction} 10 10)`
-        },
-    },
+    computed: mapState([
+        'colorMode',
+    ]),
+    // {
+    //     version: () => process.env.VERSION,
+    //     rotation: function () {
+    //         return `rotate(${this.direction} 10 10)`
+    //     },
+    // },
 }
 </script>
 
