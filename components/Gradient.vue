@@ -1,14 +1,14 @@
 <template>
-    <figure
-        :style="{ backgroundImage: gradientCSS }"
-        class="flex pa5">
+    <figure :style="{ backgroundImage: gradientCSS }" class="flex pa5">
         <div class="dn db-l w-100 mw6 ma-auto bg-white br1 overflow-hidden">
             <button
                 class="button-reset w-100 pa4 f7 f7-ns ttu tracked lh-solid black-90 bg-white ba bw2 b--white tl pointer hide-child relative"
-                @click="copyCSS(gradientCSS)">
+                @click="copyCSS(gradientCSS)"
+            >
                 <div
                     :style="{ backgroundImage: gradientCSS }"
-                    class="button-bg child absolute absolute--fill"/>
+                    class="button-bg child absolute absolute--fill"
+                />
                 <div class="button-text absolute absolute--fill flex ma1 bg-white">
                     <div class="ma-auto">
                         <svg
@@ -21,15 +21,12 @@
                             stroke="#000"
                             stroke-width="2"
                             stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                            <rect
-                                x="8"
-                                y="2"
-                                width="8"
-                                height="4"
-                                rx="1"
-                                ry="1"/>
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                            ></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                         </svg>
                         <span class="relative lh-solid v-mid">{{ copyButtonText }}</span>
                     </div>
@@ -60,14 +57,14 @@ export default {
         },
     },
 
-    data () {
+    data() {
         return {
             copyButtonText: 'Copy CSS',
         }
     },
 
     computed: {
-        gradientCSS: function () {
+        gradientCSS: function() {
             let dir = `${this.dir}deg`
             let stops = this.stops
             let mode = this.mode
@@ -96,8 +93,7 @@ export default {
         },
     },
 
-    methods: {
-        copyCSS (code) {
+    methods: {copyCSS(code) {
             copyTextToClipboard(code)
             this.copyButtonText = 'Copied!'
 
@@ -124,8 +120,7 @@ figure > div {
 }
 
 .source-code > code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
-        monospace;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 .ma-auto {
