@@ -23,19 +23,25 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@zazen/eslint-config": "^0.3.0",
-    "@zazen/stylelint-config": "^0.2.0",
-    "eslint": "^5.5.0",
-    "eslint-loader": "^2.1.0",
-    "stylelint": "^9.5.0"
+    "@zazen/eslint-config": "1.0.x",
+    "@zazen/stylelint-config": "1.0.x",
+    "eslint": "5.12.x",
+    "eslint-loader": "2.1.x",
+    "eslint-plugin-vue": "5.1.x",
+    "stylelint": "9.10.x"
   },
   "engines": {
-    "node": ">8.1.x"
+    "node": ">8.x"
   },
   "now": {
     "alias": "polychroma"
   },
   "prettier": {
-    "tabWidth": 4
+    "arrowParens": "always",
+    "htmlWhitespaceSensitivity": "strict",
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "all"
   }
 }
