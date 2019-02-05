@@ -44,8 +44,8 @@ import { copyTextToClipboard } from '../utils/clipboard'
 export default {
     props: {
         dir: {
-            type: String,
-            default: '30',
+            type: Number,
+            default: 30,
         },
         stops: {
             type: Array,

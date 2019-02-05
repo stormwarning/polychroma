@@ -1,7 +1,14 @@
-const webpack = require('webpack')
-const versionNum = JSON.stringify(require('./package.json').version)
+// import webpack from 'webpack'
+import { version } from './package.json'
 
-module.exports = {
+function getVersion() {
+    let string = JSON.stringify(version) || ''
+    return string.replace(/"/g, '')
+}
+
+export default {
+    mode: 'universal',
+
     /**
       Headers of the page
      */
@@ -71,29 +78,19 @@ module.exports = {
      */
     css: ['~assets/css/main.css'],
 
-    build: {
-        vendor: [
-            'chroma-js',
-            // 'vue-color',
-        ],
-        extend (config, { dev, isClient, isSserver }) {
-            config.module.rules.push({
-                test: /\.js$/,
-                loader: 'babel',
-                include: ['/node_modules/vue-color'],
-            })
-        },
-        plugins: [
-            new webpack.DefinePlugin({
-                'process.env.VERSION': versionNum,
-            }),
-        ],
+    env: {
+        VERSION: getVersion(),
     },
 
-    plugins: [
-        // { src: '~plugins/vue-color.js' },
-        // { src: '~plugins/analytics.js', ssr: false },
-    ],
+    build: {
+        // vendor: [
+        //     'chroma-js',
+        //     // 'vue-color',
+        // ],
+        // plugins: [{ src: '~/plugins/vue-slider-component', ssr: false }],
+    },
+
+    plugins: [],
 
     modules: [['@nuxtjs/google-analytics', { ua: 'UA-58836125-4' }]],
 }

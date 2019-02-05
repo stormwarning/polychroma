@@ -53,13 +53,12 @@
                                 </svg>
                             </div>
                             <div v-if="sliderVisible" class="absolute right-0 z-1">
-                                <vue-slider
-                                    ref="slider"
-                                    v-model="direction"
+                                <slider-input
+                                    :value="direction"
+                                    label
                                     :min="0"
                                     :max="360"
-                                    width="225px"
-                                    tooltip="false"
+                                    @input="rotateGradient"
                                 />
                             </div>
                         </div>
@@ -97,30 +96,23 @@
 
 <script>
 import { mapState } from 'vuex'
-// import ColorPicker from 'vue-color/src/components/Chrome.vue'
+import { Chrome as ColorPicker } from 'vue-color'
+
 import Gradient from '~/components/Gradient.vue'
-
-let VueSlider
-let ColorPicker
-
-if (process.browser) {
-    VueSlider = require('vue-slider-component')
-    ColorPicker = require('vue-color/dist/vue-color.min.js').Chrome
-}
+import SliderInput from '~/components/SliderInput.vue'
 
 export default {
     components: {
-        // ColorPicker: () => import('vue-color/src/components/Chrome.vue'),
         ColorPicker,
-        VueSlider,
         Gradient,
+        SliderInput,
     },
 
     data() {
         return {
-            sliderVisible: false,
+            version: process.env.VERSION,
 
-            direction: '30',
+            sliderVisible: false,
 
             stops: [
                 {
@@ -143,13 +135,22 @@ export default {
         }
     },
 
-    computed: mapState(['colorMode']),
-    // {
-    //     version: () => process.env.VERSION,
-    //     rotation: function () {
-    //         return `rotate(${this.direction} 10 10)`
-    //     },
-    // },
+    // computed: mapState(['colorMode', 'version']),
+    computed: {
+        rotation: function () {
+            return `rotate(${this.direction} 10 10)`
+        },
+
+        ...mapState({
+            direction: (state) => state.direction
+        }),
+    },
+
+    methods: {
+        rotateGradient(dir) {
+            this.$store.commit('rotate', dir)
+        },
+    },
 }
 </script>
 
@@ -161,6 +162,7 @@ export default {
     grid-template-rows: 33vh 1fr;
     grid-template-columns: 1fr;
 }
+
 @media screen and (min-width: 60em) {
     .body-section {
         grid-template-areas: 'controls result';
