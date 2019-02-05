@@ -31,38 +31,34 @@
                 <legend class="f6 ttu tracked black-30 mb2">Gradient Options</legend>
 
                 <section class="drop-shadow gradient-options bg-white br1">
-                    <div class="w-100 flex items-center justify-between pa3 pa4-ns bb b--black-10">
-                        <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
-                        <div class="relative">
-                            <div class="pointer" @click="sliderVisible = !sliderVisible">
-                                <svg class="w1 h1" width="20" height="20" viewBox="0 0 20 20">
-                                    <path
-                                        :transform="rotation"
-                                        d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
-                                        fill-rule="nonzero"
-                                        fill="#000"
-                                        fill-opacity="0"
-                                    ></path>
-                                    <path
-                                        :transform="rotation"
-                                        d="M9 2.0619C5.0537 2.554 2 5.92037 2 10c0 4.41828 3.58172 8 8 8s8-3.58172 8-8c0-4.07962-3.0537-7.446-7-7.9381V9H9V2.0619zM10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10z"
-                                        fill-rule="nonzero"
-                                        fill="#000"
-                                        fill-opacity="1"
-                                    ></path>
-                                </svg>
-                            </div>
-                            <div v-if="sliderVisible" class="absolute right-0 z-1">
-                                <slider-input
-                                    :value="direction"
-                                    label
-                                    :min="0"
-                                    :max="360"
-                                    @input="rotateGradient"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <option-controls>
+                        <template slot="summary">
+                            <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
+                            <svg class="w1 h1" width="20" height="20" viewBox="0 0 20 20">
+                                <path
+                                    :transform="rotation"
+                                    d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
+                                    fill-rule="nonzero"
+                                    fill="#000"
+                                    fill-opacity="0"
+                                ></path>
+                                <path
+                                    :transform="rotation"
+                                    d="M9 2.0619C5.0537 2.554 2 5.92037 2 10c0 4.41828 3.58172 8 8 8s8-3.58172 8-8c0-4.07962-3.0537-7.446-7-7.9381V9H9V2.0619zM10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10z"
+                                    fill-rule="nonzero"
+                                    fill="#000"
+                                    fill-opacity="1"
+                                ></path>
+                            </svg>
+                        </template>
+                        <slider-input
+                            :value="direction"
+                            label
+                            :min="0"
+                            :max="360"
+                            @input="rotateGradient"
+                        />
+                    </option-controls>
                     <div
                         v-for="(stop, index) in stops"
                         :key="index"
@@ -100,10 +96,12 @@ import { Chrome as ColorPicker } from 'vue-color'
 
 import Gradient from '~/components/Gradient.vue'
 import SliderInput from '~/components/SliderInput.vue'
+import OptionControls from '~/components/OptionControls.vue'
 
 export default {
     components: {
         ColorPicker,
+        OptionControls,
         Gradient,
         SliderInput,
     },
