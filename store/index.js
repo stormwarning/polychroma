@@ -1,13 +1,10 @@
-import Vuex from 'vuex'
+export const state = () => ({
+    colorMode: 'lab',
+    direction: 30,
+})
 
-const createStore = () => {
-    return new Vuex.Store({
-        state: {
-            version: () => process.env.VERSION,
-            colorMode: 'lab',
-        },
-        mutations: {},
-    })
+export const mutations = {
+    rotate(state, direction) {
+        state.direction = direction
+    },
 }
-
-export default createStore

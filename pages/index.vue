@@ -13,13 +13,15 @@
                     <label
                         v-for="(m, index) in modes"
                         :key="index"
-                        class="flex items-center mv2 mr3 lh-solid pointer">
+                        class="flex items-center mv2 mr3 lh-solid pointer"
+                    >
                         <input
                             v-model="mode"
                             :value="m.toLowerCase()"
                             class="mr2"
                             type="radio"
-                            name="mode">
+                            name="mode"
+                        >
                         <span class="f7 f6-ns tracked">{{ m }}</span>
                     </label>
                 </div>
@@ -29,73 +31,53 @@
                 <legend class="f6 ttu tracked black-30 mb2">Gradient Options</legend>
 
                 <section class="drop-shadow gradient-options bg-white br1">
-                    <div class="w-100 flex items-center justify-between pa3 pa4-ns bb b--black-10">
-                        <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
-                        <div class="relative">
-                            <div
-                                class="pointer"
-                                @click="sliderVisible = !sliderVisible">
-                                <svg
-                                    class="w1 h1"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        :transform="rotation"
-                                        d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
-                                        fill-rule="nonzero"
-                                        fill="#000"
-                                        fill-opacity="0"/>
-                                    <path
-                                        :transform="rotation"
-                                        d="M9 2.0619C5.0537 2.554 2 5.92037 2 10c0 4.41828 3.58172 8 8 8s8-3.58172 8-8c0-4.07962-3.0537-7.446-7-7.9381V9H9V2.0619zM10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10z"
-                                        fill-rule="nonzero"
-                                        fill="#000"
-                                        fill-opacity="1"/>
-                                </svg>
-                            </div>
-                            <div
-                                v-if="sliderVisible"
-                                class="absolute right-0 z-1">
-                                <vue-slider
-                                    ref="slider"
-                                    v-model="direction"
-                                    :min="0"
-                                    :max="360"
-                                    width="225px"
-                                    tooltip="false"/>
-                            </div>
-                        </div>
-                    </div>
+                    <option-controls>
+                        <template slot="summary">
+                            <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
+                            <svg class="w1 h1" width="20" height="20" viewBox="0 0 20 20">
+                                <path
+                                    :transform="rotation"
+                                    d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
+                                    fill-rule="nonzero"
+                                    fill="#000"
+                                    fill-opacity="0"
+                                ></path>
+                                <path
+                                    :transform="rotation"
+                                    d="M9 2.0619C5.0537 2.554 2 5.92037 2 10c0 4.41828 3.58172 8 8 8s8-3.58172 8-8c0-4.07962-3.0537-7.446-7-7.9381V9H9V2.0619zM10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10z"
+                                    fill-rule="nonzero"
+                                    fill="#000"
+                                    fill-opacity="1"
+                                ></path>
+                            </svg>
+                        </template>
+                        <slider-input
+                            :value="direction"
+                            label
+                            :min="0"
+                            :max="360"
+                            @input="rotateGradient"
+                        />
+                    </option-controls>
                     <div
                         v-for="(stop, index) in stops"
                         :key="index"
                         :class="index !== stops.length -1 ? 'bb b--black-10' : ''"
-                        class="w-100 flex items-center justify-between pa3 pa4-ns">
+                        class="w-100 flex items-center justify-between pa3 pa4-ns"
+                    >
                         <span class="dib f7 f6-ns ttu tracked black-30">
-                            <b
-                                v-if="index === 0"
-                                class="normal">
-                                Start
-                            </b>
-                            <b
-                                v-else
-                                class="normal">
-                                End
-                            </b>
+                            <b v-if="index === 0" class="normal">Start</b>
+                            <b v-else class="normal">End</b>
                             Colour
                         </span>
                         <div class="relative">
-                            <div
-                                class="pointer"
-                                @click="stop.pickerVisible = !stop.pickerVisible">
+                            <div class="pointer" @click="stop.pickerVisible = !stop.pickerVisible">
                                 <span
                                     :style="{ backgroundColor: stop.color.hex }"
-                                    class="dib w1 h1 br-pill"/>
+                                    class="dib w1 h1 br-pill"
+                                />
                             </div>
-                            <div
-                                v-if="stop.pickerVisible"
-                                class="absolute right-0 z-1">
+                            <div v-if="stop.pickerVisible" class="absolute right-0 z-1">
                                 <color-picker v-model="stop.color"/>
                             </div>
                         </div>
@@ -104,39 +86,31 @@
             </fieldset>
         </form>
 
-        <gradient
-            :stops="stops"
-            :mode="mode"
-            :dir="direction"/>
+        <gradient :stops="stops" :mode="mode" :dir="direction"/>
     </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-// import ColorPicker from 'vue-color/src/components/Chrome.vue'
+import { Chrome as ColorPicker } from 'vue-color'
+
 import Gradient from '~/components/Gradient.vue'
-
-let VueSlider
-let ColorPicker
-
-if (process.browser) {
-    VueSlider = require('vue-slider-component')
-    ColorPicker = require('vue-color/dist/vue-color.min.js').Chrome
-}
+import SliderInput from '~/components/SliderInput.vue'
+import OptionControls from '~/components/OptionControls.vue'
 
 export default {
     components: {
-        // ColorPicker: () => import('vue-color/src/components/Chrome.vue'),
         ColorPicker,
-        VueSlider,
+        OptionControls,
         Gradient,
+        SliderInput,
     },
 
-    data () {
+    data() {
         return {
-            sliderVisible: false,
+            version: process.env.VERSION,
 
-            direction: '30',
+            sliderVisible: false,
 
             stops: [
                 {
@@ -159,15 +133,22 @@ export default {
         }
     },
 
-    computed: mapState([
-        'colorMode',
-    ]),
-    // {
-    //     version: () => process.env.VERSION,
-    //     rotation: function () {
-    //         return `rotate(${this.direction} 10 10)`
-    //     },
-    // },
+    // computed: mapState(['colorMode', 'version']),
+    computed: {
+        rotation: function () {
+            return `rotate(${this.direction} 10 10)`
+        },
+
+        ...mapState({
+            direction: (state) => state.direction
+        }),
+    },
+
+    methods: {
+        rotateGradient(dir) {
+            this.$store.commit('rotate', dir)
+        },
+    },
 }
 </script>
 
@@ -179,6 +160,7 @@ export default {
     grid-template-rows: 33vh 1fr;
     grid-template-columns: 1fr;
 }
+
 @media screen and (min-width: 60em) {
     .body-section {
         grid-template-areas: 'controls result';
