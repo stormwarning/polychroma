@@ -66,99 +66,99 @@ $fallbackAccentColor: #0078d7;
 }
 
 .range-field {
-    margin: 8px 0;
-  font-size: 15px;
-
     &.is-disabled {
         color: lighten(#000, 60%);
     }
 }
+
 .range-field__label {
     display: block;
-    margin-bottom: 4px;
-  line-height: 30px;
-  color: #000100;
+    line-height: 1rem;
+    color: #000100;
 }
+
 .range-field__input {
-  appearance: none;
-  width: 100%;
-  margin: 8px 0;
-
-  &:focus {
-    outline: none;
-  }
-
-  @mixin track() {
-      height: 2px;
-    background: lighten(#000, 60%);
-  }
-
-  &::-ms-track {
-    height: 24px;
-  }
-  &::-ms-fill-lower,
-  &::-ms-fill-upper {
-    @include track;
-  }
-  &::-ms-fill-lower {
-    background: var(--range-accent-color, $fallbackAccentColor);
-  }
-  &::-moz-range-track {
-    @include track;
-  }
-  &::-moz-progress-bar {
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-  }
-  &::-webkit-slider-runnable-track {
-    @include track;
-  }
-
-  @mixin thumb() {
-    background: var(--range-accent-color, $fallbackAccentColor);
-    height: 24px;
-    width: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    border: 0;
-    margin: 0;
+    appearance: none;
+    width: 100%;
 
     &:focus {
-      background: #000;
+        outline: none;
     }
-  }
 
-  &::-webkit-slider-thumb {
-    @include thumb;
-    -webkit-appearance: none;
-    margin-top: -11px;
-    margin-bottom: 11px;
-  }
-  &::-ms-thumb {
-    @include thumb;
-  }
-  &::-moz-range-thumb {
-    @include thumb;
-  }
+    @mixin track() {
+        height: 2px;
+        margin-bottom: calc(0.5rem - 2px);
+        background: lighten(#000, 60%);
+    }
 
-  &:disabled {
-    @mixin slider-disabled() {
-      background: lighten(#000, 80%);
-      cursor: default;
+    &::-ms-track {
+        height: 1rem;
     }
     &::-ms-fill-lower,
-    &::-ms-fill-upper,
-    &::-ms-thumb {
-      @include slider-disabled;
+    &::-ms-fill-upper {
+        @include track;
     }
-    &::-webkit-slider-thumb,
+    &::-ms-fill-lower {
+        background: var(--range-accent-color, $fallbackAccentColor);
+    }
+    &::-moz-range-track {
+        @include track;
+    }
+    &::-moz-progress-bar {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
     &::-webkit-slider-runnable-track {
-      @include slider-disabled;
+        @include track;
     }
-    &::-moz-range-track,
+
+    @mixin thumb() {
+        width: 1rem;
+        height: 1rem;
+        margin: 0;
+        cursor: pointer;
+        background: var(--range-accent-color, $fallbackAccentColor);
+        border: 0;
+        border-radius: 50%;
+
+        &:focus {
+            background: #000;
+        }
+    }
+
+    &::-webkit-slider-thumb {
+        @include thumb();
+
+        margin-top: calc(-0.5rem + 1px);
+        margin-bottom: calc(0.5rem + 1px);
+        -webkit-appearance: none; // stylelint-disable property-no-vendor-prefix
+    }
+    &::-ms-thumb {
+        @include thumb();
+    }
     &::-moz-range-thumb {
-      @include slider-disabled;
+        @include thumb();
     }
-  }
+
+    &:disabled {
+        @mixin slider-disabled() {
+            cursor: default;
+            background: lighten(#000, 80%);
+        }
+
+        &::-ms-fill-lower,
+        &::-ms-fill-upper,
+        &::-ms-thumb {
+            @include slider-disabled();
+        }
+        &::-webkit-slider-thumb,
+        &::-webkit-slider-runnable-track {
+            @include slider-disabled();
+        }
+        &::-moz-range-track,
+        &::-moz-range-thumb {
+            @include slider-disabled();
+        }
+    }
 }
 </style>
