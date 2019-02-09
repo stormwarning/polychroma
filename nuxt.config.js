@@ -82,13 +82,7 @@ export default {
         VERSION: getVersion(),
     },
 
-    build: {
-        // vendor: [
-        //     'chroma-js',
-        //     // 'vue-color',
-        // ],
-        // plugins: [{ src: '~/plugins/vue-slider-component', ssr: false }],
-    },
+    build: {},
 
     plugins: [],
 

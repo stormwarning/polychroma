@@ -19,8 +19,6 @@
 
 <script>
 export default {
-  name: 'RangeField',
-
   props: {
     disabled: {
       type: Boolean,
