@@ -51,7 +51,7 @@
                                 ></path>
                             </svg>
                         </template>
-                        <slider-input
+                        <range-field
                             :value="direction"
                             label
                             :min="0"
@@ -59,29 +59,27 @@
                             @input="rotateGradient"
                         />
                     </option-controls>
-                    <div
+                    <option-controls
                         v-for="(stop, index) in stops"
                         :key="index"
-                        :class="index !== stops.length -1 ? 'bb b--black-10' : ''"
-                        class="w-100 flex items-center justify-between pa3 pa4-ns"
+                        class="bt b--black-10"
                     >
-                        <span class="dib f7 f6-ns ttu tracked black-30">
-                            <b v-if="index === 0" class="normal">Start</b>
-                            <b v-else class="normal">End</b>
-                            Colour
-                        </span>
-                        <div class="relative">
-                            <div class="pointer" @click="stop.pickerVisible = !stop.pickerVisible">
-                                <span
-                                    :style="{ backgroundColor: stop.color.hex }"
-                                    class="dib w1 h1 br-pill"
-                                />
-                            </div>
-                            <div v-if="stop.pickerVisible" class="absolute right-0 z-1">
-                                <color-picker v-model="stop.color"/>
-                            </div>
-                        </div>
-                    </div>
+                        <template slot="summary">
+                            <span
+                                class="dib f7 f6-ns ttu tracked black-30"
+                                @click="stop.pickerVisible = !stop.pickerVisible"
+                            >
+                                <b v-if="index === 0" class="normal">Start</b>
+                                <b v-else class="normal">End</b>
+                                Colour
+                            </span>
+                            <span
+                                :style="{ backgroundColor: stop.color.hex }"
+                                class="dib w1 h1 br-pill"
+                            />
+                        </template>
+                        <color-picker v-if="stop.pickerVisible" v-model="stop.color"/>
+                    </option-controls>
                 </section>
             </fieldset>
         </form>
@@ -95,7 +93,7 @@ import { mapState } from 'vuex'
 import { Chrome as ColorPicker } from 'vue-color'
 
 import Gradient from '~/components/Gradient.vue'
-import SliderInput from '~/components/SliderInput.vue'
+import RangeField from '~/components/RangeField.vue'
 import OptionControls from '~/components/OptionControls.vue'
 
 export default {
@@ -103,14 +101,12 @@ export default {
         ColorPicker,
         OptionControls,
         Gradient,
-        SliderInput,
+        RangeField,
     },
 
     data() {
         return {
             version: process.env.VERSION,
-
-            sliderVisible: false,
 
             stops: [
                 {
@@ -133,7 +129,6 @@ export default {
         }
     },
 
-    // computed: mapState(['colorMode', 'version']),
     computed: {
         rotation: function () {
             return `rotate(${this.direction} 10 10)`
