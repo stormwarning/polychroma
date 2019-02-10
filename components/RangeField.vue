@@ -10,6 +10,7 @@
             :disabled="disabled"
             :max="max"
             :min="min"
+            :step="step"
             :value="value"
             v-bind="$attrs"
             @input="input"
@@ -38,6 +39,11 @@ export default {
     min: {
       type: Number,
       default: 0
+    },
+
+    step: {
+      type: Number,
+      default: 1
     },
 
     value: {
