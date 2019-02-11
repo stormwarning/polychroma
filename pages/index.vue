@@ -53,7 +53,6 @@
                         </template>
                         <range-field
                             :value="direction"
-                            label
                             :min="0"
                             :max="360"
                             @input="rotateGradient"
@@ -65,10 +64,7 @@
                         class="bt b--black-10"
                     >
                         <template slot="summary">
-                            <span
-                                class="dib f7 f6-ns ttu tracked black-30"
-                                @click="stop.pickerVisible = !stop.pickerVisible"
-                            >
+                            <span class="dib f7 f6-ns ttu tracked black-30">
                                 <b v-if="index === 0" class="normal">Start</b>
                                 <b v-else class="normal">End</b>
                                 Colour
@@ -78,7 +74,7 @@
                                 class="dib w1 h1 br-pill"
                             />
                         </template>
-                        <color-picker v-if="stop.pickerVisible" v-model="stop.color"/>
+                        <color-field v-model="stop.color.hex"/>
                     </option-controls>
                 </section>
             </fieldset>
@@ -90,17 +86,17 @@
 
 <script>
 import { mapState } from 'vuex'
-import { Chrome as ColorPicker } from 'vue-color'
 
 import Gradient from '~/components/Gradient.vue'
+import ColorField from '~/components/ColorField.vue'
 import RangeField from '~/components/RangeField.vue'
 import OptionControls from '~/components/OptionControls.vue'
 
 export default {
     components: {
-        ColorPicker,
         OptionControls,
         Gradient,
+        ColorField,
         RangeField,
     },
 
@@ -113,13 +109,11 @@ export default {
                     color: {
                         hex: '#000080',
                     },
-                    pickerVisible: false,
                 },
                 {
                     color: {
                         hex: '#ffff00',
                     },
-                    pickerVisible: false,
                 },
             ],
 
