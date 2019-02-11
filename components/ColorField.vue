@@ -6,9 +6,9 @@
             type="text"
             @input="updateHex($event.target.value)"
         />
-        <span class="dib mt3 f7 ttu tracked black-30">Hue {{ parseInt(hue) }}º</span>
+        <span class="dib mt3 f7 ttu tracked black-30">Hue {{ Math.floor(hue) }}º</span>
         <range-field class="mt1" :value="hue" :min="0" :max="360" @input="updateHue"></range-field>
-        <span class="dib mt2 f7 ttu tracked black-30">Saturation {{ saturation }}%</span>
+        <span class="dib mt2 f7 ttu tracked black-30">Saturation {{ Math.floor(saturation * 100) }}%</span>
         <range-field
             class="mt1"
             :value="saturation"
@@ -17,7 +17,7 @@
             :step="0.01"
             @input="updateSaturation"
         ></range-field>
-        <span class="dib mt2 f7 ttu tracked black-30">Lightness {{ lightness }}%</span>
+        <span class="dib mt2 f7 ttu tracked black-30">Lightness {{ Math.floor(lightness * 100) }}%</span>
         <range-field
             class="mt1"
             :value="lightness"
@@ -62,8 +62,9 @@ export default {
     computed: {
         hue: {
             get () {
+                let val = chroma(this.hex).get('hsl.h') || 0
                 // Ensure this doesn't return NaN.
-                return chroma(this.hex).get('hsl.h') || 0
+                return ((val % 360) + 360) % 360
             },
             set (hue) {
                 this.updateHex(chroma(hue, this.saturation, this.lightness, 'hsl').hex())
