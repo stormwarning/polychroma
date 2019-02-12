@@ -6,21 +6,21 @@
             type="text"
             @input="updateHex($event.target.value)"
         />
-        <span class="dib mt3 f7 ttu tracked black-30">Hue {{ Math.floor(hue) }}º</span>
-        <range-field class="mt1" :value="hue" :min="0" :max="360" @input="updateHue"></range-field>
-        <span class="dib mt2 f7 ttu tracked black-30">Saturation {{ Math.floor(saturation * 100) }}%</span>
+        <span class="dib mt3 f7 ttu tracked black-30">Hue {{ Math.floor(hsl.h) }}º</span>
+        <range-field class="mt1" :value="hsl.h" :min="0" :max="360" @input="updateHue"></range-field>
+        <span class="dib mt2 f7 ttu tracked black-30">Saturation {{ Math.floor(hsl.s * 100) }}%</span>
         <range-field
             class="mt1"
-            :value="saturation"
+            :value="hsl.s"
             :min="0"
             :max="1"
             :step="0.01"
             @input="updateSaturation"
         ></range-field>
-        <span class="dib mt2 f7 ttu tracked black-30">Lightness {{ Math.floor(lightness * 100) }}%</span>
+        <span class="dib mt2 f7 ttu tracked black-30">Lightness {{ Math.floor(hsl.l * 100) }}%</span>
         <range-field
             class="mt1"
-            :value="lightness"
+            :value="hsl.l"
             :min="0"
             :max="1"
             :step="0.01"
@@ -55,39 +55,26 @@ export default {
 
     data () {
         return {
-            hex: this.color,
+            hex: this.color.toLowerCase(),
         }
     },
 
+    /**
+     * @todo On hue change, store last valid hue and use as fallback
+     *       if hue returns NaN.
+     */
     computed: {
-        hue: {
-            get () {
-                let val = chroma(this.hex).get('hsl.h') || 0
-                // Ensure this doesn't return NaN.
-                return ((val % 360) + 360) % 360
-            },
-            set (hue) {
-                this.updateHex(chroma(hue, this.saturation, this.lightness, 'hsl').hex())
-            },
+        hsl () {
+            return {
+                h: chroma(this.color).get('hsl.h'),
+                s: chroma(this.color).get('hsl.s'),
+                l: chroma(this.color).get('hsl.l'),
+            }
         },
 
-        saturation: {
-            get () {
-                return (chroma(this.hex).get('hsl.s'))
-            },
-            set (saturation) {
-                this.updateHex(chroma(this.hue, saturation, this.lightness, 'hsl').hex())
-            },
+        lastValidHue () {
+            return chroma(this.color).get('hsl.h')
         },
-
-        lightness: {
-            get () {
-                return (chroma(this.hex).get('hsl.l'))
-            },
-            set (lightness) {
-                this.updateHex(chroma(this.hue, this.saturation, lightness, 'hsl').hex())
-            },
-        }
     },
 
     methods: {
@@ -95,6 +82,9 @@ export default {
             this.$emit('update', color)
         },
 
+        /**
+         * @todo Check for valid hex value before setting.
+         */
         updateHex (hex) {
             if (hex !== this.hex) {
                 this.hex = hex
@@ -103,18 +93,18 @@ export default {
         },
 
         updateHue (hue) {
-            this.hue = hue
-            this.updateHex(chroma(this.hue, this.saturation, this.lightness, 'hsl').hex())
+            this.hsl.h = hue
+            this.updateHex(chroma.hsl(this.hsl.h, this.hsl.s, this.hsl.l).hex())
         },
 
         updateSaturation (saturation) {
-            this.saturation = saturation
-            this.updateHex(chroma(this.hue, this.saturation, this.lightness, 'hsl').hex())
+            this.hsl.s = saturation
+            this.updateHex(chroma.hsl(this.hsl.h, this.hsl.s, this.hsl.l).hex())
         },
 
         updateLightness (lightness) {
-            this.lightness = lightness
-            this.updateHex(chroma(this.hue, this.saturation, this.lightness, 'hsl').hex())
+            this.hsl.l = lightness
+            this.updateHex(chroma.hsl(this.hsl.h, this.hsl.s, this.hsl.l).hex())
         },
     },
 }
