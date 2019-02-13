@@ -5,7 +5,7 @@
                 <slot name="summary"></slot>
             </div>
         </summary>
-        <div class="options-drawer relative pa4-ns pt1-ns pr3-ns mr5-ns">
+        <div class="options-drawer relative pa4-ns pt0-ns pr3-ns mr5-ns">
             <slot></slot>
         </div>
     </details>
@@ -36,7 +36,7 @@ summary::-webkit-details-marker {
 }
 
 .options-drawer {
-    /* margin-top: -5rem; */
+    margin-top: -1rem;
 }
 </style>
 
