@@ -11,7 +11,7 @@
     "dev": "nuxt",
     "generate": "nuxt generate",
     "lint": "prettier-eslint '**/*.{js,vue}' --write --list-different --ignore '{dist,.nuxt}/**'",
-    "lint:styles": "stylelint '**/*.{css,vue}' --fix -ip '{.nuxt,dist}/**'",
+    "lint:styles": "stylelint '**/*.{css,vue}' --fix --ip '{.nuxt,dist}/**'",
     "start": "nuxt start"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "nuxt": "2.4.x"
   },
   "devDependencies": {
+    "@starptech/prettyhtml": "0.8.x",
     "@zazen/eslint-config": "1.0.x",
     "@zazen/stylelint-config": "1.0.x",
     "eslint": "5.12.x",
@@ -39,7 +40,8 @@
   },
   "prettier": {
     "arrowParens": "always",
-    "htmlWhitespaceSensitivity": "strict",
+    "htmlWhitespaceSensitivity": "ignore",
+    "proseWrap": "never",
     "semi": false,
     "singleQuote": true,
     "tabWidth": 4,

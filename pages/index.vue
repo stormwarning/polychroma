@@ -9,7 +9,9 @@
             <fieldset class="pa0 ma0 mb5 bn measure center">
                 <legend class="f6 ttu tracked black-30 mb2">Colour Mode</legend>
 
-                <div class="drop-shadow flex items-center pa3 pa4-ns bg-white br1 overflow-hidden">
+                <div
+                    class="drop-shadow flex items-center pa3 pa4-ns bg-white br1 overflow-hidden"
+                >
                     <label
                         v-for="(m, index) in modes"
                         :key="index"
@@ -21,20 +23,29 @@
                             class="mr2"
                             type="radio"
                             name="mode"
-                        >
+                        />
                         <span class="f7 f6-ns tracked">{{ m }}</span>
                     </label>
                 </div>
             </fieldset>
 
             <fieldset class="pa0 ma0 bn measure center">
-                <legend class="f6 ttu tracked black-30 mb2">Gradient Options</legend>
+                <legend class="f6 ttu tracked black-30 mb2">
+                    Gradient Options
+                </legend>
 
                 <section class="drop-shadow gradient-options bg-white br1">
                     <option-controls>
                         <template slot="summary">
-                            <span class="dib f7 f6-ns ttu tracked black-30">Direction</span>
-                            <svg class="w1 h1" width="20" height="20" viewBox="0 0 20 20">
+                            <span class="dib f7 f6-ns ttu tracked black-30">
+                                Direction
+                            </span>
+                            <svg
+                                class="w1 h1"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                            >
                                 <path
                                     :transform="rotation"
                                     d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
@@ -74,13 +85,13 @@
                                 class="dib w1 h1 br-pill"
                             />
                         </template>
-                        <color-field v-model="stop.color.hex"/>
+                        <color-field v-model="stop.color.hex" />
                     </option-controls>
                 </section>
             </fieldset>
         </form>
 
-        <gradient :stops="stops" :mode="mode" :dir="direction"/>
+        <gradient :stops="stops" :mode="mode" :dir="direction" />
     </section>
 </template>
 
@@ -124,12 +135,12 @@ export default {
     },
 
     computed: {
-        rotation: function () {
+        rotation: function() {
             return `rotate(${this.direction} 10 10)`
         },
 
         ...mapState({
-            direction: (state) => state.direction
+            direction: (state) => state.direction,
         }),
     },
 
@@ -165,10 +176,5 @@ export default {
 .drop-shadow {
     box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px,
         0 20px 50px 0 rgba(0, 0, 0, 0.14);
-}
-
-.c-chrome {
-    /* stylelint-disable-next-line declaration-no-important */
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.14), 0 20px 20px 0 rgba(0, 0, 0, 0.14) !important;
 }
 </style>

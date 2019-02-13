@@ -1,7 +1,7 @@
 <template>
     <main class="min-vh-100 sans-serif">
-        <nuxt/>
-        <page-footer/>
+        <nuxt />
+        <page-footer />
     </main>
 </template>
 
@@ -22,6 +22,7 @@ main {
     grid-template-rows: 1fr 120px;
     grid-template-columns: 1fr;
 }
+
 @media screen and (min-width: 60em) {
     main {
         grid-template-areas: 'main sidebar';

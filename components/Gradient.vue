@@ -9,7 +9,9 @@
                     :style="{ backgroundImage: gradientCSS }"
                     class="button-bg child absolute absolute--fill"
                 />
-                <div class="button-text absolute absolute--fill flex ma1 bg-white">
+                <div
+                    class="button-text absolute absolute--fill flex ma1 bg-white"
+                >
                     <div class="ma-auto">
                         <svg
                             class="relative w1 h1 mr2 v-mid"
@@ -26,13 +28,24 @@
                             <path
                                 d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
                             ></path>
-                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            <rect
+                                x="8"
+                                y="2"
+                                width="8"
+                                height="4"
+                                rx="1"
+                                ry="1"
+                            ></rect>
                         </svg>
-                        <span class="relative lh-solid v-mid">{{ copyButtonText }}</span>
+                        <span class="relative lh-solid v-mid">
+                            {{ copyButtonText }}
+                        </span>
                     </div>
                 </div>
             </button>
-            <pre class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray"><code>{{ gradientCSS }}</code></pre>
+            <pre
+                class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray"
+            ><code>{{ gradientCSS }}</code></pre>
         </div>
     </figure>
 </template>
@@ -93,7 +106,8 @@ export default {
         },
     },
 
-    methods: {copyCSS(code) {
+    methods: {
+        copyCSS(code) {
             copyTextToClipboard(code)
             this.copyButtonText = 'Copied!'
 
@@ -120,7 +134,7 @@ figure > div {
 }
 
 .source-code > code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 }
 
 .ma-auto {
