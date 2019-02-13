@@ -3,7 +3,12 @@
         <div class="flex-auto mt4-ns measure center">
             <p class="f7 lh-copy ttu tracked tr">
                 By
-                <a class="link black hover-black-70" href="http://tidaltheory.co/">@stormwarning</a>
+                <a
+                    class="link black hover-black-70"
+                    href="http://tidaltheory.co/"
+                >
+                    @stormwarning
+                </a>
             </p>
             <p class="mt2 f7 lh-copy ttu tracked tr">
                 <a
@@ -52,6 +57,7 @@
 footer {
     grid-area: footer;
 }
+
 @media screen and (min-width: 60em) {
     footer {
         grid-area: sidebar;

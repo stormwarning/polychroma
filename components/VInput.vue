@@ -5,38 +5,38 @@
         :value="value"
         @input="$emit('update', $event.target.value)"
         v-on="$listeners"
-    >
+    />
 </template>
 
 <script>
 export default {
-  model: {
-    event: 'update',
-  },
-
-  props: {
-    type: {
-      type: String,
-      default: 'text',
+    model: {
+        event: 'update',
     },
 
-    value: {
-      type: [String, Number],
-      default: '',
+    props: {
+        type: {
+            type: String,
+            default: 'text',
+        },
+
+        value: {
+            type: [String, Number],
+            default: '',
+        },
     },
-  },
 }
 </script>
 
 <style module>
 .input {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  line-height: 1;
-  border: 0;
-  border-radius: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
 }
 </style>

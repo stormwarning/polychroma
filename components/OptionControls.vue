@@ -12,9 +12,7 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style scoped>
@@ -22,7 +20,8 @@ details {
     transition: box-shadow 200ms ease-in-out;
 }
 details[open] {
-    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px, 0 20px 50px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px,
+        0 20px 50px 0 rgba(0, 0, 0, 0.14);
 }
 
 summary {
@@ -30,13 +29,11 @@ summary {
     cursor: pointer;
     outline: none;
 }
-
 summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
 
 .options-drawer {
     margin-top: -1rem;
 }
 </style>
-

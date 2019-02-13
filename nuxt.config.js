@@ -1,4 +1,3 @@
-// import webpack from 'webpack'
 import { version } from './package.json'
 
 function getVersion() {

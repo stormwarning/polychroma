@@ -1,5 +1,5 @@
 <template>
-    <div class="range-field" :class="{'is-disabled': disabled}">
+    <div class="range-field" :class="{ 'is-disabled': disabled }">
         <label v-if="label" class="range-field__label">
             <slot>{{ label }}</slot>
         </label>
@@ -14,52 +14,52 @@
             :value="value"
             v-bind="$attrs"
             @input="input"
-        >
+        />
     </div>
 </template>
 
 <script>
 export default {
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
+    props: {
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
+
+        label: {
+            type: String,
+            default: '',
+        },
+
+        max: {
+            type: Number,
+            default: 100,
+        },
+
+        min: {
+            type: Number,
+            default: 0,
+        },
+
+        step: {
+            type: Number,
+            default: 1,
+        },
+
+        value: {
+            type: Number,
+            default: 50,
+        },
     },
 
-    label: {
-      type: String,
-      default: ''
+    methods: {
+        input($event) {
+            if (!this.disabled) {
+                this.$emit('input', parseFloat($event.target.value))
+            }
+        },
     },
-
-    max: {
-      type: Number,
-      default: 100
-    },
-
-    min: {
-      type: Number,
-      default: 0
-    },
-
-    step: {
-      type: Number,
-      default: 1
-    },
-
-    value: {
-      type: Number,
-      default: 50
-    }
-  },
-
-  methods: {
-    input($event) {
-      if (!this.disabled) {
-        this.$emit('input', parseFloat($event.target.value));
-      }
-    }
-  }
-};
+}
 </script>
 
 <style lang="scss">
