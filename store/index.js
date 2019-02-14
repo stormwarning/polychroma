@@ -1,4 +1,5 @@
 export const state = () => ({
+    version: process.env.VERSION,
     colorMode: 'lab',
     direction: 30,
 })
