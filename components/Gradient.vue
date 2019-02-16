@@ -43,9 +43,9 @@
                     </div>
                 </div>
             </button>
-            <pre
-                class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray"
-            ><code>{{ gradientCSS }}</code></pre>
+            <pre class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray">
+                <code>{{ gradientCSS }}</code>
+            </pre>
         </div>
     </figure>
 </template>

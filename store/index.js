@@ -24,4 +24,14 @@ export const mutations = {
     changeMode(state, mode) {
         state.colorMode = mode
     },
+
+    changeColor(state, { color, stop }) {
+        state.colorStops[stop].color.hex = color
+    },
+}
+
+export const actions = {
+    rotate({ commit }, direction) {
+        commit('rotate', direction)
+    },
 }

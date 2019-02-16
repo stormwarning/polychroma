@@ -82,7 +82,10 @@
                             class="dib w1 h1 br-pill"
                         />
                     </template>
-                    <color-field v-model="stop.color.hex" />
+                    <color-field
+                        :color="stop.color.hex"
+                        @update="(color) => changeColorStop(color, index)"
+                    />
                 </option-controls>
             </section>
         </fieldset>
@@ -105,10 +108,6 @@ export default {
 
     transition: {
         mode: 'out-in',
-        css: false,
-        enter(el, done) {
-            console.log('enter from index')
-        },
     },
 
     data() {
@@ -132,11 +131,15 @@ export default {
 
     methods: {
         rotateGradient(dir) {
-            this.$store.commit('rotate', dir)
+            this.$store.dispatch('rotate', dir)
         },
 
         changeColorMode(mode) {
             this.$store.commit('changeMode', mode)
+        },
+
+        changeColorStop(color, stop) {
+            this.$store.commit('changeColor', { color, stop })
         },
     },
 }
