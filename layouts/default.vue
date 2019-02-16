@@ -25,7 +25,7 @@
             <section>
                 <nuxt />
             </section>
-            <figure></figure>
+            <gradient-result />
         </main>
         <page-footer />
     </article>
@@ -34,10 +34,12 @@
 <script>
 import { mapState } from 'vuex'
 
+import GradientResult from '~/components/Gradient.vue'
 import PageFooter from '~/components/Footer.vue'
 
 export default {
     components: {
+        GradientResult,
         PageFooter,
     },
 
