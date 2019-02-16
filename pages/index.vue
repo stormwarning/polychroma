@@ -19,6 +19,7 @@
                         class="mr2"
                         type="radio"
                         name="mode"
+                        @change="changeColorMode($event.target.value)"
                     />
                     <span class="f7 f6-ns tracked">{{ m }}</span>
                 </label>
@@ -112,22 +113,8 @@ export default {
 
     data() {
         return {
-            stops: [
-                {
-                    color: {
-                        hex: '#000080',
-                    },
-                },
-                {
-                    color: {
-                        hex: '#ffff00',
-                    },
-                },
-            ],
-
             modes: ['RGB', 'Lab', 'HSL', 'Lch'],
-
-            mode: 'lab',
+            mode: this.$store.state.colorMode,
         }
     },
 
@@ -139,12 +126,17 @@ export default {
         ...mapState({
             version: (state) => state.version,
             direction: (state) => state.direction,
+            stops: (state) => state.colorStops,
         }),
     },
 
     methods: {
         rotateGradient(dir) {
             this.$store.commit('rotate', dir)
+        },
+
+        changeColorMode(mode) {
+            this.$store.commit('changeMode', mode)
         },
     },
 }
