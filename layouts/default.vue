@@ -5,18 +5,18 @@
             <span class="db b tr f6 f5-ns">v{{ version }}</span>
         </header>
         <main>
-            <nav>
+            <nav class="pt4">
                 <div class="measure center">
                     <nuxt-link
                         to="/"
                         exact
-                        class="dib pb3 f6 b ttu tracked black-30 no-underline bb bw2 b--black"
+                        class="dib pt1 pb2 f6 b ttu tracked black-30 no-underline dim"
                     >
                         Controls
                     </nuxt-link>
                     <nuxt-link
                         to="/about"
-                        class="dib pb3 f6 b ttu tracked black-30 no-underline bb bw2 b--black"
+                        class="dib pt1 pb2 ml3 f6 b ttu tracked black-30 no-underline dim"
                     >
                         About
                     </nuxt-link>
@@ -88,6 +88,11 @@ main > section {
 
 nav {
     grid-area: navbar;
+}
+
+.nuxt-link-active {
+    color: #000;
+    border-bottom: 0.25rem solid currentColor;
 }
 
 figure {

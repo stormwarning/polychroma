@@ -1,5 +1,5 @@
 <template>
-    <form class="pa4 pa5-ns ma0">
+    <form class="ma0">
         <fieldset class="pa0 ma0 bn measure center">
             <legend class="f6 ttu tracked black-30 ma0">
                 Colour Mode
@@ -100,6 +100,14 @@ export default {
         OptionControls,
         ColorField,
         RangeField,
+    },
+
+    transition: {
+        mode: 'out-in',
+        css: false,
+        enter(el, done) {
+            console.log('enter from index')
+        },
     },
 
     data() {
