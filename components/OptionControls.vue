@@ -5,7 +5,9 @@
                 <slot name="summary"></slot>
             </div>
         </summary>
-        <div class="options-drawer relative pa4-ns pt0-ns pr3-ns mr5-ns">
+        <div
+            class="options-drawer relative pa3 pa4-ns pt0-ns pr3-ns mr4 mr5-ns"
+        >
             <slot></slot>
         </div>
     </details>
