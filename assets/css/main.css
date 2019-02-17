@@ -1,7 +1,20 @@
+@import url('https://rsms.me/inter/inter.css');
+html {
+    font-family: 'Inter', sans-serif;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+body {
+    overscroll-behavior: none;
+}
+
+.sticky {
+    position: sticky;
 }
 
 /**
@@ -13,4 +26,17 @@
 
 .button-reset svg {
     top: -1px;
+}
+
+/**
+  `page` is the default transition name.
+  @see https://nuxtjs.org/guide/routing#transitions
+*/
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 200ms ease-in;
+}
+.page-enter,
+.page-leave-to {
+    opacity: 0;
 }

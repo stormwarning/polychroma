@@ -1,11 +1,11 @@
 <template>
-    <article class="min-vh-100 sans-serif">
-        <header class="absolute right-2 pt4">
+    <article class="min-vh-100">
+        <header class="absolute fixed-ns right-2 pt4">
             <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
             <span class="db b tr f6 f5-ns">v{{ version }}</span>
         </header>
         <main>
-            <nav class="pt4">
+            <nav class="pa4 pa0-ns pt4-ns">
                 <div class="measure center">
                     <nuxt-link
                         to="/"
@@ -22,12 +22,12 @@
                     </nuxt-link>
                 </div>
             </nav>
-            <section>
+            <section class="pa4 pa0-ns">
                 <nuxt />
             </section>
-            <gradient-result />
+            <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
         </main>
-        <page-footer />
+        <page-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
     </article>
 </template>
 
@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+header {
+    z-index: 1;
+}
+
 article {
     display: grid;
     grid-template-areas: 'main' 'footer';
