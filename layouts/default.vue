@@ -15,7 +15,7 @@
                         Controls
                     </nuxt-link>
                     <nuxt-link
-                        to="/about"
+                        to="/info"
                         class="dib pt1 pb2 ml3 f6 fw6 ttu tracked black-30 no-underline dim"
                     >
                         Info
