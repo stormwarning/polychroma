@@ -72,8 +72,8 @@ export default {
     },
 
     /**
-     * @todo On hue change, store last valid hue and use as fallback
-     *       if hue returns NaN.
+      @todo On hue change, store last valid hue and use as fallback
+            if hue returns NaN.
      */
     computed: {
         hsl() {
@@ -95,7 +95,7 @@ export default {
         },
 
         /**
-         * @todo Check for valid hex value before setting.
+          @todo Check for valid hex value before setting.
          */
         updateHex(hex) {
             if (hex !== this.hex) {

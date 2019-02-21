@@ -43,33 +43,20 @@
                     </div>
                 </div>
             </button>
-            <pre
-                class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray"
-            ><code>{{ gradientCSS }}</code></pre>
+            <pre class="source-code ph4 pv5 ma0 ttl ws-normal bg-light-gray">
+                <code>{{ gradientCSS }}</code>
+            </pre>
         </div>
     </figure>
 </template>
 
 <script>
 import chroma from 'chroma-js'
+import { mapState } from 'vuex'
+
 import { copyTextToClipboard } from '../utils/clipboard'
 
 export default {
-    props: {
-        dir: {
-            type: Number,
-            default: 30,
-        },
-        stops: {
-            type: Array,
-            required: true,
-        },
-        mode: {
-            type: String,
-            default: 'lab',
-        },
-    },
-
     data() {
         return {
             copyButtonText: 'Copy CSS',
@@ -77,6 +64,12 @@ export default {
     },
 
     computed: {
+        ...mapState({
+            dir: (state) => state.direction,
+            stops: (state) => state.colorStops,
+            mode: (state) => state.colorMode,
+        }),
+
         gradientCSS: function() {
             let dir = `${this.dir}deg`
             let stops = this.stops

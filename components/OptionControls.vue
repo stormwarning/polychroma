@@ -29,6 +29,7 @@ details[open] {
 summary {
     list-style-type: none;
     cursor: pointer;
+    user-select: none;
     outline: none;
 }
 summary::-webkit-details-marker {

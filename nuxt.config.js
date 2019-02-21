@@ -81,9 +81,17 @@ export default {
         VERSION: getVersion(),
     },
 
-    build: {},
+    build: {
+        postcss: {
+            'postcss-nested': {},
+            'postcss-mixins': {},
+        },
+    },
 
     plugins: [],
 
-    modules: [['@nuxtjs/google-analytics', { ua: 'UA-58836125-4' }]],
+    modules: [
+        ['@nuxtjs/google-analytics', { ua: 'UA-58836125-4' }],
+        ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
+    ],
 }
