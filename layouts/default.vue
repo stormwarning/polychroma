@@ -1,8 +1,8 @@
 <template>
-    <article class="min-vh-100">
+    <article class="min-vh-100 lh-copy">
         <header class="absolute fixed-ns right-2 pt4">
             <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
-            <span class="db b tr f6 f5-ns">v{{ version }}</span>
+            <span class="db fw7 tr f6 f5-ns">v{{ version }}</span>
         </header>
         <main>
             <nav class="pa4 pa0-ns pt4-ns">
@@ -10,19 +10,19 @@
                     <nuxt-link
                         to="/"
                         exact
-                        class="dib pt1 pb2 f6 b ttu tracked black-30 no-underline dim"
+                        class="dib pt1 pb2 f6 fw6 ttu tracked black-30 no-underline dim"
                     >
                         Controls
                     </nuxt-link>
                     <nuxt-link
                         to="/about"
-                        class="dib pt1 pb2 ml3 f6 b ttu tracked black-30 no-underline dim"
+                        class="dib pt1 pb2 ml3 f6 fw6 ttu tracked black-30 no-underline dim"
                     >
-                        About
+                        Info
                     </nuxt-link>
                 </div>
             </nav>
-            <section class="pa4 pa0-ns">
+            <section class="pa4 pa0-ns pb5-ns">
                 <nuxt />
             </section>
             <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
@@ -98,7 +98,7 @@ nav {
 
 .nuxt-link-active {
     color: #000;
-    border-bottom: 0.25rem solid currentColor;
+    border-bottom: 0.125rem solid currentColor;
 }
 
 figure {

@@ -1,6 +1,14 @@
 @import url('https://rsms.me/inter/inter.css');
+
+:root {
+    --color-bg: #f5f5f5;
+    --color-text: #717474;
+    --color-heading: #16191b;
+}
+
 html {
     font-family: 'Inter', sans-serif;
+    color: #212529;
 }
 
 *,
@@ -13,12 +21,16 @@ body {
     overscroll-behavior: none;
 }
 
+.b {
+    font-weight: 600;
+}
+
 .sticky {
     position: sticky;
 }
 
 /**
- * Fix tracking issue for right-aligned text.
+  Fix tracking issue for right-aligned text.
  */
 .tracked-mega {
     margin-right: -0.25em;
@@ -31,7 +43,7 @@ body {
 /**
   `page` is the default transition name.
   @see https://nuxtjs.org/guide/routing#transitions
-*/
+ */
 .page-enter-active,
 .page-leave-active {
     transition: opacity 200ms ease-in;
