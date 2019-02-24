@@ -6,7 +6,7 @@
             </legend>
 
             <div
-                class="drop-shadow flex items-center pa3 pa4-ns mt2 bg-white br1 overflow-hidden"
+                class="shadow-a flex items-center pa3 pa4-ns mt2 bg-white br1 overflow-hidden"
             >
                 <label
                     v-for="(m, index) in modes"
@@ -31,7 +31,7 @@
                 Gradient Options
             </legend>
 
-            <section class="drop-shadow gradient-options mt2 bg-white br1">
+            <section class="gradient-options shadow-a mt2 bg-white br1">
                 <option-controls>
                     <template slot="summary">
                         <span class="dib f7 f6-ns ttu tracked black-30">
@@ -144,10 +144,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.drop-shadow {
-    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px,
-        0 20px 50px 0 rgba(0, 0, 0, 0.14);
-}
-</style>
