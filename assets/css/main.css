@@ -8,6 +8,17 @@
     --color-bg: #f5f5f5;
     --color-text: #717474;
     --color-heading: #16191b;
+
+    --grey-1: #f5f5f5;
+    --grey-3: #c2c3c4;
+    --grey-4: #9b9e9d;
+    --grey-6: #717474;
+    --grey-8: #212529;
+    --grey-9: #16191b;
+
+    --blue-5: #339af0;
+    --blue-6: #228be6;
+    --blue-7: #1c7ed6;
 }
 
 html {
