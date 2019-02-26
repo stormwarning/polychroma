@@ -2,7 +2,7 @@
     <div>
         <v-input
             :value="hex"
-            class="color-hex f4"
+            class="f4 outline-0"
             type="text"
             @input="updateHex($event.target.value)"
         />
@@ -121,9 +121,3 @@ export default {
     },
 }
 </script>
-
-<style>
-.color-hex {
-    outline: 0;
-}
-</style>

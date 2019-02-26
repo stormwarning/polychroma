@@ -1,7 +1,7 @@
 <template>
-    <form class="ma0">
+    <form class="ma0 f6">
         <fieldset class="pa0 ma0 bn measure center">
-            <legend class="f6 ttu tracked black-30 ma0">
+            <legend class="fw6 ttu tracked black-30 ma0">
                 Colour Mode
             </legend>
 
@@ -27,7 +27,7 @@
         </fieldset>
 
         <fieldset class="pa0 ma0 mt5 bn measure center">
-            <legend class="f6 ttu tracked black-30 ma0">
+            <legend class="fw6 ttu tracked black-30 ma0">
                 Gradient Options
             </legend>
 

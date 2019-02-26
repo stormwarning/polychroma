@@ -116,9 +116,5 @@ export default {
 <style lang="postcss">
 .source-code {
     line-height: 2;
-
-    & > code {
-        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-    }
 }
 </style>
