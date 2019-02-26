@@ -83,8 +83,15 @@ export default {
 
     build: {
         postcss: {
-            'postcss-nested': {},
-            'postcss-mixins': {},
+            plugins: {
+                // https://github.com/jonathantneal/postcss-advanced-variables#features
+                'postcss-advanced-variables': {},
+
+                // https://preset-env.cssdb.org/features
+                'postcss-preset-env': {
+                    stage: 0,
+                },
+            },
         },
     },
 

@@ -1,9 +1,25 @@
 @import url('https://rsms.me/inter/inter.css');
 
+@viewport {
+    width: device-width;
+}
+
 :root {
     --color-bg: #f5f5f5;
     --color-text: #717474;
     --color-heading: #16191b;
+
+    --grey-1: #f5f5f5;
+    --grey-3: #c2c3c4;
+    --grey-4: #9b9e9d;
+    --grey-6: #717474;
+    --grey-7: #495057;
+    --grey-8: #212529;
+    --grey-9: #16191b;
+
+    --blue-5: #339af0;
+    --blue-6: #228be6;
+    --blue-7: #1c7ed6;
 }
 
 html {
@@ -21,12 +37,32 @@ body {
     overscroll-behavior: none;
 }
 
+/**
+  Tachyons overrides.
+ */
 .b {
     font-weight: 600;
 }
 
+code,
+.code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
 .sticky {
     position: sticky;
+}
+
+/**
+  Tachyons-like utility classes.
+ */
+.shadow-a {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px,
+        0 20px 50px 0 rgba(0, 0, 0, 0.14);
+}
+
+.shadow-b {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px, 0 50px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 /**
@@ -40,7 +76,14 @@ body {
     top: -1px;
 }
 
+.nuxt-link-active {
+    color: var(--grey-9);
+    border-bottom: 0.125rem solid currentColor;
+}
+
 /**
+  Page transition effects.
+
   `page` is the default transition name.
   @see https://nuxtjs.org/guide/routing#transitions
  */

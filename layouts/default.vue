@@ -6,17 +6,17 @@
         </header>
         <main>
             <nav class="pa4 pa0-ns pt4-ns">
-                <div class="measure center">
+                <div class="f6 measure center">
                     <nuxt-link
                         to="/"
                         exact
-                        class="dib pt1 pb2 f6 fw6 ttu tracked black-30 no-underline dim"
+                        class="dib pt1 pb2 fw6 ttu tracked black-30 no-underline dim"
                     >
                         Controls
                     </nuxt-link>
                     <nuxt-link
                         to="/info"
-                        class="dib pt1 pb2 ml3 f6 fw6 ttu tracked black-30 no-underline dim"
+                        class="dib pt1 pb2 ml3 fw6 ttu tracked black-30 no-underline dim"
                     >
                         Info
                     </nuxt-link>
@@ -94,11 +94,6 @@ main > section {
 
 nav {
     grid-area: navbar;
-}
-
-.nuxt-link-active {
-    color: #000;
-    border-bottom: 0.125rem solid currentColor;
 }
 
 figure {

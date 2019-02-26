@@ -1,3 +1,6 @@
 module.exports = {
-    extends: ['@zazen/stylelint-config', '@zazen/stylelint-config/sass'],
+    extends: ['@zazen/stylelint-config'],
+    rules: {
+        'at-rule-no-unknown': [true, { ignoreAtRules: ['include', 'mixin'] }],
+    },
 }
