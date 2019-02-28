@@ -3,7 +3,7 @@
   "name": "polychroma",
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff <rustyangel@gmail.com>",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "build": "nuxt build",
     "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
