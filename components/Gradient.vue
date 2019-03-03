@@ -5,7 +5,7 @@
     >
         <div class="dn db-l w-100 mw6 bg-white br1 overflow-hidden shadow-b">
             <button
-                class="button-reset w-100 pa4 f7 f7-ns ttu tracked lh-solid black-90 bg-white ba bw2 b--white tl pointer hide-child relative"
+                class="button-reset w-100 pa4 f7 f7-ns ttu tracked lh-solid black-90 bg-white ba bw2 b--white tl outline-0 pointer hide-child relative"
                 @click="copyCSS(gradientCSS)"
             >
                 <div
