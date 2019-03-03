@@ -31,7 +31,7 @@
                 Gradient Options
             </legend>
 
-            <section class="gradient-options shadow-a mt2 bg-white br1">
+            <option-group class="gradient-options shadow-a mt2 bg-white br1">
                 <option-controls>
                     <template slot="summary">
                         <span class="dib f7 f6-ns ttu tracked black-30">
@@ -87,7 +87,7 @@
                         @update="(color) => changeColorStop(color, index)"
                     />
                 </option-controls>
-            </section>
+            </option-group>
         </fieldset>
     </form>
 </template>
@@ -97,10 +97,12 @@ import { mapState } from 'vuex'
 
 import ColorField from '~/components/ColorField.vue'
 import RangeField from '~/components/RangeField.vue'
+import OptionGroup from '~/components/OptionGroup.vue'
 import OptionControls from '~/components/OptionControls.vue'
 
 export default {
     components: {
+        OptionGroup,
         OptionControls,
         ColorField,
         RangeField,
