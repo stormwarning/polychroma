@@ -100,5 +100,6 @@ export default {
     modules: [
         ['@nuxtjs/google-analytics', { ua: 'UA-58836125-4' }],
         ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
+        '@nuxtjs/pwa',
     ],
 }
