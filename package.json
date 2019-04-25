@@ -14,7 +14,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "2.0.x",
+    "@nuxtjs/google-analytics": "2.2.x",
     "@nuxtjs/markdownit": "1.2.x",
     "@nuxtjs/pwa": "2.6.x",
     "chroma-js": "2.0.x",
