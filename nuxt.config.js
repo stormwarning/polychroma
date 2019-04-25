@@ -27,9 +27,6 @@ export default {
                     'Generate better CSS gradients using alternative colour spaces & Bezier interpolation.',
             },
 
-            { name: 'apple-mobile-web-app-capable', content: 'yes' },
-            { name: 'apple-mobile-web-app-title', content: 'Polychroma' },
-
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:title', content: 'Polychroma' },
             {
@@ -61,11 +58,6 @@ export default {
             {
                 rel: 'stylesheet',
                 href: 'https://unpkg.com/tachyons@4.7.4/css/tachyons.min.css',
-            },
-            {
-                rel: 'apple-touch-icon',
-                sizes: '180x180',
-                href: '/apple-touch-icon.png',
             },
 
             { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
@@ -102,4 +94,8 @@ export default {
         ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
         '@nuxtjs/pwa',
     ],
+
+    manifest: {
+        name: 'Polychroma',
+    },
 }
