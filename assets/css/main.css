@@ -46,7 +46,12 @@ body {
 
 code,
 .code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-family: 'SF Mono',
+ 'SFMono-Regular',
+ Consolas,
+ 'Liberation Mono',
+ Menlo,
+        monospace;
 }
 
 .sticky {

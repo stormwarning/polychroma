@@ -35,18 +35,25 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .content {
     color: #495057;
-}
 
-.content a {
-    color: #16191b;
-    transition: opacity 150ms ease-in;
-}
+    & a {
+        color: #16191b;
+        transition: opacity 150ms ease-in;
 
-.content a:hover,
-.content a:focus {
-    opacity: 0.5;
+        &:hover,
+        &:focus {
+            opacity: 0.5;
+        }
+    }
+
+    & code {
+        padding: 0.1875rem 0.25rem;
+        margin: 0 1px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 0.125rem;
+    }
 }
 </style>
