@@ -28,7 +28,7 @@
     "husky": "3.0.x",
     "lint-staged": "9.4.x",
     "postcss-advanced-variables": "3.0.x",
-    "stylelint": "11.1.x"
+    "stylelint": "12.0.x"
   },
   "engines": {
     "node": ">8.x"
