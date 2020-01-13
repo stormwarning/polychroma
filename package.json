@@ -9,9 +9,11 @@
     "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
     "dev": "nuxt",
     "generate": "nuxt generate",
-    "lint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
+    "lint": "yarn lint:scripts && yarn lint:styles",
+    "lint:scripts": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "test": "yarn lint"
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "2.2.x",
