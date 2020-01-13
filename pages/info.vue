@@ -2,13 +2,13 @@
     <div class="ma0 f6">
         <div class="pa0 ma0 mb5 bn measure center">
             <h2 class="f6 fw6 ttu tracked ma0">About</h2>
-            <div class="content" v-html="aboutContent"></div>
+            <div v-html="aboutContent" class="content"></div>
 
             <h2 class="f6 fw6 ttu tracked mt4 mb0">Background</h2>
-            <div class="content" v-html="backgroundContent"></div>
+            <div v-html="backgroundContent" class="content"></div>
 
             <h2 class="f6 fw6 ttu tracked mt4 mb0">Colophon</h2>
-            <div class="content" v-html="colophonContent"></div>
+            <div v-html="colophonContent" class="content"></div>
         </div>
     </div>
 </template>
@@ -35,18 +35,25 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .content {
     color: #495057;
-}
 
-.content a {
-    color: #16191b;
-    transition: opacity 150ms ease-in;
-}
+    & a {
+        color: #16191b;
+        transition: opacity 150ms ease-in;
 
-.content a:hover,
-.content a:focus {
-    opacity: 0.5;
+        &:hover,
+        &:focus {
+            opacity: 0.5;
+        }
+    }
+
+    & code {
+        padding: 0.1875rem 0.25rem;
+        margin: 0 1px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 0.125rem;
+    }
 }
 </style>
