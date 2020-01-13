@@ -2,13 +2,13 @@
     <div class="ma0 f6">
         <div class="pa0 ma0 mb5 bn measure center">
             <h2 class="f6 fw6 ttu tracked ma0">About</h2>
-            <div class="content" v-html="aboutContent"></div>
+            <div v-html="aboutContent" class="content"></div>
 
             <h2 class="f6 fw6 ttu tracked mt4 mb0">Background</h2>
-            <div class="content" v-html="backgroundContent"></div>
+            <div v-html="backgroundContent" class="content"></div>
 
             <h2 class="f6 fw6 ttu tracked mt4 mb0">Colophon</h2>
-            <div class="content" v-html="colophonContent"></div>
+            <div v-html="colophonContent" class="content"></div>
         </div>
     </div>
 </template>

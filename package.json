@@ -18,17 +18,17 @@
     "@nuxtjs/markdownit": "1.2.x",
     "@nuxtjs/pwa": "2.6.x",
     "chroma-js": "2.0.x",
-    "nuxt": "2.8.x"
+    "nuxt": "2.11.x"
   },
   "devDependencies": {
     "@zazen/eslint-config": "1.0.x",
     "@zazen/stylelint-config": "1.0.x",
-    "eslint": "5.12.x",
-    "eslint-plugin-vue": "5.1.x",
-    "husky": "1.3.x",
-    "lint-staged": "8.1.x",
+    "eslint": "5.16.x",
+    "eslint-plugin-vue": "6.1.x",
+    "husky": "4.0.x",
+    "lint-staged": "9.4.x",
     "postcss-advanced-variables": "3.0.x",
-    "stylelint": "9.10.x"
+    "stylelint": "13.0.x"
   },
   "engines": {
     "node": ">8.x"
