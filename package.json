@@ -27,7 +27,7 @@
     "@zazen/stylelint-config": "1.0.x",
     "eslint": "5.16.x",
     "eslint-plugin-vue": "6.1.x",
-    "husky": "4.0.x",
+    "husky": "4.2.x",
     "lint-staged": "9.4.x",
     "postcss-advanced-variables": "3.0.x",
     "stylelint": "13.0.x"
