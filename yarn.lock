@@ -1402,11 +1402,11 @@
     webpackbar "^4.0.0"
 
 "@nuxtjs/google-analytics@2.2.x":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-2.2.0.tgz#4b2072824961974109eb0bff6a95591fea92c6d9"
-  integrity sha512-Ds166zi7KAwc23gHOkKHovSdMEDJS55UJGkowT4IfVAOCE00l65J3fKI9t2P9+O5cdokXTadNiMLGZV5QM731Q==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-2.2.3.tgz#05496c5a33ce4dc4f9ef6838d432ed501a307778"
+  integrity sha512-dPwgsRNECtZqHdmnbJRFy3T4DDVakrpeN7vM1DwAIV1FXYlIBMKvdi8nt1v8TPU4IZdaoXrQodfeNMCooPo/7g==
   dependencies:
-    vue-analytics "^5.16.2"
+    vue-analytics "^5.22.1"
 
 "@nuxtjs/icon@^2.6.0":
   version "2.6.0"
@@ -10553,10 +10553,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-analytics@^5.16.2:
-  version "5.16.4"
-  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.16.4.tgz#7f9e197cbc64afac96884a05214b17efaf8e9d09"
-  integrity sha512-M67cUqpPeyk2rftrvlx2uU+BQ/C4E8SkF2Ct9LizOYUoTccZtCCJwhMJfQ3XL8xep6p3K8KYz58FzRWvx5zlPw==
+vue-analytics@^5.22.1:
+  version "5.22.1"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
+  integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
 vue-client-only@^2.0.0:
   version "2.0.0"
