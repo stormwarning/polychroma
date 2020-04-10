@@ -19,7 +19,6 @@
                         class="mr2"
                         type="radio"
                         name="mode"
-                        @change="changeColorMode($event.target.value)"
                     />
                     <span class="f7 f6-ns tracked">{{ m }}</span>
                 </label>
@@ -115,11 +114,19 @@ export default {
     data() {
         return {
             modes: ['RGB', 'Lab', 'HSL', 'Lch'],
-            mode: this.$store.state.colorMode,
         }
     },
 
     computed: {
+        mode: {
+            get() {
+                return this.$store.state.colorMode
+            },
+            set(mode) {
+                this.$store.dispatch('changeMode', mode)
+            },
+        },
+
         rotation: function() {
             return `rotate(${this.direction} 10 10)`
         },
@@ -134,10 +141,6 @@ export default {
     methods: {
         rotateGradient(dir) {
             this.$store.dispatch('rotate', dir)
-        },
-
-        changeColorMode(mode) {
-            this.$store.commit('changeMode', mode)
         },
 
         changeColorStop(color, stop) {

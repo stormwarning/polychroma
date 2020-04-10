@@ -21,7 +21,7 @@ export const mutations = {
         state.direction = direction
     },
 
-    changeMode(state, mode) {
+    CHANGE_MODE(state, mode) {
         state.colorMode = mode
     },
 
@@ -31,6 +31,13 @@ export const mutations = {
 }
 
 export const actions = {
+    changeMode({ commit }, mode) {
+        return new Promise((resolve) => {
+            commit('CHANGE_MODE', mode)
+            resolve()
+        })
+    },
+
     rotate({ commit }, direction) {
         commit('rotate', direction)
     },
