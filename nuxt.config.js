@@ -12,7 +12,7 @@ export default {
       Headers of the page
      */
     head: {
-        htmlAttrs: { class: 'bg-light-gray' },
+        htmlAttrs: { class: 'bg-grey-100' },
         title: 'Polychroma — Better gradients through colour spaces.',
         meta: [
             { charset: 'utf-8' },
