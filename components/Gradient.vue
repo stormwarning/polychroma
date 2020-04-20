@@ -163,7 +163,7 @@ figure {
     mix-blend-mode: color-burn;
     opacity: 0.75;
 
-    code {
+    & code {
         line-height: 2;
     }
 }
