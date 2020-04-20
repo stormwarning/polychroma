@@ -50,7 +50,7 @@
                     ></path>
                 </svg>
                 <span class="relative ml2 lh-solid v-mid">
-                    Share
+                    {{ shareButtonText }}
                 </span>
             </base-button>
         </div>
@@ -64,6 +64,9 @@ import { mapState } from 'vuex'
 import BaseButton from '~/components/BaseButton'
 import { copyTextToClipboard } from '~/utils/clipboard'
 
+const COPY_LABEL = 'Copy CSS'
+const SHARE_LABEL = 'Share URL'
+
 export default {
     components: {
         BaseButton,
@@ -71,7 +74,9 @@ export default {
 
     data() {
         return {
-            copyButtonText: 'Copy CSS',
+            copyButtonText: COPY_LABEL,
+            shareButtonText: SHARE_LABEL,
+            origin: '',
         }
     },
 
@@ -111,13 +116,19 @@ export default {
         },
     },
 
+    created: function() {
+        if (process.client) {
+            this.origin = window.location.origin
+        }
+    },
+
     methods: {
         copyCSS(code) {
             copyTextToClipboard(code)
             this.copyButtonText = 'Copied!'
 
             setTimeout(() => {
-                this.copyButtonText = 'Copy CSS'
+                this.copyButtonText = COPY_LABEL
             }, 2000)
         },
 
@@ -129,7 +140,12 @@ export default {
             let end = stops[stops.length - 1].color.hex.replace('#', '')
             let str = `/mode/${mode}/start/${start}/end/${end}/angle/${deg}`
 
-            console.log(str)
+            copyTextToClipboard(this.origin + str)
+            this.shareButtonText = 'Copied!'
+
+            setTimeout(() => {
+                this.shareButtonText = SHARE_LABEL
+            }, 2000)
         },
     },
 }
