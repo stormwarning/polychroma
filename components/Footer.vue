@@ -10,9 +10,9 @@
                     @stormwarning
                 </a>
             </p>
-            <p class="mt2 f7 lh-copy ttu tracked tr">
+            <div class="flex justify-end mt2 f7 lh-copy ttu tracked tr">
                 <a
-                    class="link black hover-black-70 dib w1"
+                    class="link black hover-black-70 dib w2 h2 pa2"
                     href="https://github.com/stormwarning/polychroma"
                 >
                     <svg
@@ -30,7 +30,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link black hover-black-70 dib w1 ml3"
+                    class="link black hover-black-70 dib w2 h2 pa2 ml2"
                     href="https://twitter.com/stormwarning"
                 >
                     <svg
@@ -48,7 +48,7 @@
                         ></path>
                     </svg>
                 </a>
-            </p>
+            </div>
         </div>
     </footer>
 </template>
