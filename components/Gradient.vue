@@ -7,10 +7,7 @@
         </div>
 
         <div class="flex items-end justify-end ph4 pv5">
-            <button
-                class="button-reset pa3 f7 f7-ns ttu tracked lh-solid black-90 bg-white bn tl outline-0 pointer hide-child relative"
-                @click="copyCSS(gradientCSS)"
-            >
+            <base-button @click="copyCSS(gradientCSS)">
                 <svg
                     class="relative w1 h1 v-mid"
                     xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +15,7 @@
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#000"
+                    stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -31,11 +28,8 @@
                 <span class="relative ml2 lh-solid v-mid">
                     {{ copyButtonText }}
                 </span>
-            </button>
-            <button
-                class="button-reset pa3 ml3 f7 f7-ns ttu tracked lh-solid black-90 bg-white bn tl outline-0 pointer hide-child relative"
-                @click="shareURL"
-            >
+            </base-button>
+            <base-button class="ml3" @click="shareURL">
                 <svg
                     class="relative w1 h1 v-mid"
                     xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +52,7 @@
                 <span class="relative ml2 lh-solid v-mid">
                     Share
                 </span>
-            </button>
+            </base-button>
         </div>
     </figure>
 </template>
@@ -67,9 +61,14 @@
 import chroma from 'chroma-js'
 import { mapState } from 'vuex'
 
+import BaseButton from '~/components/BaseButton'
 import { copyTextToClipboard } from '~/utils/clipboard'
 
 export default {
+    components: {
+        BaseButton,
+    },
+
     data() {
         return {
             copyButtonText: 'Copy CSS',
