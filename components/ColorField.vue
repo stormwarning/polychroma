@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-input
+        <base-input
             :value="hex"
             class="f4 outline-0"
             type="text"
@@ -44,12 +44,12 @@
 <script>
 import chroma from 'chroma-js'
 
-import VInput from './VInput.vue'
-import RangeField from './RangeField.vue'
+import BaseInput from '~/components/BaseInput'
+import RangeField from '~/components/RangeField'
 
 export default {
     components: {
-        VInput,
+        BaseInput,
         RangeField,
     },
 

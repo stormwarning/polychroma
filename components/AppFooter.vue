@@ -1,6 +1,7 @@
 <template>
     <footer
         class="relative z-1 flex items-end black-70 ph4 ph5-m pv4 pv5-ns overflow-hidden"
+        :class="$style.footer"
     >
         <app-masthead class="dn db-ns" aria-hidden="true" />
         <div class="flex-auto mt4-ns measure center">
@@ -66,13 +67,11 @@ export default {
 }
 </script>
 
-<style scoped>
-footer {
+<style lang="postcss" module>
+.footer {
     grid-area: footer;
-}
 
-@media screen and (min-width: 60em) {
-    footer {
+    @media screen and (min-width: 60em) {
         grid-area: sidebar;
     }
 }

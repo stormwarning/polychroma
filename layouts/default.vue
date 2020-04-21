@@ -24,22 +24,22 @@
             </section>
             <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
         </main>
-        <page-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
+        <app-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
     </article>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
-import AppMasthead from '~/components/AppMasthead.vue'
+import AppMasthead from '~/components/AppMasthead'
 import GradientResult from '~/components/Gradient.vue'
-import PageFooter from '~/components/Footer.vue'
+import AppFooter from '~/components/AppFooter'
 
 export default {
     components: {
+        AppFooter,
         AppMasthead,
         GradientResult,
-        PageFooter,
     },
 
     computed: {
@@ -51,10 +51,6 @@ export default {
 </script>
 
 <style scoped>
-header {
-    z-index: 1;
-}
-
 article {
     display: grid;
     grid-template-areas: 'main' 'footer';
