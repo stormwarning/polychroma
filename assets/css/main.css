@@ -74,6 +74,10 @@ code,
     background-color: var(--grey-1);
 }
 
+.mix-burn {
+    mix-blend-mode: color-burn;
+}
+
 /**
   Fix tracking issue for right-aligned text.
  */

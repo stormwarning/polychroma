@@ -1,5 +1,8 @@
 <template>
-    <footer class="flex items-end black-70 ph4 ph5-m pv4 pv5-ns">
+    <footer
+        class="relative z-1 flex items-end black-70 ph4 ph5-m pv4 pv5-ns overflow-hidden"
+    >
+        <app-masthead class="dn db-ns" aria-hidden="true" />
         <div class="flex-auto mt4-ns measure center">
             <p class="f7 lh-copy ttu tracked tr">
                 By
@@ -52,6 +55,16 @@
         </div>
     </footer>
 </template>
+
+<script>
+import AppMasthead from '~/components/AppMasthead'
+
+export default {
+    components: {
+        AppMasthead,
+    },
+}
+</script>
 
 <style scoped>
 footer {

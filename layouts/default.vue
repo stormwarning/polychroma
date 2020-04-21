@@ -1,9 +1,6 @@
 <template>
     <article class="min-vh-100 lh-copy">
-        <header class="absolute fixed-ns right-2 pt4">
-            <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
-            <span class="db fw7 tr f6 f5-ns">v{{ version }}</span>
-        </header>
+        <app-masthead class="mix-burn" />
         <main>
             <nav class="pa4 pa0-ns pt4-ns">
                 <div class="f6 measure center">
@@ -34,11 +31,13 @@
 <script>
 import { mapState } from 'vuex'
 
+import AppMasthead from '~/components/AppMasthead.vue'
 import GradientResult from '~/components/Gradient.vue'
 import PageFooter from '~/components/Footer.vue'
 
 export default {
     components: {
+        AppMasthead,
         GradientResult,
         PageFooter,
     },
@@ -46,7 +45,6 @@ export default {
     computed: {
         ...mapState({
             version: (state) => state.version,
-            direction: (state) => state.direction,
         }),
     },
 }
