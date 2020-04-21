@@ -25,7 +25,7 @@
                     ></path>
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 </svg>
-                <span class="relative ml2 lh-solid v-mid">
+                <span class="relative ml1 ml2-ns lh-solid v-mid">
                     {{ copyButtonText }}
                 </span>
             </base-button>
@@ -49,7 +49,7 @@
                         d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
                     ></path>
                 </svg>
-                <span class="relative ml2 lh-solid v-mid">
+                <span class="relative ml1 ml2-ns lh-solid v-mid">
                     {{ shareButtonText }}
                 </span>
             </base-button>
