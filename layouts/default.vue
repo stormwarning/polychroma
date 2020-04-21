@@ -2,7 +2,7 @@
     <article class="min-vh-100 lh-copy">
         <app-masthead class="mix-burn" />
         <main>
-            <nav class="pa4 pa0-ns pt4-ns">
+            <nav class="pa4">
                 <div class="f6 measure center">
                     <nuxt-link
                         to="/"
@@ -19,7 +19,7 @@
                     </nuxt-link>
                 </div>
             </nav>
-            <section class="pa4 pa0-ns pb5-ns">
+            <section class="pa4 pt0-ns pb5-ns">
                 <nuxt />
             </section>
             <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
