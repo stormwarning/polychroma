@@ -10,7 +10,7 @@
     "dev": "nuxt",
     "generate": "nuxt generate",
     "lint": "yarn lint:scripts && yarn lint:styles",
-    "lint:scripts": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
+    "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
     "start": "nuxt start",
     "test": "yarn lint"
@@ -19,18 +19,18 @@
     "@nuxtjs/google-analytics": "2.2.x",
     "@nuxtjs/markdownit": "1.2.x",
     "@nuxtjs/pwa": "2.6.x",
-    "chroma-js": "2.0.x",
+    "chroma-js": "2.1.x",
     "nuxt": "2.11.x"
   },
   "devDependencies": {
-    "@zazen/eslint-config": "1.0.x",
+    "@zazen/eslint-config": "2.0.x",
     "@zazen/stylelint-config": "1.0.x",
-    "eslint": "5.16.x",
-    "eslint-plugin-vue": "6.1.x",
-    "husky": "4.0.x",
-    "lint-staged": "9.4.x",
+    "eslint": "6.8.x",
+    "eslint-plugin-vue": "6.2.x",
+    "husky": "4.2.x",
+    "lint-staged": "10.1.x",
     "postcss-advanced-variables": "3.0.x",
-    "stylelint": "13.0.x"
+    "stylelint": "13.3.x"
   },
   "engines": {
     "node": ">8.x"
@@ -42,7 +42,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "prettier-eslint --write",
+      "eslint --fix",
       "git add"
     ],
     "*.{css,vue}": [
@@ -55,11 +55,19 @@
   },
   "prettier": {
     "arrowParens": "always",
-    "htmlWhitespaceSensitivity": "ignore",
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "strict",
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": true,
+    "printWidth": 80,
     "proseWrap": "never",
+    "quoteProps": "as-needed",
     "semi": false,
     "singleQuote": true,
     "tabWidth": 4,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false
   }
 }

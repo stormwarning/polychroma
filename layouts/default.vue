@@ -1,11 +1,8 @@
 <template>
     <article class="min-vh-100 lh-copy">
-        <header class="absolute fixed-ns right-2 pt4">
-            <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
-            <span class="db fw7 tr f6 f5-ns">v{{ version }}</span>
-        </header>
+        <app-masthead class="mix-burn" />
         <main>
-            <nav class="pa4 pa0-ns pt4-ns">
+            <nav class="pa4">
                 <div class="f6 measure center">
                     <nuxt-link
                         to="/"
@@ -22,41 +19,38 @@
                     </nuxt-link>
                 </div>
             </nav>
-            <section class="pa4 pa0-ns pb5-ns">
+            <section class="pa4 pt0-ns pb5-ns">
                 <nuxt />
             </section>
             <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
         </main>
-        <page-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
+        <app-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
     </article>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
+import AppMasthead from '~/components/AppMasthead'
 import GradientResult from '~/components/Gradient.vue'
-import PageFooter from '~/components/Footer.vue'
+import AppFooter from '~/components/AppFooter'
 
 export default {
     components: {
+        AppFooter,
+        AppMasthead,
         GradientResult,
-        PageFooter,
     },
 
     computed: {
         ...mapState({
             version: (state) => state.version,
-            direction: (state) => state.direction,
         }),
     },
 }
 </script>
 
 <style scoped>
-header {
-    z-index: 1;
-}
-
 article {
     display: grid;
     grid-template-areas: 'main' 'footer';
