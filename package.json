@@ -10,7 +10,7 @@
     "dev": "nuxt",
     "generate": "nuxt generate",
     "lint": "yarn lint:scripts && yarn lint:styles",
-    "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**'",
+    "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**' --ignore-pattern 'static/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
     "start": "nuxt start",
     "test": "yarn lint"
