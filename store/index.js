@@ -17,7 +17,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-    rotate(state, direction) {
+    CHANGE_ANGLE(state, direction) {
         state.direction = direction
     },
 
@@ -25,7 +25,7 @@ export const mutations = {
         state.colorMode = mode
     },
 
-    changeColor(state, { color, stop }) {
+    CHANGE_STOP(state, { color, stop }) {
         state.colorStops[stop].color.hex = color
     },
 }
@@ -39,6 +39,10 @@ export const actions = {
     },
 
     rotate({ commit }, direction) {
-        commit('rotate', direction)
+        commit('CHANGE_ANGLE', Number.parseInt(direction))
+    },
+
+    changeColor({ commit }, { color, stop }) {
+        commit('CHANGE_STOP', { color, stop })
     },
 }
