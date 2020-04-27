@@ -144,7 +144,7 @@ export default {
         },
 
         changeColorStop(color, stop) {
-            this.$store.commit('changeColor', { color, stop })
+            this.$store.dispatch('changeColor', { color, stop })
         },
     },
 }
