@@ -50,9 +50,6 @@
       "git add"
     ]
   },
-  "now": {
-    "alias": "polychroma"
-  },
   "prettier": {
     "arrowParens": "always",
     "bracketSpacing": true,
