@@ -23,14 +23,17 @@
     "nuxt": "2.11.x"
   },
   "devDependencies": {
-    "@zazen/eslint-config": "2.0.x",
+    "@zazen/eslint-config": "2.1.x",
     "@zazen/stylelint-config": "1.0.x",
-    "eslint": "6.8.x",
-    "eslint-plugin-vue": "6.2.x",
-    "husky": "4.2.x",
-    "lint-staged": "10.1.x",
+    "eslint": "7.14.x",
+    "eslint-plugin-vue": "7.1.x",
+    "husky": "4.3.x",
+    "lint-staged": "10.5.x",
     "postcss-advanced-variables": "3.0.x",
-    "stylelint": "13.3.x"
+    "prettier": "2.1.x",
+    "prettier-plugin-import-sort": "0.0.6",
+    "prettier-plugin-packagejson": "2.2.x",
+    "stylelint": "13.8.x"
   },
   "engines": {
     "node": ">8.x"
@@ -48,23 +51,34 @@
     "*.{css,vue}": [
       "stylelint --fix",
       "git add"
+    ],
+    "package.json": [
+      "prettier --write",
+      "git add"
     ]
   },
   "prettier": {
-    "arrowParens": "always",
-    "bracketSpacing": true,
-    "endOfLine": "lf",
     "htmlWhitespaceSensitivity": "strict",
-    "jsxBracketSameLine": false,
-    "jsxSingleQuote": true,
-    "printWidth": 80,
-    "proseWrap": "never",
-    "quoteProps": "as-needed",
     "semi": false,
     "singleQuote": true,
     "tabWidth": 4,
-    "trailingComma": "all",
-    "useTabs": false,
-    "vueIndentScriptAndStyle": false
+    "trailingComma": "all"
+  },
+  "importSort": {
+    ".js,.ts,.vue": {
+      "parser": "babylon",
+      "style": "python",
+      "options": {
+        "knownFramework": [
+          "@nuxt",
+          "nuxt",
+          "@vue",
+          "vue"
+        ],
+        "knownFirstparty": [
+          "~"
+        ]
+      }
+    }
   }
 }
