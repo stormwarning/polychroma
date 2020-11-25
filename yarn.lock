@@ -5221,12 +5221,20 @@ import-sort-parser-typescript@^6.0.0:
   dependencies:
     typescript "^3.2.4"
 
-import-sort-parser@^6.0.0:
+import-sort-parser@6.0.0, import-sort-parser@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/import-sort-parser/-/import-sort-parser-6.0.0.tgz#0d901f264d98ed7caaae71f66128a686f828f2f4"
   integrity sha512-H5L+d6HnqHvThB0GmAA3/43Sv74oCwL0iMk3/ixOv0LRJ69rCyHXeG/+UadMHrD2FefEmgPIWboEPAG7gsQrkA==
 
-import-sort-style@^6.0.0:
+import-sort-style-python@1.0.x:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/import-sort-style-python/-/import-sort-style-python-1.0.2.tgz#77aa6e20915d2ae0d73c9e1a33a2e7e4db0130de"
+  integrity sha512-yzAZFMNaNuuPFaAexay458qf76B+mtuA1rtdemsjttImBGn40dS5Qzdm0DkTRRW3eMVzD37yZvBDNM+Qup6Cqw==
+  dependencies:
+    import-sort-parser "6.0.0"
+    import-sort-style "6.0.0"
+
+import-sort-style@6.0.0, import-sort-style@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/import-sort-style/-/import-sort-style-6.0.0.tgz#088523f056e5064c34a6426f4733674d81b42e6a"
   integrity sha512-z0H5PKs7YoDeKxNYXv2AA1mjjZFY07fjeNCXUdTM3ymJtWeeEoTm8CQkFm2l+KPZoMczIvdwzJpWkkOamBnsPw==
