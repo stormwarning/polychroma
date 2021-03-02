@@ -20,7 +20,7 @@
     "@nuxtjs/markdownit": "1.2.x",
     "@nuxtjs/pwa": "2.6.x",
     "chroma-js": "2.1.x",
-    "nuxt": "2.11.x"
+    "nuxt": "2.15.x"
   },
   "devDependencies": {
     "@zazen/eslint-config": "2.1.x",
