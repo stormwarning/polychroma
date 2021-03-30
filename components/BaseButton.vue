@@ -1,6 +1,6 @@
 <template>
     <button
-        class="button-reset flex items-center pa2 pa3-ns f7 f7-ns ttu tracked lh-solid black-90 bg-grey-100 bn br1 tl outline-0 pointer shadow-a relative"
+        class="button-reset flex items-center p-2 pa3-ns text-xs text-xs-ns uppercase tracking-widest lh-solid black-90 bg-grey-100 bn br1 tl outline-0 pointer shadow-a relative"
         :class="$style.button"
         v-on="$listeners"
     >

@@ -1,39 +1,43 @@
 <template>
-    <form class="ma0 f6">
+    <form class="ma0 text-sm">
         <fieldset class="pa0 ma0 bn measure center">
-            <legend class="fw6 ttu tracked black-30 ma0">
+            <legend class="fw6 uppercase tracking-widest black-30 ma0">
                 Colour Mode
             </legend>
 
             <div
-                class="shadow-a flex items-center pa3 pa4-ns mt2 bg-white br1 overflow-hidden"
+                class="shadow-a flex items-center pa3 pa4-ns mt-2 bg-white br1 overflow-hidden"
             >
                 <label
                     v-for="(m, index) in modes"
                     :key="index"
-                    class="flex items-center mv2 mr3 lh-solid pointer"
+                    class="flex items-center my-2 mr3 lh-solid pointer"
                 >
                     <input
                         v-model="mode"
                         :value="m.toLowerCase()"
-                        class="mr2"
+                        class="mr-2"
                         type="radio"
                         name="mode"
                     />
-                    <span class="f7 f6-ns tracked">{{ m }}</span>
+                    <span class="text-xs text-sm-ns tracking-widest">{{
+                        m
+                    }}</span>
                 </label>
             </div>
         </fieldset>
 
         <fieldset class="pa0 ma0 mt5 bn measure center">
-            <legend class="fw6 ttu tracked black-30 ma0">
+            <legend class="fw6 uppercase tracking-widest black-30 ma0">
                 Gradient Options
             </legend>
 
-            <option-group class="gradient-options shadow-a mt2 bg-white br1">
+            <option-group class="gradient-options shadow-a mt-2 bg-white br1">
                 <option-controls>
                     <template slot="summary">
-                        <span class="dib f7 f6-ns ttu tracked black-30">
+                        <span
+                            class="inline-block text-xs text-sm-ns uppercase tracking-widest black-30"
+                        >
                             Direction
                         </span>
                         <svg
@@ -44,7 +48,7 @@
                         >
                             <path
                                 :transform="rotation"
-                                d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
+                                d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h-8V2z"
                                 fill-rule="nonzero"
                                 fill="#000"
                                 fill-opacity="0"
@@ -71,14 +75,16 @@
                     class="bt b--black-10"
                 >
                     <template slot="summary">
-                        <span class="dib f7 f6-ns ttu tracked black-30">
+                        <span
+                            class="inline-block text-xs text-sm-ns uppercase tracking-widest black-30"
+                        >
                             <b v-if="index === 0" class="normal">Start</b>
                             <b v-else class="normal">End</b>
                             Colour
                         </span>
                         <span
                             :style="{ backgroundColor: stop.color.hex }"
-                            class="dib w1 h1 br-pill"
+                            class="inline-block w1 h1 br-pill"
                         />
                     </template>
                     <color-field

@@ -1,30 +1,30 @@
 <template>
-    <article class="min-vh-100 lh-copy">
+    <article class="min-h-screen">
         <app-masthead class="mix-burn" />
         <main>
-            <nav class="pa4">
-                <div class="f6 measure center">
+            <nav class="p-8">
+                <div class="flex gap-4 m-auto">
                     <nuxt-link
                         to="/"
                         exact
-                        class="dib pt1 pb2 fw6 ttu tracked black-30 no-underline dim"
+                        class="text-sm font-semibold uppercase tracking-widest no-underline leading-4 capsize"
                     >
                         Controls
                     </nuxt-link>
                     <nuxt-link
                         to="/info"
-                        class="dib pt1 pb2 ml3 fw6 ttu tracked black-30 no-underline dim"
+                        class="text-sm font-semibold uppercase tracking-widest no-underline leading-4 capsize"
                     >
                         Info
                     </nuxt-link>
                 </div>
             </nav>
-            <section class="pa4 pt0-ns pb5-ns">
+            <section class="p-8 sm:pt-0 sm:pb-16">
                 <nuxt />
             </section>
-            <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
+            <gradient-result class="sticky sm:top-0 sm:bottom-0 sm:h-screen" />
         </main>
-        <app-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
+        <app-footer class="sticky sm:top-0 sm:bottom-0 sm:h-screen" />
     </article>
 </template>
 

@@ -6,7 +6,9 @@
             type="text"
             @input="updateHex($event.target.value)"
         />
-        <span class="dib mt3 f7 ttu tracked black-30">
+        <span
+            class="inline-block mt3 text-xs uppercase tracking-widest black-30"
+        >
             Hue {{ Math.floor(hsl.h) }}º
         </span>
         <range-field
@@ -16,7 +18,9 @@
             :max="360"
             @input="updateHue"
         ></range-field>
-        <span class="dib mt2 f7 ttu tracked black-30">
+        <span
+            class="inline-block mt-2 text-xs uppercase tracking-widest black-30"
+        >
             Saturation {{ Math.floor(hsl.s * 100) }}%
         </span>
         <range-field
@@ -27,7 +31,9 @@
             :step="0.01"
             @input="updateSaturation"
         ></range-field>
-        <span class="dib mt2 f7 ttu tracked black-30">
+        <span
+            class="inline-block mt-2 text-xs uppercase tracking-widest black-30"
+        >
             Lightness {{ Math.floor(hsl.l * 100) }}%
         </span>
         <range-field

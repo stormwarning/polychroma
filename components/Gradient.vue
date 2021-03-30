@@ -1,7 +1,10 @@
 <template>
     <figure :style="{ backgroundImage: gradientCSS }" class="ma0">
         <div class="dn db-l w-100 mw6">
-            <pre :class="$style.source" class="ph4 pv5 ma0 f6 ttl ws-normal">
+            <pre
+                :class="$style.source"
+                class="ph4 pv5 ma0 text-sm ttl ws-normal"
+            >
                 <code>{{ gradientCSS }}</code>
             </pre>
         </div>
@@ -25,7 +28,7 @@
                     ></path>
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 </svg>
-                <span class="relative ml1 ml2-ns lh-solid v-mid">
+                <span class="relative ml1 ml-2-ns lh-solid v-mid">
                     {{ copyButtonText }}
                 </span>
             </base-button>
@@ -49,7 +52,7 @@
                         d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
                     ></path>
                 </svg>
-                <span class="relative ml1 ml2-ns lh-solid v-mid">
+                <span class="relative ml1 ml-2-ns lh-solid v-mid">
                     {{ shareButtonText }}
                 </span>
             </base-button>
