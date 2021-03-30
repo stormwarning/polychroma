@@ -1,5 +1,9 @@
 @import url('https://rsms.me/inter/inter.css');
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 @viewport {
     width: device-width;
 }
@@ -81,7 +85,7 @@ code,
 /**
   Fix tracking issue for right-aligned text.
  */
-.tracked-mega {
+.tracking-mega {
     margin-right: -0.25em;
 }
 
