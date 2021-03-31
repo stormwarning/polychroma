@@ -9,6 +9,7 @@ export default {
     /** Headers of the page. */
     head: {
         htmlAttrs: { class: 'bg-grey-100' },
+        bodyAttrs: { class: 'font-sans antialiased' },
         title: 'Polychroma — Better gradients through colour spaces.',
         meta: [
             { charset: 'utf-8' },

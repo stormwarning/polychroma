@@ -47,7 +47,7 @@ module.exports = {
     },
 
     plugins: [
-        require('tailwindcss-typography'),
-        require('tailwindcss-capsize'),
+        require('@tailwindcss/typography'),
+        require('tailwindcss-capsize').default({}),
     ],
 }

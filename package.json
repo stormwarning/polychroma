@@ -20,21 +20,22 @@
     "@nuxtjs/markdownit": "1.2.10",
     "@nuxtjs/pwa": "3.0.2",
     "chroma-js": "2.1.0",
-    "nuxt": "2.14.5"
+    "nuxt": "2.15.3"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "3.0.x",
+    "@nuxtjs/tailwindcss": "4.0.2",
+    "@tailwindcss/typography": "0.4.0",
     "@zazen/eslint-config": "2.0.x",
     "@zazen/stylelint-config": "1.0.x",
     "eslint": "7.9.x",
     "eslint-plugin-vue": "6.2.x",
     "husky": "4.3.x",
     "lint-staged": "10.3.x",
+    "postcss": "8.2.9",
     "postcss-advanced-variables": "3.0.x",
     "stylelint": "13.7.x",
-    "tailwindcss": "1.8.x",
-    "tailwindcss-capsize": "1.1.x",
-    "tailwindcss-typography": "3.1.x"
+    "tailwindcss": "2.0.4",
+    "tailwindcss-capsize": "1.2.2"
   },
   "engines": {
     "node": ">8.x"
