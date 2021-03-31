@@ -1,17 +1,19 @@
 <template>
-    <form class="ma0 text-sm">
-        <fieldset class="pa0 ma0 bn measure center">
-            <legend class="fw6 uppercase tracking-widest black-30 ma0">
+    <form class="m-0 text-sm">
+        <fieldset class="p-0 m-0 border-none max-w-md mx-auto">
+            <legend
+                class="font-semibold uppercase tracking-widest opacity-25 m-0"
+            >
                 Colour Mode
             </legend>
 
             <div
-                class="shadow-a flex items-center pa3 pa4-ns mt-2 bg-white br1 overflow-hidden"
+                class="shadow-a flex items-center p-4 sm:p-8 mt-2 bg-white rounded-sm overflow-hidden"
             >
                 <label
                     v-for="(m, index) in modes"
                     :key="index"
-                    class="flex items-center my-2 mr3 lh-solid pointer"
+                    class="flex items-center my-2 mr-4 leading-none cursor-pointer"
                 >
                     <input
                         v-model="mode"
@@ -20,28 +22,32 @@
                         type="radio"
                         name="mode"
                     />
-                    <span class="text-xs text-sm-ns tracking-widest">{{
+                    <span class="text-xs sm:text-sm tracking-widest">{{
                         m
                     }}</span>
                 </label>
             </div>
         </fieldset>
 
-        <fieldset class="pa0 ma0 mt5 bn measure center">
-            <legend class="fw6 uppercase tracking-widest black-30 ma0">
+        <fieldset class="p-0 m-0 mt-16 border-none max-w-md mx-auto">
+            <legend
+                class="font-semibold uppercase tracking-widest opacity-25 m-0"
+            >
                 Gradient Options
             </legend>
 
-            <option-group class="gradient-options shadow-a mt-2 bg-white br1">
+            <option-group
+                class="gradient-options shadow-a mt-2 bg-white rounded-sm"
+            >
                 <option-controls>
                     <template slot="summary">
                         <span
-                            class="inline-block text-xs text-sm-ns uppercase tracking-widest black-30"
+                            class="inline-block text-xs sm:text-sm uppercase tracking-widest opacity-25"
                         >
                             Direction
                         </span>
                         <svg
-                            class="w1 h1"
+                            class="w-4 h-4"
                             width="20"
                             height="20"
                             viewBox="0 0 20 20"
@@ -72,19 +78,19 @@
                 <option-controls
                     v-for="(stop, index) in stops"
                     :key="index"
-                    class="bt b--black-10"
+                    class="border-t border-gray-800 border-opacity-25"
                 >
                     <template slot="summary">
                         <span
-                            class="inline-block text-xs text-sm-ns uppercase tracking-widest black-30"
+                            class="inline-block text-xs sm:text-sm uppercase tracking-widest opacity-25"
                         >
-                            <b v-if="index === 0" class="normal">Start</b>
-                            <b v-else class="normal">End</b>
+                            <b v-if="index === 0" class="font-normal">Start</b>
+                            <b v-else class="font-normal">End</b>
                             Colour
                         </span>
                         <span
                             :style="{ backgroundColor: stop.color.hex }"
-                            class="inline-block w1 h1 br-pill"
+                            class="inline-block w-4 h-4 rounded-full"
                         />
                     </template>
                     <color-field

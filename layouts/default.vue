@@ -1,19 +1,21 @@
 <template>
     <article class="min-h-screen">
-        <app-masthead class="mix-burn" />
+        <div class="sticky">
+            <app-masthead class="mix-burn" />
+        </div>
         <main>
             <nav class="p-8">
-                <div class="flex gap-4 m-auto">
+                <div class="flex gap-4 max-w-md mx-auto">
                     <nuxt-link
                         to="/"
                         exact
-                        class="text-sm font-semibold uppercase tracking-widest no-underline leading-4 capsize"
+                        class="py-2 text-sm font-semibold text-gray-500 uppercase tracking-widest no-underline leading-4 capsize"
                     >
                         Controls
                     </nuxt-link>
                     <nuxt-link
                         to="/info"
-                        class="text-sm font-semibold uppercase tracking-widest no-underline leading-4 capsize"
+                        class="py-2 text-sm font-semibold text-gray-500 uppercase tracking-widest no-underline leading-4 capsize"
                     >
                         Info
                     </nuxt-link>

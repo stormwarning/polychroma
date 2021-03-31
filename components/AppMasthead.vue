@@ -1,5 +1,5 @@
 <template>
-    <header class="absolute top-0 right-2 z-10 pt-8">
+    <header class="absolute top-0 right-8 z-10 pt-8">
         <h1
             class="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-mega"
             >Polychroma</h1

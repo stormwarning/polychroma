@@ -1,16 +1,20 @@
 <template>
-    <div class="ma0 text-sm">
-        <div class="pa0 ma0 mb5 bn measure center">
-            <h-8 class="text-sm fw6 uppercase tracking-widest ma0">About</h-8>
+    <div class="m-0 text-sm">
+        <div class="p-0 m-0 mb-16 bn max-w-md mx-auto">
+            <h2 class="text-sm font-semibold uppercase tracking-widest m-0"
+                >About</h2
+            >
             <div class="content" v-html="aboutContent"></div>
 
-            <h-8 class="text-sm fw6 uppercase tracking-widest mt4 mb0"
-                >Background</h-8
+            <h2
+                class="text-sm font-semibold uppercase tracking-widest mt-8 mb-0"
+                >Background</h2
             >
             <div class="content" v-html="backgroundContent"></div>
 
-            <h-8 class="text-sm fw6 uppercase tracking-widest mt4 mb0"
-                >Colophon</h-8
+            <h2
+                class="text-sm font-semibold uppercase tracking-widest mt-8 mb-0"
+                >Colophon</h2
             >
             <div class="content" v-html="colophonContent"></div>
         </div>

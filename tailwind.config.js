@@ -36,6 +36,10 @@ module.exports = {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
 
+            inset: {
+                8: '2rem',
+            },
+
             letterSpacing: {
                 mega: '0.25em',
             },
