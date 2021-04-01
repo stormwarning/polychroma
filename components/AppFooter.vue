@@ -75,7 +75,7 @@ export default {
 .footer {
     grid-area: footer;
 
-    @media screen and (min-width: 60em) {
+    @screen lg {
         grid-area: sidebar;
     }
 }
