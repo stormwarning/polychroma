@@ -2,7 +2,7 @@
     <form class="m-0 text-sm">
         <fieldset class="p-0 m-0 border-none max-w-md mx-auto">
             <legend
-                class="font-semibold uppercase tracking-widest opacity-25 m-0"
+                class="font-semibold uppercase tracking-widest text-grey-700 m-0"
             >
                 Colour Mode
             </legend>
@@ -31,7 +31,7 @@
 
         <fieldset class="p-0 m-0 mt-16 border-none max-w-md mx-auto">
             <legend
-                class="font-semibold uppercase tracking-widest opacity-25 m-0"
+                class="font-semibold uppercase tracking-widest text-grey-700 m-0"
             >
                 Gradient Options
             </legend>
@@ -42,7 +42,7 @@
                 <option-controls>
                     <template slot="summary">
                         <span
-                            class="inline-block text-xs sm:text-sm uppercase tracking-widest opacity-25"
+                            class="inline-block text-xs sm:text-sm font-medium uppercase tracking-widest text-grey-600"
                         >
                             Direction
                         </span>
@@ -78,14 +78,14 @@
                 <option-controls
                     v-for="(stop, index) in stops"
                     :key="index"
-                    class="border-t border-gray-800 border-opacity-25"
+                    class="border-t border-gray-800 border-opacity-10"
                 >
                     <template slot="summary">
                         <span
-                            class="inline-block text-xs sm:text-sm uppercase tracking-widest opacity-25"
+                            class="inline-block text-xs sm:text-sm font-medium uppercase tracking-widest text-grey-600"
                         >
-                            <b v-if="index === 0" class="font-normal">Start</b>
-                            <b v-else class="font-normal">End</b>
+                            <template v-if="index === 0">Start</template>
+                            <template v-else>End</template>
                             Colour
                         </span>
                         <span

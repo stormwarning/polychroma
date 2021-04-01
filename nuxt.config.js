@@ -8,8 +8,8 @@ function getVersion() {
 export default {
     /** Headers of the page. */
     head: {
-        htmlAttrs: { class: 'bg-grey-100' },
-        bodyAttrs: { class: 'font-sans antialiased' },
+        htmlAttrs: { class: 'bg-grey-100 overscroll-none' },
+        bodyAttrs: { class: 'font-sans text-grey-800 antialiased' },
         title: 'Polychroma — Better gradients through colour spaces.',
         meta: [
             { charset: 'utf-8' },

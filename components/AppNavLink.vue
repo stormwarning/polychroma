@@ -1,7 +1,7 @@
 <template>
-    <nuxt-link :to="to" :exact="exact" class="py-2 text-gray-500 no-underline">
+    <nuxt-link :to="to" :exact="exact" class="py-2 text-grey-700 no-underline">
         <span
-            class="text-sm font-semibold leading-4 uppercase tracking-widest capsize"
+            class="block text-sm font-semibold leading-4 uppercase tracking-widest capsize"
         >
             <slot />
         </span>

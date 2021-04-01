@@ -7,7 +7,7 @@
             @input="updateHex($event.target.value)"
         />
         <span
-            class="inline-block mt-4 text-xs uppercase tracking-widest opacity-25"
+            class="inline-block mt-4 text-xs uppercase tracking-widest text-grey-600"
         >
             Hue {{ Math.floor(hsl.h) }}º
         </span>
@@ -19,7 +19,7 @@
             @input="updateHue"
         ></range-field>
         <span
-            class="inline-block mt-4 text-xs uppercase tracking-widest opacity-25"
+            class="inline-block mt-4 text-xs uppercase tracking-widest text-grey-600"
         >
             Saturation {{ Math.floor(hsl.s * 100) }}%
         </span>
@@ -32,7 +32,7 @@
             @input="updateSaturation"
         ></range-field>
         <span
-            class="inline-block mt-4 text-xs uppercase tracking-widest opacity-25"
+            class="inline-block mt-4 text-xs uppercase tracking-widest text-grey-600"
         >
             Lightness {{ Math.floor(hsl.l * 100) }}%
         </span>
