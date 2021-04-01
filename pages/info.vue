@@ -1,19 +1,17 @@
 <template>
     <div class="m-0 text-sm">
-        <div class="p-0 m-0 mb-16 bn max-w-md mx-auto">
-            <h2 class="text-sm font-semibold uppercase tracking-widest m-0"
+        <div class="p-0 m-0 mb-16 max-w-md mx-auto">
+            <h2 class="text-sm font-semibold uppercase tracking-widest"
                 >About</h2
             >
             <div class="prose prose-sm" v-html="aboutContent"></div>
 
-            <h2
-                class="text-sm font-semibold uppercase tracking-widest mt-8 mb-0"
+            <h2 class="text-sm font-semibold uppercase tracking-widest mt-8"
                 >Background</h2
             >
             <div class="prose prose-sm" v-html="backgroundContent"></div>
 
-            <h2
-                class="text-sm font-semibold uppercase tracking-widest mt-8 mb-0"
+            <h2 class="text-sm font-semibold uppercase tracking-widest mt-8"
                 >Colophon</h2
             >
             <div class="prose prose-sm" v-html="colophonContent"></div>

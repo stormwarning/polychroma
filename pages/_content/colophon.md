@@ -1,9 +1,8 @@
 Polychroma is built with [Nuxt.js](https://nuxtjs.org/) — a 
-[Vue.js](https://vuejs.org/) framework — and the
-[chroma.js](https://vis4.net/chromajs/) library by 
-Gregor&nbsp;Aisch.
+[Vue.js](https://vuejs.org/) framework — and 
+[chroma.js](https://vis4.net/chromajs/) by Gregor&nbsp;Aisch.
 
-It uses [Tachyons](http://tachyons.io/) for most of the styling,
+It uses [Tailwind CSS](https://tailwindcss.com/) for most of the styling,
 with a few tweaks and custom&nbsp;styles.
 
 The text is set in [Inter](https://rsms.me/inter/),
