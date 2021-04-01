@@ -4,19 +4,19 @@
             <h2 class="text-sm font-semibold uppercase tracking-widest m-0"
                 >About</h2
             >
-            <div class="content" v-html="aboutContent"></div>
+            <div class="prose prose-sm" v-html="aboutContent"></div>
 
             <h2
                 class="text-sm font-semibold uppercase tracking-widest mt-8 mb-0"
                 >Background</h2
             >
-            <div class="content" v-html="backgroundContent"></div>
+            <div class="prose prose-sm" v-html="backgroundContent"></div>
 
             <h2
                 class="text-sm font-semibold uppercase tracking-widest mt-8 mb-0"
                 >Colophon</h2
             >
-            <div class="content" v-html="colophonContent"></div>
+            <div class="prose prose-sm" v-html="colophonContent"></div>
         </div>
     </div>
 </template>

@@ -58,10 +58,6 @@ code,
         monospace;
 }
 
-.sticky {
-    position: sticky;
-}
-
 /**
   Tachyons-like utility classes.
  */

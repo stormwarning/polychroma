@@ -43,6 +43,21 @@ module.exports = {
             letterSpacing: {
                 mega: '0.25em',
             },
+
+            typography: {
+                DEFAULT: {
+                    css: {
+                        code: {
+                            padding: '0.1875rem 0.25rem',
+                            margin: '0 1px',
+                            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                            borderRadius: '0.125rem',
+                        },
+                        'code::before': { content: 'none' },
+                        'code::after': { content: 'none' },
+                    },
+                },
+            },
         },
     },
 

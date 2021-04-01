@@ -51,14 +51,7 @@ export default {
             },
             { property: 'og:site_name', content: 'Polychroma' },
         ],
-        link: [
-            // {
-            //     rel: 'stylesheet',
-            //     href: 'https://unpkg.com/tachyons@4.7.4/css/tachyons.min.css',
-            // },
-
-            { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
-        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }],
     },
 
     /** Global CSS. */
