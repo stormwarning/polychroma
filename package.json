@@ -1,19 +1,35 @@
 {
-  "private": true,
   "name": "polychroma",
+  "version": "2.1.1",
+  "private": true,
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff <rustyangel@gmail.com>",
-  "version": "2.1.1",
   "scripts": {
     "build": "nuxt build",
     "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
     "dev": "nuxt",
     "generate": "nuxt generate",
-    "lint": "yarn lint:scripts && yarn lint:styles",
+    "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**' --ignore-pattern 'static/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
     "start": "nuxt start",
-    "test": "yarn lint"
+    "test": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint --fix",
+    "*.{css,vue}": "stylelint --fix",
+    "package.json": "prettier --write"
+  },
+  "prettier": {
+    "htmlWhitespaceSensitivity": "strict",
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "2.4.0",
@@ -42,24 +58,7 @@
     "tailwindcss-capsize": "1.2.2"
   },
   "engines": {
-    "node": ">8.x"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,vue}": "eslint --fix",
-    "*.{css,vue}": "stylelint --fix",
-    "package.json": "prettier --write"
-  },
-  "prettier": {
-    "htmlWhitespaceSensitivity": "strict",
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "all"
+    "node": ">12.x"
   },
   "importSort": {
     ".js,.ts,.vue": {
