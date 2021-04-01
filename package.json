@@ -37,7 +37,7 @@
     "@nuxtjs/markdownit": "1.2.10",
     "@nuxtjs/pwa": "3.0.2",
     "chroma-js": "2.1.0",
-    "nuxt": "2.15.3"
+    "nuxt": "2.15.4"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.3.0",
