@@ -6,6 +6,7 @@
   "author": "Jeff <rustyangel@gmail.com>",
   "scripts": {
     "build": "nuxt build",
+    "changeset": "changeset add",
     "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
     "dev": "nuxt",
     "generate": "nuxt generate",
