@@ -39,6 +39,8 @@
     "nuxt": "2.15.3"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "0.3.0",
+    "@changesets/cli": "2.14.1",
     "@nuxtjs/tailwindcss": "4.0.2",
     "@tailwindcss/typography": "0.4.0",
     "@zazen/eslint-config": "2.1.x",

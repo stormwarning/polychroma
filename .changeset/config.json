@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@1.5.0/schema.json",
+  "access": "restricted",
+  "baseBranch": "main",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "stormwarning/polychroma" }
+  ],
+  "commit": false,
+  "ignore": [],
+  "linked": [],
+  "updateInternalDependencies": "patch"
+}
