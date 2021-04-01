@@ -105,12 +105,10 @@
 
 <script>
 import { mapState } from 'vuex'
-
 import ColorField from '~/components/ColorField.vue'
-import RangeField from '~/components/RangeField.vue'
-import OptionGroup from '~/components/OptionGroup.vue'
 import OptionControls from '~/components/OptionControls.vue'
-
+import OptionGroup from '~/components/OptionGroup.vue'
+import RangeField from '~/components/RangeField.vue'
 export default {
     components: {
         OptionGroup,
@@ -118,17 +116,14 @@ export default {
         ColorField,
         RangeField,
     },
-
     transition: {
         mode: 'out-in',
     },
-
     data() {
         return {
             modes: ['RGB', 'Lab', 'HSL', 'Lch'],
         }
     },
-
     computed: {
         mode: {
             get() {
@@ -138,23 +133,19 @@ export default {
                 this.$store.dispatch('changeMode', mode)
             },
         },
-
-        rotation: function() {
+        rotation: function () {
             return `rotate(${this.direction} 10 10)`
         },
-
         ...mapState({
             version: (state) => state.version,
             direction: (state) => state.direction,
             stops: (state) => state.colorStops,
         }),
     },
-
     methods: {
         rotateGradient(dir) {
             this.$store.dispatch('rotate', dir)
         },
-
         changeColorStop(color, stop) {
             this.$store.dispatch('changeColor', { color, stop })
         },

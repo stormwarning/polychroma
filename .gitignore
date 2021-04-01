@@ -12,3 +12,5 @@ dist
 
 # Service worker
 sw.*
+
+.vercel
