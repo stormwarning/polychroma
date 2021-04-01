@@ -1,18 +1,8 @@
 <template>
     <button
-        class="button-reset flex items-center pa2 pa3-ns f7 f7-ns ttu tracked lh-solid black-90 bg-grey-100 bn br1 tl outline-0 pointer shadow-a relative"
-        :class="$style.button"
+        class="relative flex items-center p-2 sm:p-4 text-xs font-medium text-gray-900 leading-none uppercase tracking-widest bg-gray-100 hover:bg-white focus:bg-white border-none rounded-sm outline-none cursor-pointer shadow-a"
         v-on="$listeners"
     >
         <slot />
     </button>
 </template>
-
-<style lang="postcss" module>
-.button {
-    &:hover,
-    &:focus {
-        background-color: #fff;
-    }
-}
-</style>

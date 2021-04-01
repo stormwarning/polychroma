@@ -1,48 +1,60 @@
 <template>
-    <form class="ma0 f6">
-        <fieldset class="pa0 ma0 bn measure center">
-            <legend class="fw6 ttu tracked black-30 ma0">Colour Mode</legend>
+    <form class="m-0 text-sm">
+        <fieldset class="p-0 m-0 border-none max-w-md mx-auto">
+            <legend
+                class="font-semibold uppercase tracking-widest text-grey-700 m-0"
+            >
+                Colour Mode
+            </legend>
 
             <div
-                class="shadow-a flex items-center pa3 pa4-ns mt2 bg-white br1 overflow-hidden"
+                class="shadow-a flex items-center p-4 sm:p-8 mt-2 bg-white rounded-sm overflow-hidden"
             >
                 <label
                     v-for="(m, index) in modes"
                     :key="index"
-                    class="flex items-center mv2 mr3 lh-solid pointer"
+                    class="flex items-center my-2 mr-4 leading-none cursor-pointer"
                 >
                     <input
                         v-model="mode"
                         :value="m.toLowerCase()"
-                        class="mr2"
+                        class="mr-2"
                         type="radio"
                         name="mode"
                     />
-                    <span class="f7 f6-ns tracked">{{ m }}</span>
+                    <span class="text-xs sm:text-sm tracking-widest">{{
+                        m
+                    }}</span>
                 </label>
             </div>
         </fieldset>
 
-        <fieldset class="pa0 ma0 mt5 bn measure center">
-            <legend class="fw6 ttu tracked black-30 ma0">
+        <fieldset class="p-0 m-0 mt-16 border-none max-w-md mx-auto">
+            <legend
+                class="font-semibold uppercase tracking-widest text-grey-700 m-0"
+            >
                 Gradient Options
             </legend>
 
-            <option-group class="gradient-options shadow-a mt2 bg-white br1">
+            <option-group
+                class="gradient-options shadow-a mt-2 bg-white rounded-sm"
+            >
                 <option-controls>
                     <template slot="summary">
-                        <span class="dib f7 f6-ns ttu tracked black-30">
+                        <span
+                            class="inline-block text-xs sm:text-sm font-medium uppercase tracking-widest text-grey-600"
+                        >
                             Direction
                         </span>
                         <svg
-                            class="w1 h1"
+                            class="w-4 h-4"
                             width="20"
                             height="20"
                             viewBox="0 0 20 20"
                         >
                             <path
                                 :transform="rotation"
-                                d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h2V2z"
+                                d="M10 20C4.47715 20 0 15.52285 0 10S4.47715 0 10 0s10 4.47715 10 10-4.47715 10-10 10zm1-18H9v7h-8V2z"
                                 fill-rule="nonzero"
                                 fill="#000"
                                 fill-opacity="0"
@@ -66,17 +78,19 @@
                 <option-controls
                     v-for="(stop, index) in stops"
                     :key="index"
-                    class="bt b--black-10"
+                    class="border-t border-gray-800 border-opacity-10"
                 >
                     <template slot="summary">
-                        <span class="dib f7 f6-ns ttu tracked black-30">
-                            <b v-if="index === 0" class="normal">Start</b>
-                            <b v-else class="normal">End</b>
+                        <span
+                            class="inline-block text-xs sm:text-sm font-medium uppercase tracking-widest text-grey-600"
+                        >
+                            <template v-if="index === 0">Start</template>
+                            <template v-else>End</template>
                             Colour
                         </span>
                         <span
                             :style="{ backgroundColor: stop.color.hex }"
-                            class="dib w1 h1 br-pill"
+                            class="inline-block w-4 h-4 rounded-full"
                         />
                     </template>
                     <color-field

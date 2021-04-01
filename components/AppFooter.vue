@@ -1,22 +1,26 @@
 <template>
     <footer
-        class="relative z-1 flex items-end black-70 ph4 ph5-m pv4 pv5-ns overflow-hidden"
+        class="relative z-10 flex items-end px-8 py-8 sm:py-16 overflow-hidden"
         :class="$style.footer"
     >
-        <app-masthead class="dn db-ns" aria-hidden="true" />
-        <div class="flex-auto mt4-ns measure center">
-            <p class="f7 lh-copy ttu tracked tr">
+        <app-masthead class="hidden sm:block" aria-hidden="true" />
+        <div class="flex-auto max-w-lg sm:mt-8 mx-auto">
+            <p
+                class="text-xs leading-normal tracking-widest text-right uppercase"
+            >
                 By
                 <a
-                    class="link black hover-black-70"
-                    href="http://tidaltheory.co/"
+                    class="text-black hover:opacity-75 focus:opacity-75"
+                    href="https://tidaltheory.io/"
                 >
                     @stormwarning
                 </a>
             </p>
-            <div class="flex justify-end mt2 f7 lh-copy ttu tracked tr">
+            <div
+                class="flex justify-end mt-2 text-xs leading-normal uppercase tracking-widest text-right"
+            >
                 <a
-                    class="link black hover-black-70 dib w2 h2 pa2"
+                    class="text-black hover:opacity-75 focus:opacity-75 inline-block w-8 h-8 p-2"
                     href="https://github.com/stormwarning/polychroma"
                 >
                     <svg
@@ -34,7 +38,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link black hover-black-70 dib w2 h2 pa2 ml2"
+                    class="text-black hover:opacity-75 focus:opacity-75 inline-block w-8 h-8 p-2 ml-2"
                     href="https://twitter.com/stormwarning"
                 >
                     <svg
@@ -71,7 +75,7 @@ export default {
 .footer {
     grid-area: footer;
 
-    @media screen and (min-width: 60em) {
+    @screen lg {
         grid-area: sidebar;
     }
 }

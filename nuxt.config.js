@@ -6,13 +6,10 @@ function getVersion() {
 }
 
 export default {
-    mode: 'universal',
-
-    /**
-      Headers of the page
-     */
+    /** Headers of the page. */
     head: {
-        htmlAttrs: { class: 'bg-grey-100' },
+        htmlAttrs: { class: 'bg-grey-100 overscroll-none' },
+        bodyAttrs: { class: 'font-sans text-grey-800 antialiased' },
         title: 'Polychroma — Better gradients through colour spaces.',
         meta: [
             { charset: 'utf-8' },
@@ -37,15 +34,15 @@ export default {
             { name: 'twitter:creator', content: '@stormwarning' },
             {
                 name: 'twitter:image:src',
-                content: 'https://polychroma.now.sh/icon-1024.png',
+                content: 'https://polychroma.app/icon-1024.png',
             },
 
             { property: 'og:title', content: 'Polychroma' },
             { property: 'og:type', content: 'website' },
-            { property: 'og:url', content: 'https://polychroma.now.sh/' },
+            { property: 'og:url', content: 'https://polychroma.app/' },
             {
                 property: 'og:image',
-                content: 'https://polychroma.now.sh/icon-1024.png',
+                content: 'https://polychroma.app/icon-1024.png',
             },
             {
                 property: 'og:description',
@@ -54,19 +51,10 @@ export default {
             },
             { property: 'og:site_name', content: 'Polychroma' },
         ],
-        link: [
-            {
-                rel: 'stylesheet',
-                href: 'https://unpkg.com/tachyons@4.7.4/css/tachyons.min.css',
-            },
-
-            { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
-        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }],
     },
 
-    /**
-      Global CSS
-     */
+    /** Global CSS. */
     css: ['~assets/css/main.css'],
 
     env: {
@@ -94,6 +82,12 @@ export default {
         ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
         '@nuxtjs/pwa',
     ],
+
+    buildModules: ['@nuxtjs/tailwindcss'],
+
+    tailwindcss: {
+        cssPath: '~/assets/css/main.css',
+    },
 
     manifest: {
         name: 'Polychroma',

@@ -1,23 +1,25 @@
 <template>
-    <fieldset class="pa0 ma0 mb5 bn measure center">
-        <legend class="f6 ttu tracked black-30 mb2">Colour Mode</legend>
+    <fieldset class="p-0 m-0 mb-16 border-none max-w-md mx-auto">
+        <legend class="text-sm uppercase tracking-widest opacity-25 mb-2"
+            >Colour Mode</legend
+        >
 
         <div
-            class="drop-shadow flex items-center pa3 pa4-ns bg-white br1 overflow-hidden"
+            class="flex items-center p-4 sm:p-8 bg-white rounded-sm shadow-a overflow-hidden"
         >
             <label
                 v-for="(m, index) in modes"
                 :key="index"
-                class="flex items-center mv2 mr3 lh-solid pointer"
+                class="flex items-center my-2 mr-4 leading-none cursor-pointer"
             >
                 <input
                     v-model="mode"
                     :value="m.toLowerCase()"
-                    class="mr2"
+                    class="mr-2"
                     type="radio"
                     name="mode"
                 />
-                <span class="f7 f6-ns tracked">{{ m }}</span>
+                <span class="text-xs sm:text-sm tracking-widest">{{ m }}</span>
             </label>
         </div>
     </fieldset>

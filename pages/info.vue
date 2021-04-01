@@ -1,14 +1,20 @@
 <template>
-    <div class="ma0 f6">
-        <div class="pa0 ma0 mb5 bn measure center">
-            <h2 class="f6 fw6 ttu tracked ma0">About</h2>
-            <div class="content" v-html="aboutContent"></div>
+    <div class="m-0 text-sm">
+        <div class="p-0 m-0 mb-16 max-w-md mx-auto">
+            <h2 class="text-sm font-semibold uppercase tracking-widest"
+                >About</h2
+            >
+            <div class="prose prose-sm" v-html="aboutContent"></div>
 
-            <h2 class="f6 fw6 ttu tracked mt4 mb0">Background</h2>
-            <div class="content" v-html="backgroundContent"></div>
+            <h2 class="text-sm font-semibold uppercase tracking-widest mt-8"
+                >Background</h2
+            >
+            <div class="prose prose-sm" v-html="backgroundContent"></div>
 
-            <h2 class="f6 fw6 ttu tracked mt4 mb0">Colophon</h2>
-            <div class="content" v-html="colophonContent"></div>
+            <h2 class="text-sm font-semibold uppercase tracking-widest mt-8"
+                >Colophon</h2
+            >
+            <div class="prose prose-sm" v-html="colophonContent"></div>
         </div>
     </div>
 </template>

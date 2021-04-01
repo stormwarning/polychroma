@@ -1,5 +1,9 @@
 @import url('https://rsms.me/inter/inter.css');
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 @viewport {
     width: device-width;
 }
@@ -22,56 +26,15 @@
     --blue-7: #1c7ed6;
 }
 
-html {
-    font-family: 'Inter', sans-serif;
-    color: #212529;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 body {
     overscroll-behavior: none;
 }
 
-/**
-  Tachyons overrides.
- */
-.b {
-    font-weight: 600;
-}
-
 code,
 .code {
-    font-family: 'SF Mono',
- 'SFMono-Regular',
- Consolas,
- 'Liberation Mono',
- Menlo,
+    /* stylelint-disable-next-line value-list-comma-newline-after */
+    font-family: 'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
         monospace;
-}
-
-.sticky {
-    position: sticky;
-}
-
-/**
-  Tachyons-like utility classes.
- */
-.shadow-a {
-    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px,
-        0 20px 50px 0 rgba(0, 0, 0, 0.14);
-}
-
-.shadow-b {
-    box-shadow: rgba(0, 0, 0, 0.12) 0 2px 10px, 0 50px 50px 0 rgba(0, 0, 0, 0.1);
-}
-
-.bg-grey-100 {
-    background-color: var(--grey-1);
 }
 
 .mix-burn {
@@ -81,16 +44,11 @@ code,
 /**
   Fix tracking issue for right-aligned text.
  */
-.tracked-mega {
+.tracking-mega {
     margin-right: -0.25em;
 }
 
-.button-reset svg {
-    top: -1px;
-}
-
 .nuxt-link-active {
-    color: var(--grey-9);
     border-bottom: 0.125rem solid currentColor;
 }
 

@@ -16,25 +16,30 @@
     "test": "yarn lint"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "2.4.x",
-    "@nuxtjs/markdownit": "1.2.x",
-    "@nuxtjs/pwa": "2.6.x",
-    "chroma-js": "2.1.x",
-    "nuxt": "2.11.x"
+    "@nuxtjs/google-analytics": "2.4.0",
+    "@nuxtjs/markdownit": "1.2.10",
+    "@nuxtjs/pwa": "3.0.2",
+    "chroma-js": "2.1.0",
+    "nuxt": "2.15.3"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "4.0.2",
+    "@tailwindcss/typography": "0.4.0",
     "@zazen/eslint-config": "2.1.x",
     "@zazen/stylelint-config": "1.0.x",
     "eslint": "7.14.x",
     "eslint-plugin-vue": "7.1.x",
     "husky": "4.3.x",
-    "import-sort-style-python": "1.0.x",
+    "import-sort-style-python": "1.0.2",
     "lint-staged": "10.5.x",
+    "postcss": "8.2.9",
     "postcss-advanced-variables": "3.0.x",
     "prettier": "2.1.x",
     "prettier-plugin-import-sort": "0.0.6",
     "prettier-plugin-packagejson": "2.2.x",
-    "stylelint": "13.8.x"
+    "stylelint": "13.8.x",
+    "tailwindcss": "2.0.4",
+    "tailwindcss-capsize": "1.2.2"
   },
   "engines": {
     "node": ">8.x"
@@ -45,18 +50,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{css,vue}": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "package.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,vue}": "eslint --fix",
+    "*.{css,vue}": "stylelint --fix",
+    "package.json": "prettier --write"
   },
   "prettier": {
     "htmlWhitespaceSensitivity": "strict",

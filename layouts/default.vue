@@ -1,45 +1,35 @@
 <template>
-    <article class="min-vh-100 lh-copy">
-        <app-masthead class="mix-burn" />
+    <article class="min-h-screen">
+        <div
+            class="header sticky top-0 z-10 sm:h-screen pointer-events-none mix-burn"
+        >
+            <app-masthead class="mix-burn" />
+        </div>
         <main>
-            <nav class="pa4">
-                <div class="f6 measure center">
-                    <nuxt-link
-                        to="/"
-                        exact
-                        class="dib pt1 pb2 fw6 ttu tracked black-30 no-underline dim"
-                    >
-                        Controls
-                    </nuxt-link>
-                    <nuxt-link
-                        to="/info"
-                        class="dib pt1 pb2 ml3 fw6 ttu tracked black-30 no-underline dim"
-                    >
-                        Info
-                    </nuxt-link>
-                </div>
-            </nav>
-            <section class="pa4 pt0-ns pb5-ns">
+            <app-nav />
+            <section class="p-8 sm:pt-0 sm:pb-16">
                 <nuxt />
             </section>
-            <gradient-result class="sticky top-0-ns bottom-0-ns vh-100-ns" />
+            <gradient-result class="sticky sm:top-0 sm:bottom-0 sm:h-screen" />
         </main>
-        <app-footer class="sticky top-0-ns bottom-0-ns vh-100-ns" />
+        <app-footer class="sticky sm:top-0 sm:bottom-0 sm:h-screen" />
     </article>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
-import AppMasthead from '~/components/AppMasthead'
-import GradientResult from '~/components/Gradient.vue'
 import AppFooter from '~/components/AppFooter'
+import AppMasthead from '~/components/AppMasthead'
+import AppNav from '~/components/AppNav.vue'
+import GradientResult from '~/components/Gradient.vue'
 
 export default {
     components: {
         AppFooter,
         AppMasthead,
         GradientResult,
+        AppNav,
     },
 
     computed: {
@@ -58,7 +48,7 @@ article {
     grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 60em) {
+@screen lg {
     article {
         grid-template-areas: 'main sidebar';
         grid-template-rows: auto;
@@ -74,7 +64,7 @@ main {
     grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 60em) {
+@screen lg {
     main {
         grid-template-areas: 'navbar result' 'content result';
         grid-template-rows: 8.5rem auto;
@@ -92,5 +82,12 @@ nav {
 
 figure {
     grid-area: result;
+}
+
+.header {
+    @screen lg {
+        grid-area: sidebar;
+        grid-row: 1;
+    }
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
     <details>
-        <summary class="pointer outline-0" @click="notifyOfClick">
-            <div class="w-100 flex items-center justify-between pa3 pa4-ns">
+        <summary class="cursor-pointer outline-none" @click="notifyOfClick">
+            <div class="w-full flex items-center justify-between p-4 sm:p-8">
                 <slot name="summary"></slot>
             </div>
         </summary>
-        <div class="relative pa3 pa4-ns pt0-ns pr3-ns nt3 mr4 mr5-ns">
+        <div class="relative p-4 sm:p-8 sm:pt-0 sm:pr-4 -mt-4 mr-8 sm:mr-16">
             <slot></slot>
         </div>
     </details>

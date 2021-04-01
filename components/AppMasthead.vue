@@ -1,7 +1,15 @@
 <template>
-    <header class="absolute top-0 right-2 z-1 pt4">
-        <h1 class="mb0 f3 f2-ns f1-l ttu tracked-mega">Polychroma</h1>
-        <span class="db fw7 tr f6 f5-ns">v{{ version }}</span>
+    <header class="absolute top-0 right-8 z-10 pt-20">
+        <h1
+            class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-none uppercase tracking-mega capsize"
+            >Polychroma</h1
+        >
+        <div class="mt-4">
+            <span
+                class="block font-bold text-right text-sm sm:text-base leading-none capsize"
+                >v{{ version }}</span
+            >
+        </div>
     </header>
 </template>
 
