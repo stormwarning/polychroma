@@ -5,6 +5,6 @@ module.exports = {
             true,
             { ignoreAtRules: ['include', 'mixin', 'screen', 'apply'] },
         ],
-        'value-list-comma-newline-after': 'never-multi-line',
+        'value-list-comma-newline-after': null,
     },
 }

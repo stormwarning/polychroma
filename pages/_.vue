@@ -22,7 +22,7 @@ export default {
     /**
      * Redirect to main page without changing browser history.
      */
-    created: function() {
+    created: function () {
         this.$router.replace('/')
     },
 }

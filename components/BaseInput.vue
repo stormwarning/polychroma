@@ -34,11 +34,7 @@ export default {
     width: 100%;
     padding: 0;
     margin: 0;
-    font-family: 'SF Mono',
- 'SFMono-Regular',
- Consolas,
- 'Liberation Mono',
- Menlo,
+    font-family: 'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
         monospace;
     line-height: 1;
     border: 0;

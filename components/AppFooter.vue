@@ -1,10 +1,10 @@
 <template>
     <footer
-        class="relative z-10 flex items-end px-8 py-8 sm:py-16 overflow-hidden"
+        class="relative z-10 flex items-end px-8 py-8 lg:py-16 overflow-hidden"
         :class="$style.footer"
     >
-        <app-masthead class="hidden sm:block" aria-hidden="true" />
-        <div class="flex-auto max-w-lg sm:mt-8 mx-auto">
+        <app-masthead class="hidden lg:block" aria-hidden="true" />
+        <div class="flex-auto max-w-md lg:mt-8 mx-auto">
             <p
                 class="text-xs leading-normal tracking-widest text-right uppercase"
             >
@@ -63,7 +63,6 @@
 
 <script>
 import AppMasthead from '~/components/AppMasthead'
-
 export default {
     components: {
         AppMasthead,

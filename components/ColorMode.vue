@@ -5,7 +5,7 @@
         >
 
         <div
-            class="flex items-center p-4 sm:p-8 bg-white rounded-sm shadow-a overflow-hidden"
+            class="flex items-center p-4 lg:p-8 bg-white rounded-sm shadow-a overflow-hidden"
         >
             <label
                 v-for="(m, index) in modes"
@@ -19,7 +19,7 @@
                     type="radio"
                     name="mode"
                 />
-                <span class="text-xs sm:text-sm tracking-widest">{{ m }}</span>
+                <span class="text-xs lg:text-sm tracking-widest">{{ m }}</span>
             </label>
         </div>
     </fieldset>

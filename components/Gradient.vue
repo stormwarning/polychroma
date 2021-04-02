@@ -27,7 +27,7 @@
                     ></path>
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 </svg>
-                <span class="relative ml-1 sm:ml-2 leading-none">
+                <span class="relative ml-1 lg:ml-2 leading-none">
                     {{ copyButtonText }}
                 </span>
             </base-button>
@@ -50,7 +50,7 @@
                         d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
                     ></path>
                 </svg>
-                <span class="relative ml-1 sm:ml-2 leading-none">
+                <span class="relative ml-1 lg:ml-2 leading-none">
                     {{ shareButtonText }}
                 </span>
             </base-button>
@@ -61,7 +61,6 @@
 <script>
 import chroma from 'chroma-js'
 import { mapState } from 'vuex'
-
 import BaseButton from '~/components/BaseButton'
 import { copyTextToClipboard } from '~/utils/clipboard'
 
@@ -88,11 +87,10 @@ export default {
             mode: (state) => state.colorMode,
         }),
 
-        gradientCSS: function() {
+        gradientCSS: function () {
             let dir = `${this.dir}deg`
             let stops = this.stops
             let mode = this.mode
-
             let steps = mode !== 'rgb' ? stops.length + 5 : stops.length
             let string = 'linear-gradient('
             let keyColors = []
@@ -101,10 +99,7 @@ export default {
             let positions = []
 
             stops.map((stop) => keyColors.push(stop.color.hex))
-            scale = chroma
-                .scale(keyColors)
-                .mode(mode)
-                .correctLightness()
+            scale = chroma.scale(keyColors).mode(mode).correctLightness()
             ;[...Array(steps).keys()].map((col, index) => {
                 let t = index / (steps - 1)
                 colors.push(scale(t).hex())
@@ -117,7 +112,7 @@ export default {
         },
     },
 
-    created: function() {
+    created: function () {
         if (process.client) {
             this.origin = window.location.origin
         }
@@ -127,7 +122,6 @@ export default {
         copyCSS(code) {
             copyTextToClipboard(code)
             this.copyButtonText = 'Copied!'
-
             setTimeout(() => {
                 this.copyButtonText = COPY_LABEL
             }, 2000)
@@ -143,7 +137,6 @@ export default {
 
             copyTextToClipboard(this.origin + str)
             this.shareButtonText = 'Copied!'
-
             setTimeout(() => {
                 this.shareButtonText = SHARE_LABEL
             }, 2000)

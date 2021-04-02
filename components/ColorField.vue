@@ -49,7 +49,6 @@
 
 <script>
 import chroma from 'chroma-js'
-
 import BaseInput from '~/components/BaseInput'
 import RangeField from '~/components/RangeField'
 
