@@ -57,7 +57,7 @@
     "prettier-plugin-import-sort": "0.0.6",
     "prettier-plugin-packagejson": "2.2.x",
     "stylelint": "13.8.x",
-    "tailwindcss": "2.0.4",
+    "tailwindcss": "2.1.2",
     "tailwindcss-capsize": "1.2.2"
   },
   "engines": {
