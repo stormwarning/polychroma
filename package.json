@@ -51,7 +51,7 @@
     "husky": "4.3.x",
     "import-sort-style-python": "1.0.2",
     "lint-staged": "10.5.x",
-    "postcss": "8.2.9",
+    "postcss": "8.3.11",
     "postcss-advanced-variables": "3.0.x",
     "prettier": "2.1.x",
     "prettier-plugin-import-sort": "0.0.6",
