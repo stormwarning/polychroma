@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "2.4.0",
-    "@nuxtjs/markdownit": "1.2.10",
+    "@nuxtjs/markdownit": "2.0.0",
     "@nuxtjs/pwa": "3.3.5",
     "chroma-js": "2.1.0",
     "nuxt": "2.15.4"
