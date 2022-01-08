@@ -82,16 +82,18 @@ export default {
     modules: [
         ['@nuxtjs/google-analytics', { ua: 'UA-58836125-4' }],
         ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
-        '@nuxtjs/pwa',
+        [
+            '@nuxtjs/pwa',
+            {
+                meta: { appleStatusBarStyle: 'black-translucent' },
+                manifest: { name: 'Polychroma' },
+            },
+        ],
     ],
 
     buildModules: ['@nuxtjs/tailwindcss'],
 
     tailwindcss: {
         cssPath: '~/assets/css/main.css',
-    },
-
-    manifest: {
-        name: 'Polychroma',
     },
 }
