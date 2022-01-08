@@ -27,7 +27,7 @@ export default {
 
     methods: {
         handleChildClicked(childId) {
-            for (const id in this.childrenToggled) {
+            for (let id in this.childrenToggled) {
                 if (this.childrenToggled[id] && id !== childId) {
                     this.$emit('toggle-child', id)
                     this.childrenToggled[id] = false

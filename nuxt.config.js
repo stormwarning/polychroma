@@ -34,7 +34,7 @@ export default {
             { name: 'twitter:creator', content: '@stormwarning' },
             {
                 name: 'twitter:image:src',
-                content: 'https://polychroma.app/icon-1024.png',
+                content: 'https://polychroma.app/icon.png',
             },
 
             { property: 'og:title', content: 'Polychroma' },
@@ -42,7 +42,7 @@ export default {
             { property: 'og:url', content: 'https://polychroma.app/' },
             {
                 property: 'og:image',
-                content: 'https://polychroma.app/icon-1024.png',
+                content: 'https://polychroma.app/icon.png',
             },
             {
                 property: 'og:description',
@@ -64,6 +64,8 @@ export default {
     build: {
         postcss: {
             plugins: {
+                autoprefixer: {},
+
                 // https://github.com/jonathantneal/postcss-advanced-variables#features
                 'postcss-advanced-variables': {},
 
@@ -80,16 +82,18 @@ export default {
     modules: [
         ['@nuxtjs/google-analytics', { ua: 'UA-58836125-4' }],
         ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
-        '@nuxtjs/pwa',
+        [
+            '@nuxtjs/pwa',
+            {
+                meta: { appleStatusBarStyle: 'black-translucent' },
+                manifest: { name: 'Polychroma' },
+            },
+        ],
     ],
 
     buildModules: ['@nuxtjs/tailwindcss'],
 
     tailwindcss: {
         cssPath: '~/assets/css/main.css',
-    },
-
-    manifest: {
-        name: 'Polychroma',
     },
 }

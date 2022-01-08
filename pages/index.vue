@@ -8,7 +8,7 @@
             </legend>
 
             <div
-                class="shadow-a flex items-center p-4 sm:p-8 mt-2 bg-white rounded-sm overflow-hidden"
+                class="shadow-a flex items-center p-4 lg:p-8 mt-2 bg-white rounded-sm overflow-hidden"
             >
                 <label
                     v-for="(m, index) in modes"
@@ -22,7 +22,7 @@
                         type="radio"
                         name="mode"
                     />
-                    <span class="text-xs sm:text-sm tracking-widest">{{
+                    <span class="text-xs lg:text-sm tracking-widest">{{
                         m
                     }}</span>
                 </label>
@@ -42,7 +42,7 @@
                 <option-controls>
                     <template slot="summary">
                         <span
-                            class="inline-block text-xs sm:text-sm font-medium uppercase tracking-widest text-grey-600"
+                            class="inline-block text-xs lg:text-sm font-medium uppercase tracking-widest text-grey-600"
                         >
                             Direction
                         </span>
@@ -82,7 +82,7 @@
                 >
                     <template slot="summary">
                         <span
-                            class="inline-block text-xs sm:text-sm font-medium uppercase tracking-widest text-grey-600"
+                            class="inline-block text-xs lg:text-sm font-medium uppercase tracking-widest text-grey-600"
                         >
                             <template v-if="index === 0">Start</template>
                             <template v-else>End</template>
@@ -109,6 +109,7 @@ import ColorField from '~/components/ColorField.vue'
 import OptionControls from '~/components/OptionControls.vue'
 import OptionGroup from '~/components/OptionGroup.vue'
 import RangeField from '~/components/RangeField.vue'
+
 export default {
     components: {
         OptionGroup,
@@ -116,14 +117,17 @@ export default {
         ColorField,
         RangeField,
     },
+
     transition: {
         mode: 'out-in',
     },
+
     data() {
         return {
             modes: ['RGB', 'Lab', 'HSL', 'Lch'],
         }
     },
+
     computed: {
         mode: {
             get() {
@@ -133,19 +137,23 @@ export default {
                 this.$store.dispatch('changeMode', mode)
             },
         },
+
         rotation: function () {
             return `rotate(${this.direction} 10 10)`
         },
+
         ...mapState({
             version: (state) => state.version,
             direction: (state) => state.direction,
             stops: (state) => state.colorStops,
         }),
     },
+
     methods: {
         rotateGradient(dir) {
             this.$store.dispatch('rotate', dir)
         },
+
         changeColorStop(color, stop) {
             this.$store.dispatch('changeColor', { color, stop })
         },

@@ -6,7 +6,7 @@
         >
         <div class="mt-4">
             <span
-                class="block font-bold text-right text-sm sm:text-base leading-none capsize"
+                class="block font-bold text-right text-sm lg:text-base leading-none capsize"
                 >v{{ version }}</span
             >
         </div>
@@ -15,7 +15,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 export default {
     computed: {
         ...mapState({

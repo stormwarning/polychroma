@@ -9,6 +9,11 @@ updates:
       interval: monthly
     commit-message:
       prefix: 'Upgrade: '
-    labels:
-      - upgrade
     versioning-strategy: increase-if-necessary
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: 'Chore: '

@@ -3,7 +3,7 @@
   "version": "2.1.1",
   "private": true,
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
-  "author": "Jeff <rustyangel@gmail.com>",
+  "author": "Jeff Nelson (https://tidaltheory.io)",
   "scripts": {
     "build": "nuxt build",
     "changeset": "changeset add",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@nuxtjs/google-analytics": "2.4.0",
     "@nuxtjs/markdownit": "1.2.10",
-    "@nuxtjs/pwa": "3.0.2",
+    "@nuxtjs/pwa": "3.3.5",
     "chroma-js": "2.1.0",
     "nuxt": "2.15.4"
   },
@@ -46,6 +46,7 @@
     "@tailwindcss/typography": "0.4.0",
     "@zazen/eslint-config": "2.1.x",
     "@zazen/stylelint-config": "1.0.x",
+    "autoprefixer": "10.2.5",
     "eslint": "7.14.x",
     "eslint-plugin-vue": "7.1.x",
     "husky": "4.3.x",

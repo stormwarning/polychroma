@@ -1,24 +1,23 @@
 <template>
     <article class="min-h-screen">
         <div
-            class="header sticky top-0 z-10 sm:h-screen pointer-events-none mix-burn"
+            class="header lg:sticky top-0 z-10 lg:h-screen pointer-events-none mix-burn"
         >
             <app-masthead class="mix-burn" />
         </div>
         <main>
             <app-nav />
-            <section class="p-8 sm:pt-0 sm:pb-16">
+            <section class="p-8 lg:pt-0 lg:pb-16">
                 <nuxt />
             </section>
-            <gradient-result class="sticky sm:top-0 sm:bottom-0 sm:h-screen" />
+            <gradient-result class="sticky lg:top-0 lg:bottom-0 lg:h-screen" />
         </main>
-        <app-footer class="sticky sm:top-0 sm:bottom-0 sm:h-screen" />
+        <app-footer class="sticky lg:top-0 lg:bottom-0 lg:h-screen" />
     </article>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-
 import AppFooter from '~/components/AppFooter'
 import AppMasthead from '~/components/AppMasthead'
 import AppNav from '~/components/AppNav.vue'
