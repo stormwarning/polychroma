@@ -1,6 +1,6 @@
 {
   "name": "polychroma",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": true,
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff Nelson (https://tidaltheory.io)",
