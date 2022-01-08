@@ -34,7 +34,7 @@ export default {
             { name: 'twitter:creator', content: '@stormwarning' },
             {
                 name: 'twitter:image:src',
-                content: 'https://polychroma.app/icon-1024.png',
+                content: 'https://polychroma.app/icon.png',
             },
 
             { property: 'og:title', content: 'Polychroma' },
@@ -42,7 +42,7 @@ export default {
             { property: 'og:url', content: 'https://polychroma.app/' },
             {
                 property: 'og:image',
-                content: 'https://polychroma.app/icon-1024.png',
+                content: 'https://polychroma.app/icon.png',
             },
             {
                 property: 'og:description',
@@ -64,6 +64,8 @@ export default {
     build: {
         postcss: {
             plugins: {
+                autoprefixer: {},
+
                 // https://github.com/jonathantneal/postcss-advanced-variables#features
                 'postcss-advanced-variables': {},
 

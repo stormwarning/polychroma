@@ -26,13 +26,8 @@
     --blue-7: #1c7ed6;
 }
 
-body {
-    overscroll-behavior: none;
-}
-
 code,
 .code {
-    /* stylelint-disable-next-line value-list-comma-newline-after */
     font-family: 'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
         monospace;
 }
