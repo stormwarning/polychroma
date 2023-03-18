@@ -1,7 +1,4 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
-    extends: ['@zazen/eslint-config', '@zazen/eslint-config/vue'],
-    rules: {
-        'import/no-relative-parent-imports': 'error',
-        'import/order': 'error',
-    },
+    extends: ['@remix-run/eslint-config', '@remix-run/eslint-config/node'],
 }

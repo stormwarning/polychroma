@@ -4,26 +4,33 @@
   "private": true,
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff Nelson (https://tidaltheory.io)",
+  "sideEffects": [
+    "*.css.ts"
+  ],
   "scripts": {
-    "build": "nuxt build",
+    "build": "run-s \"build:*\"",
+    "build:css": "npm run generate:css",
+    "build:remix": "remix build",
     "changeset": "changeset add",
-    "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
-    "dev": "nuxt",
-    "generate": "nuxt generate",
-    "lint": "npm run lint:scripts && npm run lint:styles",
-    "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**' --ignore-pattern 'static/**'",
-    "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
-    "start": "nuxt start",
-    "test": "npm run lint"
+    "dev": "run-p \"dev:*\"",
+    "dev:css": "npm run generate:css -- --watch",
+    "dev:remix": "remix dev",
+    "generate:css": "tsup",
+    "start": "remix-serve build",
+    "typecheck": "tsc"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "hooks": {}
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint --fix",
-    "*.{css,vue}": "stylelint --fix",
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
     "package.json": "prettier --write"
   },
   "prettier": {
@@ -33,52 +40,45 @@
     "trailingComma": "all"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "2.4.0",
-    "@nuxtjs/markdownit": "1.2.10",
-    "@nuxtjs/pwa": "3.3.5",
-    "chroma-js": "2.1.0",
-    "nuxt": "2.15.4"
+    "@remix-run/node": "1.14.3",
+    "@remix-run/react": "1.14.3",
+    "@remix-run/vercel": "1.14.3",
+    "@vanilla-extract/css": "1.10.0",
+    "@vanilla-extract/sprinkles": "1.5.1",
+    "@vercel/node": "2.9.13",
+    "clsx": "1.2.1",
+    "isbot": "3.6.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.3.0",
-    "@changesets/cli": "2.14.1",
-    "@nuxtjs/tailwindcss": "4.0.2",
-    "@tailwindcss/typography": "0.4.0",
-    "@zazen/eslint-config": "2.1.x",
-    "@zazen/stylelint-config": "1.0.x",
-    "autoprefixer": "10.2.5",
-    "eslint": "7.14.x",
-    "eslint-plugin-vue": "7.1.x",
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.0",
+    "@remix-run/dev": "1.14.3",
+    "@remix-run/eslint-config": "1.14.3",
+    "@remix-run/serve": "1.14.3",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@vanilla-extract/css-utils": "0.1.3",
+    "@vanilla-extract/esbuild-plugin": "2.2.2",
+    "@zazen/eslint-config": "6.2.1",
+    "@zazen/stylelint-config": "3.0.0",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.36.0",
     "husky": "4.3.x",
     "import-sort-style-python": "1.0.2",
-    "lint-staged": "10.5.x",
-    "postcss": "8.2.9",
-    "postcss-advanced-variables": "3.0.x",
-    "prettier": "2.1.x",
-    "prettier-plugin-import-sort": "0.0.6",
-    "prettier-plugin-packagejson": "2.2.x",
-    "stylelint": "13.8.x",
-    "tailwindcss": "2.0.4",
-    "tailwindcss-capsize": "1.2.2"
+    "lint-staged": "13.2.0",
+    "npm-run-all": "4.1.5",
+    "polished": "4.2.2",
+    "postcss": "8.4.21",
+    "prettier": "2.8.4",
+    "prettier-plugin-import-sort": "0.0.7",
+    "prettier-plugin-packagejson": "2.4.3",
+    "stylelint": "15.3.0",
+    "tsup": "6.6.3",
+    "typescript": "4.8.4"
   },
   "engines": {
-    "node": ">12.x"
-  },
-  "importSort": {
-    ".js,.ts,.vue": {
-      "parser": "babylon",
-      "style": "python",
-      "options": {
-        "knownFramework": [
-          "@nuxt",
-          "nuxt",
-          "@vue",
-          "vue"
-        ],
-        "knownFirstparty": [
-          "~"
-        ]
-      }
-    }
+    "node": ">14"
   }
 }
