@@ -7,46 +7,46 @@
  *
  * More detail: https://vanilla-extract.style/documentation/styling
  */
-import { style, styleVariants } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css'
 
-import { fontSizes, fontWeights, vars } from '../../../styles/theme.css';
+import { fontSizes, fontWeights, vars } from '../../../styles/theme.css'
 
-export const root = style({});
+export const root = style({})
 
 // This is an example of how we can use `styleVariants`
 // create a collection of styles that map to a prop value.
 export const size = styleVariants(
-  Object.fromEntries(
-    Object.entries(fontSizes).map(([key, value]) => [
-      [key],
-      { fontSize: value },
-    ])
-  )
-);
+	Object.fromEntries(
+		Object.entries(fontSizes).map(([key, value]) => [
+			[key],
+			{ fontSize: value },
+		])
+	)
+)
 
 export const weight = styleVariants(
-  Object.fromEntries(
-    Object.entries(fontWeights).map(([key, value]) => [
-      [key],
-      { fontWeight: value },
-    ])
-  )
-);
+	Object.fromEntries(
+		Object.entries(fontWeights).map(([key, value]) => [
+			[key],
+			{ fontWeight: value },
+		])
+	)
+)
 
 export const leading = styleVariants(
-  Object.fromEntries(
-    Object.entries(vars.typography.lineHeight).map(([key, value]) => [
-      [key],
-      { lineHeight: value },
-    ])
-  )
-);
+	Object.fromEntries(
+		Object.entries(vars.typography.lineHeight).map(([key, value]) => [
+			[key],
+			{ lineHeight: value },
+		])
+	)
+)
 
 export const tracking = styleVariants(
-  Object.fromEntries(
-    Object.entries(vars.typography.letterSpacing).map(([key, value]) => [
-      [key],
-      { letterSpacing: value },
-    ])
-  )
-);
+	Object.fromEntries(
+		Object.entries(vars.typography.letterSpacing).map(([key, value]) => [
+			[key],
+			{ letterSpacing: value },
+		])
+	)
+)
