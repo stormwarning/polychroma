@@ -1,15 +1,16 @@
-import { Box, Button } from '~/components'
+import { Box, Button, useGradientState } from '~/components'
 import { componentStyles } from '~/styles'
 
 const styles = componentStyles.Gradient
 
 export function Gradient() {
-	let gradientCSS =
-		'linear-gradient(30deg, #000080 0%, #003a91 16%, #00659c 33%, #0092a5 50%, #00c353 66%, #73ea00 83%, #ffff00 100%)'
+	let { angle } = useGradientState()
+
+	let gradientCSS = `linear-gradient(${angle}deg, #000080 0%, #003a91 16%, #00659c 33%, #0092a5 50%, #00c353 66%, #73ea00 83%, #ffff00 100%)`
 	let copyButtonText = 'Copy'
 	let shareButtonText = 'Share'
 
-	function copyCSS(css) {}
+	function copyCSS() {}
 	function shareURL() {}
 
 	return (
@@ -47,7 +48,7 @@ export function Gradient() {
 				paddingX={32}
 				paddingY={64}
 			>
-				<Button onClick={copyCSS(gradientCSS)}>
+				<Button onClick={copyCSS}>
 					<svg
 						width="16"
 						height="16"
