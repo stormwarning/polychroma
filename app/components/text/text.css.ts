@@ -50,3 +50,9 @@ export const tracking = styleVariants(
 		])
 	)
 )
+
+export const transform = styleVariants({
+	none: { textTransform: 'none' },
+	uppercase: { textTransform: 'uppercase' },
+	lowercase: { textTransform: 'lowercase' },
+})

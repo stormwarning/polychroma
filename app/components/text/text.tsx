@@ -21,6 +21,7 @@ interface Props {
 	weight?: keyof typeof styles.weight
 	leading?: keyof typeof styles.leading
 	tracking?: keyof typeof styles.tracking
+	transform?: keyof typeof styles.transform
 }
 
 export function Text({
@@ -31,6 +32,7 @@ export function Text({
 	weight = 'normal',
 	leading = 'normal',
 	tracking,
+	transform,
 }: Props) {
 	return (
 		<Box
@@ -42,6 +44,7 @@ export function Text({
 				styles.weight[weight],
 				styles.leading[leading],
 				tracking && styles.tracking[tracking],
+				transform && styles.transform[transform],
 			]}
 			// color={{
 			//   lightMode: 'grey-700',

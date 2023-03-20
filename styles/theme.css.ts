@@ -58,6 +58,10 @@ export const [themeClass, vars] = createTheme({
 		'screen-h': '100vh',
 	},
 
+	shadow: {
+		panel: '0 2px 10px rgba(0, 0, 0, 0.12), 0 20px 50px 0 rgba(0, 0, 0, 0.14)',
+	},
+
 	typography: {
 		fontSize: fontSizes,
 		fontWeight: fontWeights,

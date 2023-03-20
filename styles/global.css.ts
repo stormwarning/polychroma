@@ -35,6 +35,11 @@ globalStyle('body', {
 	MozOsxFontSmoothing: 'grayscale',
 })
 
+globalStyle('fieldset', {
+	padding: vars.space[0],
+	border: 'none',
+})
+
 globalStyle('code', {
 	fontFamily:
 		"'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace",

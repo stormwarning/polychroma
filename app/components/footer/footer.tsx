@@ -23,7 +23,7 @@ export function Footer() {
 			paddingX={32}
 			paddingY={[32, 32, 64]}
 		>
-			<Masthead className="hidden lg:block" aria-hidden="true" />
+			<Masthead hidden aria-hidden="true" />
 			<Box className={styles.credit}>
 				<p>
 					By{' '}

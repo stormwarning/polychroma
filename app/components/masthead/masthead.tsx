@@ -8,9 +8,10 @@ const styles = componentStyles.Masthead
 
 interface Props {
 	className?: string
+	hidden?: boolean
 }
 
-export function Masthead({ className, ...props }: Props) {
+export function Masthead({ className, hidden, ...props }: Props) {
 	let version = '2.2.0'
 
 	return (
@@ -20,7 +21,7 @@ export function Masthead({ className, ...props }: Props) {
 			position="absolute"
 			top={0}
 			right={32}
-			display="grid"
+			display={hidden ? ['none', 'none', 'grid'] : 'grid'}
 			gap={16}
 			paddingTop={80}
 			{...props}
