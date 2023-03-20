@@ -7,10 +7,15 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react'
-import { Layout, GradientProvider } from '~/components'
 
-import vanillaExtractStyles from '~/styles/index.css'
+import { Layout, GradientProvider } from '~/components'
 import { themeClass } from '~/styles'
+import vanillaExtractStyles from '~/styles/index.css'
+
+const TITLE = 'Polychroma'
+const DESCRIPTION =
+	'Generate better CSS gradients using alternative colour spaces & Bezier interpolation.'
+const URL = 'https://polychroma.app/'
 
 export function links() {
 	return [
@@ -28,9 +33,22 @@ export function links() {
 }
 
 export const meta: MetaFunction = () => ({
+	// eslint-disable-next-line unicorn/text-encoding-identifier-case
 	charset: 'utf-8',
-	title: 'New Remix App',
+	title: `${TITLE} — Better gradients through colour spaces.`,
 	viewport: 'width=device-width,initial-scale=1',
+	description: DESCRIPTION,
+	'og:title': TITLE,
+	'og:type': 'website',
+	'og:url': URL,
+	'og:image': `${URL}icon.png`,
+	'og:description': DESCRIPTION,
+	'og:site_name': TITLE,
+	'twitter:card': 'summary',
+	'twitter:title': TITLE,
+	'twitter:description': DESCRIPTION,
+	'twitter:creator': '@stormwarning',
+	'twitter:image:src': `${URL}icon.png`,
 })
 
 export default function App() {
