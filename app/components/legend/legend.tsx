@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 
-import { Text } from '~/components'
-
 import { componentStyles } from '~/styles'
+
+import { Text } from '../text/text'
 
 const styles = componentStyles.Legend
 

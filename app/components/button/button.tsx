@@ -1,7 +1,8 @@
 import type { ReactNode, ComponentPropsWithoutRef } from 'react'
 
-import { Box } from '~/components'
 import { componentStyles } from '~/styles'
+
+import { Box } from '../box/box'
 
 const styles = componentStyles.Button
 

@@ -1,6 +1,12 @@
-import { componentStyles } from '~/styles'
-import { Box, Footer, Nav, Masthead, Gradient } from '~/components'
 import { type ReactNode } from 'react'
+
+import { componentStyles } from '~/styles'
+
+import { Box } from '../box/box'
+import { Footer } from '../footer/footer'
+import { Gradient } from '../gradient/gradient'
+import { Masthead } from '../masthead/masthead'
+import { Nav } from '../nav/nav'
 
 const styles = componentStyles.Layout
 

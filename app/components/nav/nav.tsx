@@ -1,7 +1,9 @@
+import { componentStyles } from '~/styles'
+
 import { Box } from '../box/box'
+
 import { NavItem } from './nav-item'
 
-import { componentStyles } from '~/styles'
 const styles = componentStyles.Nav
 
 export function Nav() {

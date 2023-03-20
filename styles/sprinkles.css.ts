@@ -10,6 +10,7 @@
  * More detail: https://vanilla-extract.style/documentation/packages/sprinkles
  */
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles'
+
 import { vars } from './theme.css'
 
 const responsiveProperties = defineProperties({

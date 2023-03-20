@@ -7,7 +7,7 @@ interface Props {
 
 export function Slider({ value, min, max, onChange }: Props) {
 	function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-		onChange && onChange(parseFloat(event.currentTarget.value))
+		onChange && onChange(Number.parseFloat(event.currentTarget.value))
 	}
 
 	return (

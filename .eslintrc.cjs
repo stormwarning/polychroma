@@ -7,6 +7,12 @@ const config = {
 		'prettier',
 	],
 	rules: {
+		'capitalized-comments': 'off',
+
+		'@typescript-eslint/no-unused-vars': 'off',
+
+		'import/extensions': 'off',
+		'import/no-extraneous-dependencies': 'off',
 		'import/order': [
 			'error',
 			{
@@ -44,6 +50,17 @@ const config = {
 				],
 			},
 		],
+
+		'unicorn/prevent-abbreviations': [
+			'error',
+			{
+				replacements: {
+					vars: false,
+					props: false,
+				},
+			},
+		],
+		'unicorn/switch-case-braces': ['error', 'avoid'],
 	},
 }
 

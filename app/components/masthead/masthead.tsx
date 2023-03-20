@@ -1,6 +1,8 @@
 import cx from 'clsx'
-import { Box } from '~/components'
+
 import { componentStyles } from '~/styles'
+
+import { Box } from '../box/box'
 
 const styles = componentStyles.Masthead
 

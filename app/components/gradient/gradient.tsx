@@ -1,5 +1,9 @@
-import { Box, Button, useGradientState } from '~/components'
 import { componentStyles } from '~/styles'
+
+import { Box } from '../box/box'
+import { Button } from '../button/button'
+
+import { useGradientState } from './gradient-provider'
 
 const styles = componentStyles.Gradient
 

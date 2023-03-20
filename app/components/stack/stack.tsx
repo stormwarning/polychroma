@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 
-import { Box, type BoxProps } from '~/components'
-
 import { componentStyles } from '~/styles'
+
+import { Box, type BoxProps } from '../box/box'
 
 const styles = componentStyles.Stack
 

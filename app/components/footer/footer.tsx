@@ -1,8 +1,10 @@
-import { Box, Masthead } from '~/components'
-
 import { componentStyles } from '~/styles'
+
+import { Box } from '../box/box'
 import { IconGitHub } from '../icons/icon-github'
 import { IconTwitter } from '../icons/icon-twitter'
+import { Masthead } from '../masthead/masthead'
+
 import { FooterLink } from './footer-link'
 
 const styles = componentStyles.Footer

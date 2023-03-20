@@ -5,14 +5,15 @@
  * utility classes, e.g. `<Box padding="small">` rather than
  * `<Box className={sprinkles({ padding: 'small' })}>`.
  */
-import type { AllHTMLAttributes, ElementType } from 'react'
-import { createElement } from 'react'
-import { forwardRef } from 'react'
-import type { ClassValue } from 'clsx'
-import clsx from 'clsx'
+import clsx, { type ClassValue } from 'clsx'
+import {
+	createElement,
+	forwardRef,
+	type AllHTMLAttributes,
+	type ElementType,
+} from 'react'
 
-import type { Sprinkles } from '~/styles'
-import { sprinkles } from '~/styles'
+import { sprinkles, type Sprinkles } from '~/styles'
 
 interface ExtendedBoxProps extends Sprinkles {
 	as?: ElementType
@@ -26,11 +27,11 @@ export type BoxProps = Omit<
 	ExtendedBoxProps
 
 export const Box = forwardRef<HTMLElement, BoxProps>(
-	({ as = 'div', className, ...props }, ref) => {
-		const atomProps: Record<string, unknown> = {}
-		const nativeProps: Record<string, unknown> = {}
+	({ as = 'div', className, ...props }, reference) => {
+		let atomProps: Record<string, unknown> = {}
+		let nativeProps: Record<string, unknown> = {}
 
-		for (const key in props) {
+		for (let key in props) {
 			// Sprinkles allows us to detect whether a given property
 			// is available as part of our suite of utility classes,
 			// e.g. `sprinkles.properties.has('padding')` is true
@@ -44,15 +45,15 @@ export const Box = forwardRef<HTMLElement, BoxProps>(
 			}
 		}
 
-		const atomicClasses = sprinkles(atomProps)
-		const customClasses = clsx(className)
+		let atomicClasses = sprinkles(atomProps)
+		let customClasses = clsx(className)
 
 		return createElement(as, {
 			className: `${atomicClasses}${
 				customClasses ? ` ${customClasses}` : ''
 			}`,
 			...nativeProps,
-			ref,
+			reference,
 		})
 	}
 )
