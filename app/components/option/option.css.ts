@@ -24,10 +24,10 @@ export const summary = style({
 			display: 'none',
 		},
 
-		[`&:not(${details}[open]):hover`]: {
+		[`&:not(${details}[open] &):hover`]: {
 			backgroundColor: vars.color['grey-200'],
 		},
-		[`&:not(${details}[open]):focus-visible`]: {
+		[`&:not(${details}[open] &):focus-visible`]: {
 			backgroundColor: vars.color['grey-200'],
 		},
 	},
