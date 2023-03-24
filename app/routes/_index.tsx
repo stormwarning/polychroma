@@ -43,11 +43,11 @@ export default function Index() {
 		})
 	}
 
-	let handleAngleChange = (value: number) => {
-		setAngleValue(value)
+	let handleAngleChange = (value: Array<number>) => {
+		setAngleValue(value[0])
 		dispatch({
 			type: CHANGE_ANGLE,
-			angle: value,
+			angle: value[0],
 		})
 	}
 
@@ -109,10 +109,10 @@ export default function Index() {
 							}
 						>
 							<Slider
-								value={angleValue}
+								defaultValue={[angleValue]}
 								min={0}
 								max={360}
-								onChange={handleAngleChange}
+								onValueChange={handleAngleChange}
 							/>
 						</Option>
 					</Panel>

@@ -42,10 +42,21 @@ export const [themeClass, vars] = createTheme({
 		black: '#000',
 
 		...greyPalette,
+
+		'cyan-100': '#d4fffd',
+		'cyan-200': '#aafcff',
+		'cyan-300': '#80f2ff',
+		'cyan-400': '#60e4ff',
+		'cyan-500': '#2cccff',
+		'cyan-600': '#20a0db',
+		'cyan-700': '#1679b7',
+		'cyan-800': '#0e5693',
+		'cyan-900': '#083e7a',
 	},
 	radius: {
 		0: '0',
 		sm: '2px',
+		full: '9999px',
 	},
 	size: {
 		0: '0',

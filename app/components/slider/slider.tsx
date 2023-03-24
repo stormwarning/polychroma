@@ -1,26 +1,35 @@
-interface Props {
-	value: number
-	min: number
-	max: number
-	onChange(value: number): void
-}
+import { forwardRef } from 'react'
 
-export function Slider({ value, min, max, onChange }: Props) {
-	function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-		onChange && onChange(Number.parseFloat(event.currentTarget.value))
+import * as SliderPrimitive from '@radix-ui/react-slider'
+
+import { componentStyles } from '~/styles'
+
+const styles = componentStyles.Slider
+
+interface Props extends SliderPrimitive.SliderProps {}
+
+export const Slider = forwardRef<HTMLSpanElement, Props>(
+	(props, forwardedReference) => {
+		let value = props.value || props.defaultValue
+
+		return (
+			<SliderPrimitive.Slider
+				{...props}
+				ref={forwardedReference}
+				className={styles.root}
+			>
+				<SliderPrimitive.Track className={styles.track}>
+					<SliderPrimitive.Range className={styles.range} />
+				</SliderPrimitive.Track>
+				{value?.map((_, index) => (
+					<SliderPrimitive.Thumb
+						key={index}
+						className={styles.thumb}
+					/>
+				))}
+			</SliderPrimitive.Slider>
+		)
 	}
+)
 
-	return (
-		<input
-			type="range"
-			value={value}
-			min={min}
-			max={max}
-			step={1}
-			aria-valuemin={min}
-			aria-valuemax={max}
-			aria-valuenow={value}
-			onChange={handleChange}
-		/>
-	)
-}
+Slider.displayName = 'Slider'
