@@ -1,22 +1,41 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2019"],
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "target": "ES2019",
+    // Type Checking
     "strict": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
+
+    // Modules
     "baseUrl": ".",
+    "declaration": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "paths": {
       "~/*": ["./app/*"]
     },
+    "resolveJsonModule": true,
+    "types": ["colorjs.io"],
 
+    // Emit
     // Remix takes care of building everything in `remix build`.
-    "noEmit": true
+    "noEmit": true,
+
+    // JavaScript Support
+    "allowJs": true,
+
+    // Interop Constraints
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    // Language and Environment
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "target": "esnext",
+    "useDefineForClassFields": true,
+
+    // Completeness
+    "skipLibCheck": true
   }
 }

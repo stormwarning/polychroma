@@ -30,7 +30,7 @@ const config = {
 				'newlines-between': 'always',
 				pathGroups: [
 					{
-						pattern: '{@remix-run/**,react?(-dom)/**}',
+						pattern: '{@remix-run/**,react?(-dom|-router-dom)}',
 						group: 'builtin',
 						position: 'after',
 					},
@@ -48,6 +48,7 @@ const config = {
 						},
 					},
 				],
+				pathGroupsExcludedImportTypes: ['builtin'],
 			},
 		],
 
@@ -55,8 +56,9 @@ const config = {
 			'error',
 			{
 				replacements: {
-					vars: false,
+					env: false,
 					props: false,
+					vars: false,
 				},
 			},
 		],

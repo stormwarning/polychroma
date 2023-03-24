@@ -12,6 +12,7 @@ const config = {
 	// appDirectory: "app",
 	// assetsBuildDirectory: "public/build",
 	// publicPath: "/build/",
+	serverDependenciesToBundle: ['colorjs.io'],
 }
 
 module.exports = config
