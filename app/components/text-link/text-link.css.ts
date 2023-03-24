@@ -8,19 +8,23 @@ export const link = style({
 	color: vars.color['grey-800'],
 	textDecorationColor: vars.color['grey-500'],
 	textDecorationThickness: '0.1em',
-	transition: 'text-decoration-color 300ms ease',
+	transition: '300ms ease',
+	transitionProperty: 'background, text-decoration-color',
 
 	':hover': {
 		textDecorationColor: 'transparent',
+		WebkitTextFillColor: 'transparent',
+		background: 'var(--gradient)',
+		backgroundClip: 'text',
 	},
 
 	'::before': {
 		position: 'absolute',
 		inset: '-0.125em',
 		zIndex: -1,
-		background: vars.color['grey-500'],
+		background: 'var(--gradient)',
 		borderRadius: vars.radius.sm,
-		content: '',
+		// content: '',
 		transition: 'scale 300ms ease',
 		scale: '0 1',
 		transformOrigin: 'bottom right',

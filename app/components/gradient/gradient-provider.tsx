@@ -1,4 +1,7 @@
-import { type ReactNode, createContext, useReducer, useContext } from 'react'
+import type { ReactNode } from 'react'
+import { createContext, useReducer, useContext } from 'react'
+
+import Color from 'colorjs.io'
 
 type ColorMode = string
 type ColorStop = { color: string }
@@ -39,6 +42,8 @@ function reducer(state: State, action: Action) {
 
 interface ContextValues extends State {
 	dispatch: (action: Action) => void
+	gradient: string
+	fixedGradient: string
 }
 
 const GradientContext = createContext<ContextValues | null>(null)
@@ -59,8 +64,35 @@ export function GradientProvider({ children }: GradientProviderProps) {
 		stops: [{ color: '#000080' }, { color: '#ffff00' }],
 	})
 
+	let gradientSteps =
+		state.mode === 'srgb' ? state.stops.length : state.stops.length + 5
+	let scale = Color.steps(
+		Color.parse(state.stops[0].color),
+		Color.parse(state.stops[1].color),
+		{
+			space: state.mode,
+			outputSpace: 'srgb',
+			steps: gradientSteps,
+		}
+	)
+	let colorStops = []
+	let positions: Array<number> = []
+
+	for (let [index, step] of scale.entries()) {
+		let t = index / (scale.length - 1)
+		colorStops.push(step.display({ format: 'hex' }))
+		positions.push(Math.floor(t * 100))
+	}
+
+	let gradient = `linear-gradient(${state.angle}deg${colorStops
+		.map((stop, index) => `, ${stop} ${positions[index]}%`)
+		.join('')})`
+	let fixedGradient = gradient.replace(/\d*deg/, 'to right')
+
 	return (
-		<GradientContext.Provider value={{ ...state, dispatch }}>
+		<GradientContext.Provider
+			value={{ ...state, dispatch, gradient, fixedGradient }}
+		>
 			{children}
 		</GradientContext.Provider>
 	)

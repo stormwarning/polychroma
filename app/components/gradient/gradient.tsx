@@ -8,9 +8,8 @@ import { useGradientState } from './gradient-provider'
 const styles = componentStyles.Gradient
 
 export function Gradient() {
-	let { angle } = useGradientState()
+	let { gradient: gradientCSS } = useGradientState()
 
-	let gradientCSS = `linear-gradient(${angle}deg, #000080 0%, #003a91 16%, #00659c 33%, #0092a5 50%, #00c353 66%, #73ea00 83%, #ffff00 100%)`
 	let copyButtonText = 'Copy'
 	let shareButtonText = 'Share'
 
