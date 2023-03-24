@@ -16,6 +16,7 @@ import * as Masthead from '~/components/masthead/masthead.css'
 import * as Nav from '~/components/nav/nav.css'
 import * as Option from '~/components/option/option.css'
 import * as Panel from '~/components/panel/panel.css'
+import * as Select from '~/components/select/select.css'
 import * as Slider from '~/components/slider/slider.css'
 import * as Stack from '~/components/stack/stack.css'
 import * as Text from '~/components/text/text.css'
@@ -36,6 +37,7 @@ export const componentStyles = {
 	Nav,
 	Option,
 	Panel,
+	Select,
 	Slider,
 	Stack,
 	Text,

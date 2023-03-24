@@ -6,6 +6,7 @@ export const article = style({
 	gridTemplateAreas: '"main" "footer"',
 	gridTemplateRows: '1fr 120px',
 	gridTemplateColumns: '1fr',
+	isolation: 'isolate',
 
 	'@media': {
 		'(min-width: 1024px)': {

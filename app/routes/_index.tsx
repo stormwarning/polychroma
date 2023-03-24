@@ -1,8 +1,11 @@
 import { ChangeEvent, useState } from 'react'
 
+import Color from 'colorjs.io'
+
 import {
 	Box,
 	CHANGE_ANGLE,
+	CHANGE_MODE,
 	Legend,
 	Option,
 	OptionGroup,
@@ -12,12 +15,33 @@ import {
 	Text,
 	useGradientState,
 } from '~/components'
+import { Select, SelectItem } from '~/components/select/select'
+import { ACTIVE_SPACES } from '~/utils/color-space'
 
 export default function Index() {
-	let { dispatch, angle } = useGradientState()
+	let { dispatch, angle, mode } = useGradientState()
 	let [angleValue, setAngleValue] = useState(angle)
 
+	let spaces = ACTIVE_SPACES.map((space) => ({
+		id: Color.spaces[space].id,
+		name: Color.spaces[space].name,
+	}))
+	// let spaces = Object.values(Color.spaces)
+	// 	.map((s) => ({
+	// 		id: s.id,
+	// 		name: s.name,
+	// 	}))
+	// 	.filter((space) => ACTIVE_SPACES.includes(space.id))
+	// 	.sort()
+
 	let rotation = `rotate(${angle} 10 10)`
+
+	let handleModeChange = (value: string) => {
+		dispatch({
+			type: CHANGE_MODE,
+			mode: value,
+		})
+	}
 
 	let handleAngleChange = (value: number) => {
 		setAngleValue(value)
@@ -32,7 +56,29 @@ export default function Index() {
 			<Stack space={64}>
 				<Box as="fieldset" padding={0} border="none">
 					<Legend>Colour Mode</Legend>
-					<Panel></Panel>
+					<Panel>
+						<Box
+							width="full"
+							display="flex"
+							alignItems="center"
+							justifyContent="space-between"
+							padding={[16, 16, 32]}
+						>
+							<Select
+								defaultValue="lab"
+								onValueChange={handleModeChange}
+							>
+								{spaces.map((space, index) => (
+									<SelectItem
+										key={`${space.id}-${index}`}
+										value={space.id}
+									>
+										{space.name}
+									</SelectItem>
+								))}
+							</Select>
+						</Box>
+					</Panel>
 				</Box>
 
 				<Box as="fieldset" padding={0} border="none">
