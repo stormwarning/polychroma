@@ -19,6 +19,7 @@ export const credit = style({
 	marginInline: 'auto',
 	maxInlineSize: 448,
 	fontSize: vars.typography.fontSize.xs,
+	fontWeight: vars.typography.fontWeight.medium,
 	lineHeight: vars.typography.lineHeight.normal,
 	letterSpacing: '0.1em',
 	textAlign: 'right',
