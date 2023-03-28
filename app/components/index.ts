@@ -1,5 +1,6 @@
 export * from './box/box'
 export { Button } from './button/button'
+export { ColorPicker } from './color-picker/color-picker'
 export { Footer } from './footer/footer'
 export { Gradient } from './gradient/gradient'
 export * from './gradient/gradient-provider'

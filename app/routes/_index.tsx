@@ -6,6 +6,7 @@ import {
 	Box,
 	CHANGE_ANGLE,
 	CHANGE_MODE,
+	ColorPicker,
 	Legend,
 	Option,
 	OptionGroup,
@@ -19,7 +20,7 @@ import { Select, SelectItem } from '~/components/select/select'
 import { ACTIVE_SPACES } from '~/utils/color-space'
 
 export default function Index() {
-	let { dispatch, angle, mode } = useGradientState()
+	let { dispatch, angle, stops } = useGradientState()
 	let [angleValue, setAngleValue] = useState(angle)
 
 	let spaces = ACTIVE_SPACES.map((space) => ({
@@ -37,6 +38,7 @@ export default function Index() {
 	let rotation = `rotate(${angle} 10 10)`
 
 	let handleModeChange = (value: string) => {
+		console.log('VALUE', value)
 		dispatch({
 			type: CHANGE_MODE,
 			mode: value,
@@ -114,6 +116,28 @@ export default function Index() {
 								max={360}
 								onValueChange={handleAngleChange}
 							/>
+						</Option>
+						<Option
+							label={
+								<Text
+									as="label"
+									size="sm"
+									weight="medium"
+									tracking="widest"
+									transform="uppercase"
+								>
+									Start Colour
+								</Text>
+							}
+							icon={
+								<Box
+									width={16}
+									height={16}
+									style={{ backgroundColor: stops[0].color }}
+								/>
+							}
+						>
+							<ColorPicker stopIndex={0} />
 						</Option>
 					</Panel>
 					{/* inline-block text-xs lg:text-sm font-medium uppercase tracking-widest text-grey-600 */}

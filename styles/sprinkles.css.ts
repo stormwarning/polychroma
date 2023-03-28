@@ -87,9 +87,9 @@ const responsiveProperties = defineProperties({
 		bottom: vars.space,
 		left: vars.space,
 
-		width: vars.size,
+		width: { ...vars.size, ...vars.space },
 		maxWidth: vars.size,
-		height: vars.size,
+		height: { ...vars.size, ...vars.space },
 		maxHeight: vars.size,
 
 		marginTop: { ...vars.space, auto: 'auto' },

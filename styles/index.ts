@@ -8,6 +8,7 @@ import './global.css'
 
 // Component styles
 import * as Button from '~/components/button/button.css'
+import * as ColorPicker from '~/components/color-picker/color-picker.css'
 import * as Footer from '~/components/footer/footer.css'
 import * as Gradient from '~/components/gradient/gradient.css'
 import * as Layout from '~/components/layout/layout.css'
@@ -29,6 +30,7 @@ export { sprinkles } from './sprinkles.css'
 export type { Sprinkles } from './sprinkles.css'
 export const componentStyles = {
 	Button,
+	ColorPicker,
 	Footer,
 	Gradient,
 	Layout,
