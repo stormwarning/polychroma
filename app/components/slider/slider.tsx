@@ -6,10 +6,12 @@ import { componentStyles } from '~/styles'
 
 const styles = componentStyles.Slider
 
-interface Props extends SliderPrimitive.SliderProps {}
+interface Props extends SliderPrimitive.SliderProps {
+	hideRange?: boolean
+}
 
 export const Slider = forwardRef<HTMLSpanElement, Props>(
-	(props, forwardedReference) => {
+	({ hideRange, ...props }, forwardedReference) => {
 		let value = props.value || props.defaultValue
 
 		return (
@@ -19,7 +21,12 @@ export const Slider = forwardRef<HTMLSpanElement, Props>(
 				className={styles.root}
 			>
 				<SliderPrimitive.Track className={styles.track}>
-					<SliderPrimitive.Range className={styles.range} />
+					<SliderPrimitive.Range
+						className={styles.range}
+						style={{
+							background: hideRange ? 'transparent' : undefined,
+						}}
+					/>
 				</SliderPrimitive.Track>
 				{value?.map((_, index) => (
 					<SliderPrimitive.Thumb

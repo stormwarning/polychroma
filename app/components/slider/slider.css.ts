@@ -1,6 +1,6 @@
-import { style, styleVariants } from '@vanilla-extract/css'
+import { createVar, style, fallbackVar } from '@vanilla-extract/css'
 
-import { fontSizes, fontWeights, vars } from '../../../styles/theme.css'
+import { vars } from '../../../styles/theme.css'
 
 export const root = style({
 	position: 'relative',
@@ -24,9 +24,11 @@ export const root = style({
 // 	--blackA11: hsla(0, 0%, 0%, 0.565);
 // 	--blackA12: hsla(0, 0%, 0%, 0.910);
 //   }
+
+export const trackBackground = createVar()
+
 export const track = style({
-	// backgroundColor: 'rgba(0, 0, 0, 0.478)',
-	backgroundColor: vars.color['grey-400'],
+	background: fallbackVar(trackBackground, vars.color['grey-400']),
 	position: 'relative',
 	flexGrow: 1,
 	borderRadius: vars.radius.full,
@@ -50,5 +52,8 @@ export const thumb = style({
 	cursor: 'grab',
 
 	':hover': { backgroundColor: vars.color['cyan-800'] },
-	':focus': { outline: 'none', boxShadow: `0 0 0 4px rgba(0, 0, 0, 0.220)` },
+	':focus-visible': {
+		outline: 'none',
+		boxShadow: `0 0 0 4px rgba(0, 0, 0, 0.220)`,
+	},
 })
