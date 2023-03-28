@@ -21,7 +21,7 @@ export const trigger = style({
 	// boxShadow: `0 2px 10px ${blackA.blackA7}`,
 
 	':hover': { backgroundColor: vars.color['grey-200'] },
-	':focus-visible': { boxShadow: `0 0 0 2px black` },
+	':focus-visible': { boxShadow: `0 0 0 2px rgba(0, 0, 0, 0.220)` },
 	selectors: {
 		'&[data-placeholder]': { color: vars.color['grey-600'] },
 	},
