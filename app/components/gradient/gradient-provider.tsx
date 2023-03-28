@@ -13,7 +13,7 @@ export const CHANGE_STOP = 2
 export type Action =
 	| { type: typeof CHANGE_ANGLE; angle: number }
 	| { type: typeof CHANGE_MODE; mode: ColorMode }
-	| { type: typeof CHANGE_STOP; stop: ColorStop & { index: number } }
+	| { type: typeof CHANGE_STOP; stop: ColorStop; index: number }
 
 interface State {
 	angle: number
@@ -33,6 +33,12 @@ function reducer(state: State, action: Action) {
 			return {
 				...state,
 				mode: action.mode,
+			}
+
+		case CHANGE_STOP:
+			state.stops[action.index] = action.stop
+			return {
+				...state,
 			}
 
 		default:
