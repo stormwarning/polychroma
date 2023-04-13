@@ -25,7 +25,7 @@ export default function Info() {
 					<Text as="p" size="sm" leading="relaxed">
 						The idea for Polychroma started after discovering
 						Bugsnag’s{' '}
-						<TextLink to="https://blog.bugsnag.com/chromatic-sass/">
+						<TextLink to="https://www.bugsnag.com/blog/chromatic-sass/">
 							chromatic-sass
 						</TextLink>{' '}
 						project. I loved the idea of a more natural-looking
