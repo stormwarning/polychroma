@@ -1,10 +1,8 @@
 import type { ReactNode } from 'react'
 
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 
-const styles = componentStyles.Title
+import * as styles from './title.css'
 
 interface Props {
 	children: ReactNode

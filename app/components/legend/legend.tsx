@@ -1,10 +1,8 @@
 import type { ReactNode } from 'react'
 
-import { componentStyles } from '~/styles'
-
 import { Text } from '../text/text'
 
-const styles = componentStyles.Legend
+import * as styles from './legend.css'
 
 interface Props {
 	children: ReactNode

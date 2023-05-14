@@ -1,10 +1,8 @@
 import type { ReactNode } from 'react'
 
-import { componentStyles } from '~/styles'
-
 import { Box, type BoxProps } from '../box/box'
 
-const styles = componentStyles.Stack
+import * as styles from './stack.css'
 
 interface Props {
 	children: ReactNode

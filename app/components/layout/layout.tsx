@@ -1,7 +1,5 @@
 import { type ReactNode } from 'react'
 
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 import { Footer } from '../footer/footer'
 import { Gradient } from '../gradient/gradient'
@@ -9,7 +7,7 @@ import { useGradientState } from '../gradient/gradient-provider'
 import { Masthead } from '../masthead/masthead'
 import { Nav } from '../nav/nav'
 
-const styles = componentStyles.Layout
+import * as styles from './layout.css'
 
 interface Props {
 	children: ReactNode

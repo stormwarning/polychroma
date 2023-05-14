@@ -1,4 +1,7 @@
-import type { MetaFunction } from '@remix-run/node'
+import '~/styles/global.css'
+
+import { cssBundleHref } from '@remix-run/css-bundle'
+import type { LinksFunction, MetaFunction } from '@remix-run/node'
 import {
 	Links,
 	LiveReload,
@@ -9,28 +12,28 @@ import {
 } from '@remix-run/react'
 
 import { Layout, GradientProvider } from '~/components'
-import { themeClass } from '~/styles'
-import vanillaExtractStyles from '~/styles/index.css'
+import { themeClass } from '~/styles/theme.css'
 
 const TITLE = 'Polychroma'
 const DESCRIPTION =
 	'Generate better CSS gradients using alternative colour spaces & Bezier interpolation.'
 const URL = 'https://polychroma.app/'
 
-export function links() {
-	return [
-		{
-			rel: 'preload',
-			href: '/build/_assets/inter-roman.var-WIJJYAE4-WIJJYAE4.woff2',
-			as: 'font',
-			type: 'font/woff2',
-		},
-		{
-			rel: 'stylesheet',
-			href: vanillaExtractStyles,
-		},
-	]
-}
+export const links: LinksFunction = () =>
+	cssBundleHref
+		? [
+				{
+					rel: 'preload',
+					href: '/build/_assets/inter-roman.var-WIJJYAE4-WIJJYAE4.woff2',
+					as: 'font',
+					type: 'font/woff2',
+				},
+				{
+					rel: 'stylesheet',
+					href: cssBundleHref,
+				},
+		  ]
+		: []
 
 export const meta: MetaFunction = () => ({
 	// eslint-disable-next-line unicorn/text-encoding-identifier-case

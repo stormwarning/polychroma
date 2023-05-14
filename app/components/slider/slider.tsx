@@ -2,9 +2,7 @@ import { forwardRef } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
-import { componentStyles } from '~/styles'
-
-const styles = componentStyles.Slider
+import * as styles from './slider.css'
 
 interface Props extends SliderPrimitive.SliderProps {
 	hideRange?: boolean

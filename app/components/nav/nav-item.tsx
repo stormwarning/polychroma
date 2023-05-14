@@ -2,9 +2,7 @@ import { NavLink as RouterNavLink } from '@remix-run/react'
 import type { ReactNode } from 'react'
 import { type To } from 'react-router-dom'
 
-import { componentStyles } from '~/styles'
-
-const styles = componentStyles.Nav
+import * as styles from './nav.css'
 
 interface Props {
 	children: ReactNode

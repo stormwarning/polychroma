@@ -10,7 +10,7 @@ import { transparentize } from 'polished'
 import { greyPalette, vars } from './theme.css'
 
 globalFontFace('Inter', {
-	src: "url('../public/fonts/inter-roman.var.woff2') format('woff2')",
+	src: "url('../../public/fonts/inter-roman.var.woff2') format('woff2')",
 	fontWeight: '100 900',
 	fontDisplay: 'swap',
 })

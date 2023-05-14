@@ -1,10 +1,8 @@
 import cx from 'clsx'
 
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 
-const styles = componentStyles.Masthead
+import * as styles from './masthead.css'
 
 interface Props {
 	className?: string

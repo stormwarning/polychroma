@@ -2,15 +2,13 @@ import { forwardRef } from 'react'
 
 import * as SelectPrimitive from '@radix-ui/react-select'
 
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 import { IconCheck } from '../icons/icon-check'
 import { IconChevronDown } from '../icons/icon-chevron-down'
 import { IconChevronUp } from '../icons/icon-chevron-up'
 import { IconChevronUpDown } from '../icons/icon-chevron-up-down'
 
-const styles = componentStyles.Select
+import * as styles from './select.css'
 
 interface Props extends SelectPrimitive.SelectProps {}
 

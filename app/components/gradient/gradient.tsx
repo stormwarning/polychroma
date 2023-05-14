@@ -1,11 +1,9 @@
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 import { Button } from '../button/button'
 
 import { useGradientState } from './gradient-provider'
 
-const styles = componentStyles.Gradient
+import * as styles from './gradient.css'
 
 export function Gradient() {
 	let { gradient: gradientCSS } = useGradientState()

@@ -1,10 +1,8 @@
 import type { ReactNode, ComponentPropsWithoutRef } from 'react'
 
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 
-const styles = componentStyles.Button
+import * as styles from './button.css'
 
 interface Props extends Omit<ComponentPropsWithoutRef<'button'>, 'color'> {
 	children: ReactNode

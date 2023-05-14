@@ -1,10 +1,8 @@
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 
 import { NavItem } from './nav-item'
 
-const styles = componentStyles.Nav
+import * as styles from './nav.css'
 
 export function Nav() {
 	return (

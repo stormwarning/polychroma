@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { vars } from '../../../styles/theme.css'
+import { vars } from '~/styles/theme.css'
 
 export const panel = style({
 	marginBlockStart: vars.space[8],

@@ -5,7 +5,6 @@
  * utility classes, e.g. `<Box padding="small">` rather than
  * `<Box className={sprinkles({ padding: 'small' })}>`.
  */
-import clsx, { type ClassValue } from 'clsx'
 import {
 	createElement,
 	forwardRef,
@@ -13,7 +12,9 @@ import {
 	type ElementType,
 } from 'react'
 
-import { sprinkles, type Sprinkles } from '~/styles'
+import clsx, { type ClassValue } from 'clsx'
+
+import { sprinkles, type Sprinkles } from '~/styles/sprinkles.css'
 
 interface ExtendedBoxProps extends Sprinkles {
 	as?: ElementType

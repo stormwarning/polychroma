@@ -1,10 +1,6 @@
-import { type ReactNode } from 'react'
-
-import { componentStyles } from '~/styles'
-
 import { Box, type BoxProps } from '../box/box'
 
-const styles = componentStyles.Panel
+import * as styles from './panel.css'
 
 interface Props extends BoxProps {}
 

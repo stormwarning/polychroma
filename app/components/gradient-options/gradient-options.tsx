@@ -1,7 +1,5 @@
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 
-import { componentStyles } from '~/styles'
-
 import { Box } from '../box/box'
 import { ColorPicker } from '../color-picker/color-picker'
 import { CHANGE_ANGLE, useGradientState } from '../gradient/gradient-provider'
@@ -9,7 +7,7 @@ import { Option } from '../option/option'
 import { Slider } from '../slider/slider'
 import { Text } from '../text/text'
 
-const { swatch, swatchBackground } = componentStyles.GradientOptions
+import { swatch, swatchBackground } from './gradient-options.css'
 
 export function GradientOptions() {
 	let { dispatch, angle, startColor, endColor } = useGradientState()

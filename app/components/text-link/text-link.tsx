@@ -2,9 +2,7 @@ import { Link } from '@remix-run/react'
 import type { ReactNode } from 'react'
 import { type To } from 'react-router-dom'
 
-import { componentStyles } from '~/styles'
-
-const styles = componentStyles.TextLink
+import * as styles from './text-link.css'
 
 interface Props {
 	children: ReactNode

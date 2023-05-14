@@ -5,15 +5,13 @@ import Color from 'colorjs.io'
 import type { Coords } from 'colorjs.io/types/src/color'
 import type { StepsOptions } from 'colorjs.io/types/src/interpolation'
 
-import { componentStyles } from '~/styles'
-
 import { CHANGE_STOP, useGradientState } from '../gradient/gradient-provider'
 import { Slider } from '../slider/slider'
 import { Stack } from '../stack/stack'
 import { Text } from '../text/text'
 
-const styles = componentStyles.ColorPicker
-const { trackBackground } = componentStyles.Slider
+import * as styles from './color-picker.css'
+import { trackBackground } from '../slider/slider.css'
 
 const SPACE_ID = 'oklch'
 
