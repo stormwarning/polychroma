@@ -1,20 +1,16 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import Color from 'colorjs.io'
 import type { Coords } from 'colorjs.io/types/src/color'
 import type { StepsOptions } from 'colorjs.io/types/src/interpolation'
 
-import { useIsomorphicLayoutEffect } from '~/hooks/use-isomorphic-layout-effect'
 import { componentStyles } from '~/styles'
 
-import { Box } from '../box/box'
 import { CHANGE_STOP, useGradientState } from '../gradient/gradient-provider'
 import { Slider } from '../slider/slider'
 import { Stack } from '../stack/stack'
 import { Text } from '../text/text'
-
-import { useCoordinates } from './use-coordinates'
 
 const styles = componentStyles.ColorPicker
 const { trackBackground } = componentStyles.Slider
@@ -25,24 +21,8 @@ interface Props {
 	stopIndex: number
 }
 
-export function ColorPicker({ stopIndex = 0, ...props }: Props) {
+export function ColorPicker({ stopIndex, ...props }: Props) {
 	let { dispatch, stops } = useGradientState()
-
-	let handleColorChange = (color: string) => {
-		dispatch({
-			type: CHANGE_STOP,
-			stop: {
-				color,
-			},
-			index: stopIndex,
-		})
-	}
-
-	let [colorObject] = useCoordinates(
-		stops[stopIndex].color,
-		handleColorChange
-	)
-
 	let [channelScales, setChannelScales] = useState<Array<string>>([])
 
 	let space = Color.Space.get(SPACE_ID)
@@ -63,7 +43,8 @@ export function ColorPicker({ stopIndex = 0, ...props }: Props) {
 
 	let alpha = 1
 
-	let channelCoords = colorObject.coords
+	let color = stops[stopIndex]
+	let channelCoords = color.coords
 
 	useEffect(() => {
 		let channelScales: Array<string> = []
@@ -128,9 +109,14 @@ export function ColorPicker({ stopIndex = 0, ...props }: Props) {
 						min={channel.min}
 						max={channel.max}
 						step={channel.step}
-						onValueChange={([value]) =>
-							colorObject.set(channel.id, value)
-						}
+						onValueChange={([value]) => {
+							color.set(`oklch.${channel.id}`, value)
+							dispatch({
+								type: CHANGE_STOP,
+								stop: color,
+								index: stopIndex,
+							})
+						}}
 					/>
 				</div>
 			))}

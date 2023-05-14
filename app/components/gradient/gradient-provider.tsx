@@ -4,7 +4,7 @@ import { createContext, useReducer, useContext } from 'react'
 import Color from 'colorjs.io'
 
 type ColorMode = string
-type ColorStop = { color: string }
+type ColorStop = Color
 
 export const CHANGE_ANGLE = 0
 export const CHANGE_MODE = 1
@@ -18,7 +18,7 @@ export type Action =
 interface State {
 	angle: number
 	mode: ColorMode
-	stops: Array<ColorStop>
+	stops: Array<Color>
 }
 
 function reducer(state: State, action: Action) {
@@ -48,6 +48,8 @@ function reducer(state: State, action: Action) {
 
 interface ContextValues extends State {
 	dispatch: (action: Action) => void
+	startColor: Color
+	endColor: Color
 	gradient: string
 	fixedGradient: string
 }
@@ -67,20 +69,21 @@ export function GradientProvider({ children }: GradientProviderProps) {
 	let [state, dispatch] = useReducer(reducer, {
 		angle: 30,
 		mode: 'lab',
-		stops: [{ color: '#000080' }, { color: '#ffff00' }],
+		stops: [
+			// new Color('#000080').to('oklch'),
+			// new Color('#ffff00').to('oklch'),
+			new Color('oklch', [0.27, 0.19, 264]),
+			new Color('oklch', [0.97, 0.21, 110]),
+		],
 	})
 
 	let gradientSteps =
 		state.mode === 'srgb' ? state.stops.length : state.stops.length + 5
-	let scale = Color.steps(
-		Color.parse(state.stops[0].color),
-		Color.parse(state.stops[1].color),
-		{
-			space: state.mode,
-			outputSpace: 'srgb',
-			steps: gradientSteps,
-		}
-	)
+	let scale = Color.steps(state.stops[0], state.stops[1], {
+		space: state.mode,
+		outputSpace: 'srgb',
+		steps: gradientSteps,
+	})
 	let colorStops = []
 	let positions: Array<number> = []
 
@@ -97,7 +100,14 @@ export function GradientProvider({ children }: GradientProviderProps) {
 
 	return (
 		<GradientContext.Provider
-			value={{ ...state, dispatch, gradient, fixedGradient }}
+			value={{
+				...state,
+				dispatch,
+				startColor: state.stops[0],
+				endColor: state.stops[1],
+				gradient,
+				fixedGradient,
+			}}
 		>
 			{children}
 		</GradientContext.Provider>

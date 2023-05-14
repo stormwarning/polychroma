@@ -11,6 +11,7 @@ import * as Button from '~/components/button/button.css'
 import * as ColorPicker from '~/components/color-picker/color-picker.css'
 import * as Footer from '~/components/footer/footer.css'
 import * as Gradient from '~/components/gradient/gradient.css'
+import * as GradientOptions from '~/components/gradient-options/gradient-options.css'
 import * as Layout from '~/components/layout/layout.css'
 import * as Legend from '~/components/legend/legend.css'
 import * as Masthead from '~/components/masthead/masthead.css'
@@ -33,6 +34,7 @@ export const componentStyles = {
 	ColorPicker,
 	Footer,
 	Gradient,
+	GradientOptions,
 	Layout,
 	Legend,
 	Masthead,
