@@ -8,21 +8,44 @@
  * More detail: https://vanilla-extract.style/documentation/styling
  */
 import { style, styleVariants } from '@vanilla-extract/css'
+import { sprinkles } from '~/styles/sprinkles.css'
 
 import { fontSizes, fontWeights, vars } from '~/styles/theme.css'
+import {
+	ascentScale,
+	capHeightScale,
+	descentScale,
+	fontSizeActual,
+	lineGapScale,
+	lineHeightOffset,
+	lineHeightScale,
+} from '~/styles/typography.css'
 
-export const root = style({})
+function remToPxNumber(value: string) {
+	return 16 * parseFloat(value.replace('rem', ''))
+}
+
+function getLineHeightOffset(value: string) {
+	let lhActual = `calc(${value} * ${fontSizeActual})`
+	return `calc((((${lineHeightScale} * ${fontSizeActual}) - ${lhActual}) / 2) / ${fontSizeActual})`
+}
+
+export const root = style({
+	'::before': {
+		display: 'table',
+		content: '""',
+		marginBottom: `calc(((${ascentScale} - ${capHeightScale} + ${lineGapScale} / 2) - ${lineHeightOffset}) * -1em)`,
+	},
+	'::after': {
+		display: 'table',
+		content: '""',
+		marginTop: `calc(((${descentScale} + ${lineGapScale} / 2) - ${lineHeightOffset}) * -1em)`,
+	},
+})
 
 // This is an example of how we can use `styleVariants`
 // create a collection of styles that map to a prop value.
-export const size = styleVariants(
-	Object.fromEntries(
-		Object.entries(fontSizes).map(([key, value]) => [
-			[key],
-			{ fontSize: value },
-		])
-	)
-)
+// export const size = sprinkles(fontSizes)
 
 export const weight = styleVariants(
 	Object.fromEntries(
@@ -37,7 +60,10 @@ export const leading = styleVariants(
 	Object.fromEntries(
 		Object.entries(vars.typography.lineHeight).map(([key, value]) => [
 			[key],
-			{ lineHeight: value },
+			{
+				vars: { [lineHeightOffset]: getLineHeightOffset(value) },
+				lineHeight: value,
+			},
 		])
 	)
 )

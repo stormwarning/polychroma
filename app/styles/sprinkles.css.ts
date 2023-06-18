@@ -9,9 +9,28 @@
  *
  * More detail: https://vanilla-extract.style/documentation/packages/sprinkles
  */
-import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles'
+import {
+	defineProperties,
+	createSprinkles,
+	createNormalizeValueFn,
+	RequiredConditionalValue,
+} from '@vanilla-extract/sprinkles'
 
-import { vars } from './theme.css'
+import { fontSizes, vars } from './theme.css'
+import {
+	fontSizeActual,
+	lineHeightOffset,
+	lineHeightScale,
+} from './typography.css'
+
+function remToPxNumber(value: string) {
+	return 16 * parseFloat(value.replace('rem', ''))
+}
+
+function getLineHeightOffset(value: string) {
+	let lhActual = `calc(${value} * ${fontSizeActual})`
+	return `calc((((${lineHeightScale} * ${fontSizeActual}) - ${lhActual}) / 2) / ${fontSizeActual})`
+}
 
 const responsiveProperties = defineProperties({
 	conditions: {
@@ -97,7 +116,24 @@ const responsiveProperties = defineProperties({
 		marginBottom: { ...vars.space, auto: 'auto' },
 		marginLeft: { ...vars.space, auto: 'auto' },
 
-		fontSize: { ...vars.typography.fontSize },
+		fontSize: Object.fromEntries(
+			Object.entries(fontSizes).map(([key, value]) => [
+				[key],
+				{
+					vars: { [fontSizeActual]: remToPxNumber(value) },
+					fontSize: value,
+				},
+			])
+		),
+		lineHeight: Object.fromEntries(
+			Object.entries(fontSizes).map(([key, value]) => [
+				[key],
+				{
+					vars: { [lineHeightOffset]: getLineHeightOffset(value) },
+					lineHeight: value,
+				},
+			])
+		),
 	},
 	shorthands: {
 		// Shorthands allow us to use a single property to apply multiple
@@ -127,6 +163,13 @@ const colorProperties = defineProperties({
 
 // Here we combine all of our properties into a single `sprinkles` function
 export const sprinkles = createSprinkles(responsiveProperties, colorProperties)
+export const normalizeResponsiveValue =
+	createNormalizeValueFn(responsiveProperties)
+
+export type RequiredResponsiveValue<Value extends string | number> =
+	RequiredConditionalValue<typeof responsiveProperties, Value>
+export type FontSize = keyof typeof vars.typography.fontSize
+export type ResponsiveFontSize = RequiredResponsiveValue<FontSize>
 
 // It's a good idea to export the Sprinkles type too
 export type Sprinkles = Parameters<typeof sprinkles>[0]

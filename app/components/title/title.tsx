@@ -1,17 +1,21 @@
 import type { ReactNode } from 'react'
 
-import { Box } from '../box/box'
-
-import * as styles from './title.css'
+import { Text } from '../text/text'
 
 interface Props {
 	children: ReactNode
 }
 
-export function Title({ children, ...props }: Props) {
+export function Title({ children }: Props) {
 	return (
-		<Box as="h2" className={styles.title}>
+		<Text
+			as="h2"
+			size="sm"
+			weight="semibold"
+			transform="uppercase"
+			tracking="widest"
+		>
 			{children}
-		</Box>
+		</Text>
 	)
 }

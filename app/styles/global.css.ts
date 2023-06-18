@@ -8,6 +8,21 @@ import { globalFontFace, globalStyle } from '@vanilla-extract/css'
 import { transparentize } from 'polished'
 
 import { greyPalette, vars } from './theme.css'
+import {
+	ascentScale,
+	capHeightScale,
+	descentScale,
+	lineGapScale,
+	lineHeightScale,
+} from './typography.css'
+
+const METRICS = {
+	capHeight: 2048,
+	ascent: 2728,
+	descent: -680,
+	lineGap: 0,
+	unitsPerEm: 2816,
+}
 
 globalFontFace('Inter', {
 	src: "url('../../public/fonts/inter-roman.var.woff2') format('woff2')",
@@ -33,6 +48,16 @@ globalStyle('body', {
 	fontFamily: 'Inter',
 	WebkitFontSmoothing: 'antialiased',
 	MozOsxFontSmoothing: 'grayscale',
+	vars: {
+		[ascentScale]: `${METRICS.ascent / METRICS.unitsPerEm}`,
+		[descentScale]: `${Math.abs(METRICS.descent) / METRICS.unitsPerEm}`,
+		[capHeightScale]: `${METRICS.capHeight / METRICS.unitsPerEm}`,
+		[lineGapScale]: `${METRICS.lineGap / METRICS.unitsPerEm}`,
+		[lineHeightScale]: `${
+			(METRICS.ascent + METRICS.lineGap + Math.abs(METRICS.descent)) /
+			METRICS.unitsPerEm
+		}`,
+	},
 })
 
 globalStyle('fieldset', {
