@@ -1,14 +1,16 @@
-import type { ReactNode, ComponentPropsWithoutRef } from 'react'
+import type { ReactNode, ComponentPropsWithoutRef, ReactElement } from 'react'
 
 import { Box } from '../box/box'
 
 import * as styles from './button.css'
+import { Text } from '../text/text'
 
 interface Props extends Omit<ComponentPropsWithoutRef<'button'>, 'color'> {
 	children: ReactNode
+	icon?: ReactElement
 }
 
-export function Button({ children, ...props }: Props) {
+export function Button({ children, icon, ...props }: Props) {
 	return (
 		<Box
 			as="button"
@@ -19,7 +21,10 @@ export function Button({ children, ...props }: Props) {
 			padding={[8, 8, 16]}
 			{...props}
 		>
-			{children}
+			{icon}
+			<Text size="xs" weight="medium" leading="none" tracking="widest">
+				{children}
+			</Text>
 		</Box>
 	)
 }

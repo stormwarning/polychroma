@@ -4,10 +4,6 @@ import { vars } from '~/styles/theme.css'
 
 export const button = style({
 	fontFamily: 'inherit',
-	fontSize: vars.typography.fontSize.xs,
-	fontWeight: vars.typography.fontWeight.medium,
-	lineHeight: 1,
-	letterSpacing: '0.1em',
 	color: vars.color['grey-900'],
 	textTransform: 'uppercase',
 	background: vars.color['grey-100'],
