@@ -24,7 +24,7 @@ export const links: LinksFunction = () =>
 		? [
 				{
 					rel: 'preload',
-					href: '/build/_assets/inter-roman.var-WIJJYAE4-WIJJYAE4.woff2',
+					href: '/build/_assets/inter-roman.var-WIJJYAE4.woff2',
 					as: 'font',
 					type: 'font/woff2',
 				},
