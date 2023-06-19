@@ -95,15 +95,24 @@ export function ColorPicker({ stopIndex, ...props }: Props) {
 						[trackBackground]: `linear-gradient(to right, ${channelScales[index]})`,
 					})}
 				>
-					<Text
-						as="label"
-						className={styles.label}
-						size="xs"
-						transform="uppercase"
-						tracking="widest"
-					>
-						{channel.name} ({channel.min}–{channel.max})
-					</Text>
+					<Box display="flex" justifyContent="space-between">
+						<Text
+							as="label"
+							className={styles.label}
+							size="xs"
+							transform="uppercase"
+							tracking="widest"
+						>
+							{channel.name} ({channel.min}–{channel.max})
+						</Text>
+						<Text
+							size="xs"
+							weight="medium"
+							className={styles.value}
+						>
+							{[channelCoords[index]]}
+						</Text>
+					</Box>
 					<Slider
 						hideRange
 						defaultValue={[channelCoords[index]]}

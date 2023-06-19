@@ -70,10 +70,8 @@ export function GradientProvider({ children }: GradientProviderProps) {
 		angle: 30,
 		mode: 'lab',
 		stops: [
-			new Color('#000080').to('oklch'),
-			new Color('#ffff00').to('oklch'),
-			// new Color('oklch', [0.27, 0.19, 264]),
-			// new Color('oklch', [0.97, 0.21, 110]),
+			new Color('oklch', [0.27, 0.19, 264]), // #000080
+			new Color('oklch', [0.97, 0.21, 110]), // #ffff00
 		],
 	})
 
