@@ -70,10 +70,10 @@ export function GradientProvider({ children }: GradientProviderProps) {
 		angle: 30,
 		mode: 'lab',
 		stops: [
-			// new Color('#000080').to('oklch'),
-			// new Color('#ffff00').to('oklch'),
-			new Color('oklch', [0.27, 0.19, 264]),
-			new Color('oklch', [0.97, 0.21, 110]),
+			new Color('#000080').to('oklch'),
+			new Color('#ffff00').to('oklch'),
+			// new Color('oklch', [0.27, 0.19, 264]),
+			// new Color('oklch', [0.97, 0.21, 110]),
 		],
 	})
 
@@ -89,7 +89,7 @@ export function GradientProvider({ children }: GradientProviderProps) {
 
 	for (let [index, step] of scale.entries()) {
 		let t = index / (scale.length - 1)
-		colorStops.push(step.display({ format: 'hex' }))
+		colorStops.push(step.to('oklch').toString())
 		positions.push(Math.floor(t * 100))
 	}
 

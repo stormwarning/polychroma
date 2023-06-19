@@ -22,14 +22,24 @@ export function Footer() {
 			paddingY={[32, 32, 64]}
 		>
 			<Masthead hidden aria-hidden="true" />
-			<Box className={styles.credit}>
+			<Box
+				display="grid"
+				gap={8}
+				paddingRight={{ mobile: 8, desktop: 0 }}
+				className={styles.credit}
+			>
 				<p>
 					By{' '}
 					<FooterLink href="https://tidaltheory.io/">
 						@stormwarning
 					</FooterLink>
 				</p>
-				<Box display="flex" justifyContent="flex-end" gap={8}>
+				<Box
+					display="flex"
+					justifyContent="flex-end"
+					gap={8}
+					paddingBottom={{ mobile: 0, desktop: 8 }}
+				>
 					<FooterLink
 						social
 						href="https://github.com/stormwarning/polychroma"

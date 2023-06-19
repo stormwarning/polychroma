@@ -9,6 +9,7 @@ export const details = style({
 		'&[open]': {
 			boxShadow:
 				'rgba(0, 0, 0, 0.12) 0 2px 10px, 0 20px 50px 0 rgba(0, 0, 0, 0.14)',
+			zIndex: 2,
 		},
 	},
 })
@@ -25,10 +26,10 @@ export const summary = style({
 		},
 
 		[`&:not(${details}[open] &):hover`]: {
-			backgroundColor: vars.color['grey-200'],
+			backgroundColor: vars.color['grey-100'],
 		},
 		[`&:not(${details}[open] &):focus-visible`]: {
-			backgroundColor: vars.color['grey-200'],
+			backgroundColor: vars.color['grey-100'],
 		},
 	},
 })

@@ -161,8 +161,19 @@ const colorProperties = defineProperties({
 	},
 })
 
+const unconditionalProperties = defineProperties({
+	properties: {
+		opacity: vars.opacity,
+		zIndex: vars.zIndex,
+	},
+})
+
 // Here we combine all of our properties into a single `sprinkles` function
-export const sprinkles = createSprinkles(responsiveProperties, colorProperties)
+export const sprinkles = createSprinkles(
+	responsiveProperties,
+	colorProperties,
+	unconditionalProperties
+)
 export const normalizeResponsiveValue =
 	createNormalizeValueFn(responsiveProperties)
 

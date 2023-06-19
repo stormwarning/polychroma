@@ -12,15 +12,15 @@ interface Props {
 
 export function Option({ children, label, icon }: Props) {
 	return (
-		<Box as="details" className={styles.details}>
+		<Box as="details" position="relative" className={styles.details}>
 			<Box
 				as="summary"
-				className={styles.summary}
-				width="full"
 				display="flex"
 				alignItems="center"
 				justifyContent="space-between"
+				width="full"
 				padding={[16, 16, 32]}
+				className={styles.summary}
 			>
 				{/* <div className="w-full flex items-center justify-between p-4 lg:p-8"> */}
 				{label}

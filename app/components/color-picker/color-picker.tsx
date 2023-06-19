@@ -12,6 +12,7 @@ import { Text } from '../text/text'
 
 import * as styles from './color-picker.css'
 import { trackBackground } from '../slider/slider.css'
+import { Box } from '../box/box'
 
 const SPACE_ID = 'oklch'
 
@@ -86,8 +87,10 @@ export function ColorPicker({ stopIndex, ...props }: Props) {
 	return (
 		<Stack space={16}>
 			{spaceMeta.map((channel, index) => (
-				<div
+				<Box
 					key={channel.id}
+					display="grid"
+					gap={8}
 					style={assignInlineVars({
 						[trackBackground]: `linear-gradient(to right, ${channelScales[index]})`,
 					})}
@@ -116,7 +119,7 @@ export function ColorPicker({ stopIndex, ...props }: Props) {
 							})
 						}}
 					/>
-				</div>
+				</Box>
 			))}
 		</Stack>
 	)

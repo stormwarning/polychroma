@@ -32,6 +32,7 @@ export const [themeClass, vars] = createTheme({
 		0: '0',
 		4: '4px',
 		8: '8px',
+		12: '12px',
 		16: '16px',
 		32: '32px',
 		64: '64px',
@@ -53,6 +54,12 @@ export const [themeClass, vars] = createTheme({
 		'cyan-800': '#0e5693',
 		'cyan-900': '#083e7a',
 	},
+
+	opacity: {
+		0: '0',
+		10: '0.1',
+	},
+
 	radius: {
 		0: '0',
 		sm: '2px',
@@ -60,6 +67,7 @@ export const [themeClass, vars] = createTheme({
 	},
 	size: {
 		0: '0',
+		1: '1px',
 		32: '32px',
 		none: 'none',
 		md: '448px',
@@ -86,5 +94,12 @@ export const [themeClass, vars] = createTheme({
 			0: '0',
 			widest: '0.1em',
 		},
+	},
+
+	zIndex: {
+		1: '1',
+		2: '2',
+		3: '3',
+		4: '4',
 	},
 })
