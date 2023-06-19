@@ -4,4 +4,5 @@ export const swatchBackground = createVar()
 
 export const swatch = style({
 	backgroundColor: swatchBackground,
+	borderRadius: '9999px',
 })

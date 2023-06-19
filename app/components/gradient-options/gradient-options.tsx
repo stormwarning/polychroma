@@ -8,6 +8,7 @@ import { Slider } from '../slider/slider'
 import { Text } from '../text/text'
 
 import { swatch, swatchBackground } from './gradient-options.css'
+import { Divider } from '../divider/divider'
 
 export function GradientOptions() {
 	let { dispatch, angle, startColor, endColor } = useGradientState()
@@ -56,6 +57,7 @@ export function GradientOptions() {
 					onValueChange={handleAngleChange}
 				/>
 			</Option>
+			<Divider />
 			<Option
 				label={
 					<Text
@@ -80,6 +82,32 @@ export function GradientOptions() {
 				}
 			>
 				<ColorPicker stopIndex={0} />
+			</Option>
+			<Divider />
+			<Option
+				label={
+					<Text
+						as="label"
+						size="sm"
+						weight="medium"
+						tracking="widest"
+						transform="uppercase"
+					>
+						End Colour
+					</Text>
+				}
+				icon={
+					<Box
+						className={swatch}
+						width={16}
+						height={16}
+						style={assignInlineVars({
+							[swatchBackground]: endSwatch,
+						})}
+					/>
+				}
+			>
+				<ColorPicker stopIndex={1} />
 			</Option>
 		</>
 	)
