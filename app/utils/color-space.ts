@@ -1,0 +1,15 @@
+export const ACTIVE_SPACES = [
+	'acescc',
+	'hsl',
+	'ictcp',
+	'jzazbz',
+	'jzczhz',
+	'lch',
+	'lab',
+	'lab-d65',
+	'oklab',
+	'oklch',
+	'p3',
+	'rec2020',
+	'srgb',
+]

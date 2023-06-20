@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    // Type Checking
+    "strict": true,
+
+    // Modules
+    "baseUrl": ".",
+    "declaration": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+    "resolveJsonModule": true,
+    "types": ["colorjs.io"],
+
+    // Emit
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true,
+
+    // JavaScript Support
+    "allowJs": true,
+
+    // Interop Constraints
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    // Language and Environment
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "target": "esnext",
+    "useDefineForClassFields": true,
+
+    // Completeness
+    "skipLibCheck": true
+  }
+}
