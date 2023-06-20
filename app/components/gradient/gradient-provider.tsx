@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
-import { createContext, useReducer, useContext } from 'react'
+import { createContext, useReducer, useContext, useState } from 'react'
 
 import Color from 'colorjs.io'
+import { useIsomorphicLayoutEffect } from '~/hooks/use-isomorphic-layout-effect'
 
 type ColorMode = string
 type ColorStop = Color
@@ -74,6 +75,11 @@ export function GradientProvider({ children }: GradientProviderProps) {
 			new Color('oklch', [0.97, 0.21, 110]), // #ffff00
 		],
 	})
+	let [isClientSide, setIsClientSide] = useState(false)
+
+	useIsomorphicLayoutEffect(() => {
+		if (window) setIsClientSide(true)
+	}, [])
 
 	let gradientSteps =
 		state.mode === 'srgb' ? state.stops.length : state.stops.length + 5
@@ -87,7 +93,12 @@ export function GradientProvider({ children }: GradientProviderProps) {
 
 	for (let [index, step] of scale.entries()) {
 		let t = index / (scale.length - 1)
-		colorStops.push(step.to('oklch').toString())
+		let color = step.to('oklch').toString()
+
+		if (isClientSide && !window.CSS.supports('color', color))
+			color = step.to('p3').toString()
+
+		colorStops.push(color)
 		positions.push(Math.floor(t * 100))
 	}
 
