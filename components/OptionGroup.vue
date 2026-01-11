@@ -1,42 +1,24 @@
 <template>
-    <section>
-        <slot></slot>
-    </section>
+  <section>
+    <slot />
+  </section>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            uniqueId: null,
-            childrenToggled: {},
-        }
-    },
+<script setup lang="ts">
+// Provide a way for children to register and communicate
+const activeChildId = ref<string | null>(null)
 
-    mounted() {
-        this.$on('child-clicked', this.handleChildClicked)
-        this.$nextTick(() => {
-            this.$children.forEach((child, idx) => {
-                let id = String(idx)
-
-                child.setUniqueId(id)
-                this.childrenToggled[id] = false
-            })
-        })
-    },
-
-    methods: {
-        handleChildClicked(childId) {
-            for (let id in this.childrenToggled) {
-                if (this.childrenToggled[id] && id !== childId) {
-                    this.$emit('toggle-child', id)
-                    this.childrenToggled[id] = false
-                }
-            }
-
-            this.childrenToggled[childId] = !this.childrenToggled[childId]
-            this.$emit('toggle-child', childId)
-        },
-    },
+function toggleChild(childId: string) {
+  if (activeChildId.value === childId) {
+    activeChildId.value = null
+  } else {
+    activeChildId.value = childId
+  }
 }
+
+// Provide context to children
+provide('optionGroup', {
+  activeChildId: readonly(activeChildId),
+  toggleChild,
+})
 </script>

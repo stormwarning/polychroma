@@ -43,7 +43,7 @@ code,
     margin-right: -0.25em;
 }
 
-.nuxt-link-active {
+.router-link-active {
     border-bottom: 0.125rem solid currentColor;
 }
 

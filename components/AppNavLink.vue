@@ -1,24 +1,21 @@
 <template>
-    <nuxt-link :to="to" :exact="exact" class="py-2 text-grey-700 no-underline">
-        <span
-            class="block text-sm font-semibold leading-4 uppercase tracking-widest capsize"
-        >
-            <slot />
-        </span>
-    </nuxt-link>
+  <NuxtLink :to="to" :exact="exact" class="py-2 text-grey-700 no-underline">
+    <span
+      class="block text-sm font-semibold leading-4 uppercase tracking-widest capsize"
+    >
+      <slot />
+    </span>
+  </NuxtLink>
 </template>
 
-<script>
-export default {
-    props: {
-        to: {
-            type: String,
-            default: '/',
-        },
-        exact: {
-            type: Boolean,
-            default: false,
-        },
-    },
+<script setup lang="ts">
+interface Props {
+  to?: string
+  exact?: boolean
 }
+
+withDefaults(defineProps<Props>(), {
+  to: '/',
+  exact: false,
+})
 </script>

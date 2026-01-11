@@ -1,16 +1,12 @@
 <template>
-    <nav class="p-8">
-        <div class="flex gap-4 max-w-md mx-auto">
-            <app-nav-link :exact="true">Controls</app-nav-link>
-            <app-nav-link to="/info">Info</app-nav-link>
-        </div>
-    </nav>
+  <nav class="p-8">
+    <div class="flex gap-4 max-w-md mx-auto">
+      <AppNavLink :exact="true">Controls</AppNavLink>
+      <AppNavLink to="/info">Info</AppNavLink>
+    </div>
+  </nav>
 </template>
 
-<script>
-import AppNavLink from './AppNavLink.vue'
-
-export default {
-    components: { AppNavLink },
-}
+<script setup lang="ts">
+// Components are auto-imported in Nuxt 3
 </script>
