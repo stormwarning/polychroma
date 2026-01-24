@@ -1,7 +1,10 @@
+import typographyPlugin from '@tailwindcss/typography'
+import capsizePlugin from 'tailwindcss-capsize'
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
     content: [
       'components/**/*.vue',
       'layouts/**/*.vue',
@@ -85,8 +88,7 @@ module.exports = {
         },
     },
 
-    plugins: [
-        require('@tailwindcss/typography'),
-        // require('tailwindcss-capsize').default({}),
-    ],
+    plugins: [typographyPlugin, capsizePlugin],
 }
+
+export default config
