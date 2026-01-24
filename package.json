@@ -12,13 +12,13 @@
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**' --ignore-pattern 'static/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
+    "prepare": "npx simple-git-hooks",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "xhusky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "type": "module",
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix",
@@ -46,14 +46,16 @@
     "@zazen/eslint-config": "2.1.x",
     "@zazen/stylelint-config": "1.0.x",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.17.0",
-    "husky": "4.3.x",
+    "eslint": "7.14.x",
+    "eslint-plugin-vue": "7.1.x",
     "lint-staged": "10.5.x",
     "nuxt": "^3.15.0",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
+    "simple-git-hooks": "2.13.1",
     "stylelint": "13.8.x",
     "tailwindcss": "^3.4.17",
+    "tailwindcss-capsize": "4.0.1",
     "typescript": "^5.7.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
