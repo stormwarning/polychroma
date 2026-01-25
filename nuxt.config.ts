@@ -1,5 +1,11 @@
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
+
+  // imports: {
+  //   autoImport: false,
+  // },
 
   app: {
     head: {
@@ -7,6 +13,7 @@ export default defineNuxtConfig({
       bodyAttrs: { class: 'font-sans text-grey-800 antialiased' },
       title: 'Polychroma — Better gradients through colour spaces.',
       meta: [
+        // eslint-disable-next-line unicorn/text-encoding-identifier-case
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
@@ -48,12 +55,9 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@pinia/nuxt',
-    '@vite-pwa/nuxt',
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@vite-pwa/nuxt'],
 
+  // @ts-expect-error Config builder doesn't know about tailwindcss config.
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
   },
@@ -62,7 +66,8 @@ export default defineNuxtConfig({
     manifest: {
       name: 'Polychroma',
       short_name: 'Polychroma',
-      description: 'Generate better CSS gradients using alternative colour spaces & Bezier interpolation.',
+      description:
+        'Generate better CSS gradients using alternative colour spaces & Bezier interpolation.',
       theme_color: '#ffffff',
     },
     workbox: {
@@ -75,6 +80,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
+      // eslint-disable-next-line n/prefer-global/process
       version: process.env.npm_package_version || '2.1.2',
     },
   },
