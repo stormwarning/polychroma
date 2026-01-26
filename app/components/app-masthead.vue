@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRuntimeConfig } from 'nuxt/kit'
+import { useRuntimeConfig } from '#app'
 
 const runtimeConfig = useRuntimeConfig()
 const { version } = runtimeConfig.public
