@@ -1,0 +1,63 @@
+@import url('https://rsms.me/inter/inter.css');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@viewport {
+    width: device-width;
+}
+
+:root {
+    --color-bg: #f5f5f5;
+    --color-text: #717474;
+    --color-heading: #16191b;
+
+    --grey-1: #f5f5f5;
+    --grey-3: #c2c3c4;
+    --grey-4: #9b9e9d;
+    --grey-6: #717474;
+    --grey-7: #495057;
+    --grey-8: #212529;
+    --grey-9: #16191b;
+
+    --blue-5: #339af0;
+    --blue-6: #228be6;
+    --blue-7: #1c7ed6;
+}
+
+code,
+.code {
+    font-family: 'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
+        monospace;
+}
+
+.mix-burn {
+    mix-blend-mode: color-burn;
+}
+
+/**
+  Fix tracking issue for right-aligned text.
+ */
+.tracking-mega {
+    margin-right: -0.25em;
+}
+
+.router-link-active {
+    border-bottom: 0.125rem solid currentColor;
+}
+
+/**
+  Page transition effects.
+
+  `page` is the default transition name.
+  @see https://nuxtjs.org/guide/routing#transitions
+ */
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 200ms ease-in;
+}
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+}

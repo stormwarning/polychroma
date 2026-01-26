@@ -1,16 +1,20 @@
-# dependencies
+## DEPENDENCIES ######################################################
 node_modules
 
-# logs
-npm-debug.log
+## LOGS ##############################################################
+logs
+*.log
 
-# Nuxt build
+## GENERATED #########################################################
+.output
+.data
 .nuxt
-
-# Nuxt generate
+.nitro
+.cache
 dist
 
-# Service worker
-sw.*
-
+## SECRETS ###########################################################
+.env
+.env.*
+!.env.example
 .vercel

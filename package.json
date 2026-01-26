@@ -7,24 +7,22 @@
   "scripts": {
     "build": "nuxt build",
     "changeset": "changeset add",
-    "deploy": "np && release && npm run generate && now dist/ -p --name polychroma && now alias",
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**' --ignore-pattern 'static/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
-    "start": "nuxt start",
-    "test": "npm run lint"
+    "prepare": "npx simple-git-hooks",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "type": "module",
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix",
-    "*.{css,vue}": "stylelint --fix",
-    "package.json": "prettier --write"
+    "*.{css,vue}": "stylelint --fix"
   },
   "prettier": {
     "htmlWhitespaceSensitivity": "strict",
@@ -33,52 +31,36 @@
     "trailingComma": "all"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "2.4.0",
-    "@nuxtjs/markdownit": "1.2.10",
-    "@nuxtjs/pwa": "3.3.5",
-    "chroma-js": "2.1.0",
-    "nuxt": "2.15.4"
+    "chroma-js": "^2.6.0",
+    "pinia": "3.0.4"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.3.0",
     "@changesets/cli": "2.14.1",
-    "@nuxtjs/tailwindcss": "4.0.2",
-    "@tailwindcss/typography": "0.4.0",
-    "@zazen/eslint-config": "2.1.x",
+    "@nuxtjs/tailwindcss": "6.14.0",
+    "@pinia/nuxt": "0.11.3",
+    "@tailwindcss/typography": "^0.5.15",
+    "@vite-pwa/nuxt": "1.1.0",
+    "@zazen/eslint-config": "7.4.1",
     "@zazen/stylelint-config": "1.0.x",
-    "autoprefixer": "10.2.5",
-    "eslint": "7.14.x",
-    "eslint-plugin-vue": "7.1.x",
-    "husky": "4.3.x",
-    "import-sort-style-python": "1.0.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "9.39.2",
+    "eslint-plugin-vue": "10.7.0",
     "lint-staged": "10.5.x",
-    "postcss": "8.2.9",
-    "postcss-advanced-variables": "3.0.x",
-    "prettier": "2.1.x",
-    "prettier-plugin-import-sort": "0.0.6",
-    "prettier-plugin-packagejson": "2.2.x",
+    "nuxt": "4.3.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "simple-git-hooks": "2.13.1",
     "stylelint": "13.8.x",
-    "tailwindcss": "2.0.4",
-    "tailwindcss-capsize": "1.2.2"
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-capsize": "4.0.1",
+    "typescript": "^5.7.2",
+    "vue": "3.5.27"
+  },
+  "overrides": {
+    "@stylistic/eslint-plugin": "5.7.1"
   },
   "engines": {
-    "node": ">12.x"
-  },
-  "importSort": {
-    ".js,.ts,.vue": {
-      "parser": "babylon",
-      "style": "python",
-      "options": {
-        "knownFramework": [
-          "@nuxt",
-          "nuxt",
-          "@vue",
-          "vue"
-        ],
-        "knownFirstparty": [
-          "~"
-        ]
-      }
-    }
+    "node": ">=18.0.0"
   }
 }
