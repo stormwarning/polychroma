@@ -10,9 +10,10 @@
 </template>
 
 <script setup lang="ts">
+ 
 interface Props {
-  type?: string
   modelValue?: string | number
+  type?: string
 }
 
 withDefaults(defineProps<Props>(), {
@@ -31,8 +32,7 @@ defineEmits<{
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family:
-    'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: 'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   line-height: 1;
   border: 0;
   border-radius: 0;

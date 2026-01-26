@@ -1,14 +1,17 @@
-import { useGradientStore } from '~/stores/gradient'
+import { useGradientStore } from '~/stores/gradient.js'
+
+import { defineNuxtRouteMiddleware, navigateTo } from '#imports'
 
 export default defineNuxtRouteMiddleware((to) => {
-  const path = to.path
+  let { path } = to
 
   // Match pattern: /mode/{mode}/start/{color}/end/{color}/angle/{angle}
-  const re = /\/mode\/([a-z]+)\/start\/([a-z0-9]+)\/end\/([a-z0-9]+)\/angle\/(\d+)/
-  const match = path.match(re)
+  let re =
+    /\/mode\/([a-z]+)\/start\/([a-z0-9]+)\/end\/([a-z0-9]+)\/angle\/(\d+)/
+  let match = path.match(re)
 
   if (match) {
-    const store = useGradientStore()
+    let store = useGradientStore()
 
     store.changeMode(match[1])
     store.changeColor({ color: `#${match[2]}`, stop: 0 })

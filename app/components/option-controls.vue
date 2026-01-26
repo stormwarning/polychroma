@@ -1,5 +1,5 @@
 <template>
-  <details ref="detailsEl" :open="isOpen">
+  <details ref="detailsRef" :open="isOpen">
     <summary
       class="cursor-pointer outline-none"
       :class="{ 'is-open': isOpen }"
@@ -16,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed, inject, onMounted, type Ref, ref } from 'vue'
+
 interface OptionGroupContext {
   activeChildId: Readonly<Ref<string | null>>
   toggleChild: (id: string) => void
@@ -23,16 +25,16 @@ interface OptionGroupContext {
 
 const optionGroup = inject<OptionGroupContext>('optionGroup')
 const uniqueId = ref<string>('')
-const detailsEl = ref<HTMLDetailsElement | null>(null)
+const detailsRef = ref<HTMLDetailsElement | undefined>(undefined)
 
 // Generate unique ID on mount
 onMounted(() => {
-  uniqueId.value = Math.random().toString(36).substring(2, 9)
+  uniqueId.value = Math.random().toString(36).slice(2, 9)
 })
 
-const isOpen = computed(() => {
-  return optionGroup?.activeChildId.value === uniqueId.value
-})
+const isOpen = computed(
+  () => optionGroup?.activeChildId.value === uniqueId.value,
+)
 
 function handleClick() {
   if (uniqueId.value && optionGroup) {

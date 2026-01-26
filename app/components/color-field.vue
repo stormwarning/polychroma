@@ -49,11 +49,14 @@
 
 <script setup lang="ts">
 import chroma from 'chroma-js'
+import { computed, ref, watch } from 'vue'
 
+ 
 interface Props {
   modelValue?: string
 }
 
+ 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
 })
@@ -70,7 +73,7 @@ const hex = ref(props.modelValue.toLowerCase())
  */
 const hsl = computed(() => {
   try {
-    const color = chroma(props.modelValue)
+    let color = chroma(props.modelValue)
     return {
       h: color.get('hsl.h'),
       s: color.get('hsl.s'),
@@ -96,13 +99,13 @@ function updateHex(value: string) {
 }
 
 function updateHue(hue: number) {
-  const newHex = chroma.hsl(hue, hsl.value.s || 0, hsl.value.l || 0.5).hex()
+  let newHex = chroma.hsl(hue, hsl.value.s || 0, hsl.value.l || 0.5).hex()
   hex.value = newHex
   setColor(newHex)
 }
 
 function updateSaturation(saturation: number) {
-  const newHex = chroma
+  let newHex = chroma
     .hsl(hsl.value.h || 0, saturation, hsl.value.l || 0.5)
     .hex()
   hex.value = newHex
@@ -110,7 +113,7 @@ function updateSaturation(saturation: number) {
 }
 
 function updateLightness(lightness: number) {
-  const newHex = chroma.hsl(hsl.value.h || 0, hsl.value.s || 0, lightness).hex()
+  let newHex = chroma.hsl(hsl.value.h || 0, hsl.value.s || 0, lightness).hex()
   hex.value = newHex
   setColor(newHex)
 }

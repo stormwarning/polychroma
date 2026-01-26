@@ -91,7 +91,9 @@
 </template>
 
 <script setup lang="ts">
-import { useGradientStore } from '~/stores/gradient'
+import { computed } from 'vue'
+
+import { useGradientStore } from '~/stores/gradient.js'
 
 const store = useGradientStore()
 
@@ -104,8 +106,8 @@ const mode = computed({
 
 const rotation = computed(() => `rotate(${store.direction} 10 10)`)
 
-function rotateGradient(dir: number) {
-  store.rotate(dir)
+function rotateGradient(angle: number) {
+  store.rotate(angle)
 }
 
 function changeColorStop(color: string, stop: number) {

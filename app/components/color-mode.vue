@@ -26,7 +26,9 @@
 </template>
 
 <script setup lang="ts">
-import { useGradientStore } from '~/stores/gradient'
+import { computed } from 'vue'
+
+import { useGradientStore } from '~/stores/gradient.js'
 
 const store = useGradientStore()
 

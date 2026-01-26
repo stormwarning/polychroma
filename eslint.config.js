@@ -36,6 +36,11 @@ const config = defineConfig([
     rules: {
       camelcase: 'off',
       'import-x/no-anonymous-default-export': ['error', { allowObject: true }],
+
+      /**
+       * @todo [@zazen/eslint-config@>7.4.1]:  Remove once `Props` is added to the allowed list.
+       */
+      'unicorn/prevent-abbreviations': 'off',
     },
   },
   {
@@ -45,6 +50,28 @@ const config = defineConfig([
       globals: {
         ...globals.browser,
       },
+    },
+    rules: {
+      'import-x/no-extraneous-dependencies': [
+        'error',
+        { whitelist: ['nuxt', 'vue'] },
+      ],
+    },
+  },
+  {
+    name: 'project/rules/nuxt/routes',
+    files: [
+      'app/layouts/*.vue',
+      'app/pages/*.vue',
+      'app/app.vue',
+      'app/error.vue',
+    ],
+    rules: {
+      /**
+       * These files have a special meaning in Nuxt, and are not used
+       * directly by users.
+       */
+      'vue/multi-word-component-names': 'off',
     },
   },
   {

@@ -60,8 +60,10 @@
 
 <script setup lang="ts">
 import chroma from 'chroma-js'
-import { copyTextToClipboard } from '~/utils/clipboard'
-import { useGradientStore } from '~/stores/gradient'
+import { computed, onMounted, ref } from 'vue'
+
+import { useGradientStore } from '~/stores/gradient.js'
+import { copyTextToClipboard } from '~/utils/clipboard.js'
 
 const COPY_LABEL = 'Copy CSS'
 const SHARE_LABEL = 'Share URL'
@@ -73,35 +75,33 @@ const shareButtonText = ref(SHARE_LABEL)
 const origin = ref('')
 
 const gradientCSS = computed(() => {
-  const dir = `${store.direction}deg`
-  const stops = store.colorStops
-  const mode = store.colorMode
-  const steps = mode !== 'rgb' ? stops.length + 5 : stops.length
-  const string = 'linear-gradient('
-  const keyColors: string[] = []
+  /** @todo Rename the store property as well. */
+  let angle = `${store.direction}deg`
+  let stops = store.colorStops
+  let mode = store.colorMode
+  let steps = mode === 'rgb' ? stops.length : stops.length + 5
+  let string = 'linear-gradient('
+  let keyColors: string[] = []
 
-  stops.forEach((stop) => keyColors.push(stop.color.hex))
-  const scale = chroma
-    .scale(keyColors)
-    .mode(mode as any)
-    .correctLightness()
-  const colors: string[] = []
-  const positions: number[] = []
+  for (let stop of stops) keyColors.push(stop.color.hex)
+  let scale = chroma.scale(keyColors).mode(mode).correctLightness()
+  let colors: string[] = []
+  let positions: number[] = []
 
-  ;[...Array(steps).keys()].forEach((_, index) => {
-    const t = index / (steps - 1)
+  for (let [index, _] of Array.from({ length: steps }).entries()) {
+    let t = index / (steps - 1)
     colors.push(scale(t).hex())
     positions.push(Math.floor(t * 100))
-  })
+  }
 
-  return `${string}${dir}${colors
+  return `${string}${angle}${colors
     .map((stop, index) => `, ${stop} ${positions[index]}%`)
     .join('')})`
 })
 
 onMounted(() => {
   if (import.meta.client) {
-    origin.value = window.location.origin
+    origin.value = globalThis.location.origin
   }
 })
 
@@ -114,14 +114,14 @@ function copyCSS() {
 }
 
 function shareURL() {
-  const mode = store.colorMode
-  const deg = store.direction
-  const stops = store.colorStops
-  const start = stops[0].color.hex.replace('#', '')
-  const end = stops[stops.length - 1].color.hex.replace('#', '')
-  const str = `/mode/${mode}/start/${start}/end/${end}/angle/${deg}`
+  let mode = store.colorMode
+  let angle = store.direction
+  let stops = store.colorStops
+  let start = stops[0].color.hex.replace('#', '')
+  let end = stops.at(-1)?.color.hex.replace('#', '')
+  let string_ = `/mode/${mode}/start/${start}/end/${end}/angle/${angle}`
 
-  copyTextToClipboard(origin.value + str)
+  copyTextToClipboard(origin.value + string_)
   shareButtonText.value = 'Copied!'
   setTimeout(() => {
     shareButtonText.value = SHARE_LABEL

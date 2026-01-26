@@ -10,8 +10,8 @@
 
 <script setup lang="ts">
 interface Props {
-  to?: string
   exact?: boolean
+  to?: string
 }
 
 withDefaults(defineProps<Props>(), {

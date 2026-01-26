@@ -8,8 +8,8 @@ interface ColorStop {
 
 interface GradientState {
   colorMode: string
+  colorStops: [ColorStop, ColorStop]
   direction: number
-  colorStops: ColorStop[]
 }
 
 export const useGradientStore = defineStore('gradient', {
@@ -36,11 +36,11 @@ export const useGradientStore = defineStore('gradient', {
     },
 
     rotate(direction: number | string) {
-      this.direction = Number.parseInt(String(direction))
+      this.direction = Number.parseInt(String(direction), 10)
     },
 
     changeColor({ color, stop }: { color: string; stop: number }) {
-      this.colorStops[stop].color.hex = color
+      this.colorStops[stop]!.color.hex = color
     },
   },
 })

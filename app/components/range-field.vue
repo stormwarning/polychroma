@@ -24,8 +24,8 @@ interface Props {
   label?: string
   max?: number
   min?: number
-  step?: number
   modelValue?: number
+  step?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,7 +45,7 @@ function handleInput(event: Event) {
   if (!props.disabled) {
     emit(
       'update:modelValue',
-      parseFloat((event.target as HTMLInputElement).value),
+      Number.parseFloat((event.target as HTMLInputElement).value),
     )
   }
 }
@@ -117,13 +117,13 @@ function handleInput(event: Event) {
     width: 1rem;
     height: 1rem;
     margin: 0;
+    margin-top: calc(-0.5rem + 1px);
+    margin-bottom: calc(0.5rem + 1px);
     cursor: pointer;
     background: var(--range-thumb-color);
     border: 0;
     border-radius: 50%;
-    margin-top: calc(-0.5rem + 1px);
-    margin-bottom: calc(0.5rem + 1px);
-    -webkit-appearance: none;
+    appearance: none;
 
     &:focus {
       background: var(--range-thumb-focus);

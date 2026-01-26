@@ -1,13 +1,15 @@
 <template>
-  <section class="container min-h-screen flex flex-col items-center justify-center">
+  <section
+    class="container min-h-screen flex flex-col items-center justify-center"
+  >
     <h1 class="title text-5xl font-bold mt-4">
-      {{ error?.statusCode || 'Error' }}
+      {{ error?.status || 'Error' }}
     </h1>
     <p class="info mt-4 text-grey-500">
       {{ error?.message || 'An error occurred' }}
     </p>
     <NuxtLink
-      v-if="error?.statusCode === 404"
+      v-if="error?.status === 404"
       class="button mt-12 px-4 py-2 bg-grey-800 text-white rounded"
       to="/"
     >
@@ -24,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NuxtError } from '#app'
+import { clearError, type NuxtError } from '#app'
 
 interface Props {
   error: NuxtError

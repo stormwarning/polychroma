@@ -1,11 +1,11 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-01-24',
 
-  // imports: {
-  //   autoImport: false,
-  // },
+  imports: {
+    autoImport: false,
+  },
 
   app: {
     head: {
@@ -57,7 +57,6 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@vite-pwa/nuxt'],
 
-  // @ts-expect-error Config builder doesn't know about tailwindcss config.
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
   },

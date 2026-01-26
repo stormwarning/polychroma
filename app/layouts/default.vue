@@ -10,7 +10,7 @@
       <section class="p-8 lg:pt-0 lg:pb-16">
         <slot />
       </section>
-      <Gradient class="sticky lg:top-0 lg:bottom-0 lg:h-screen" />
+      <GradientOutput class="sticky lg:top-0 lg:bottom-0 lg:h-screen" />
     </main>
     <AppFooter class="sticky lg:top-0 lg:bottom-0 lg:h-screen" />
   </article>

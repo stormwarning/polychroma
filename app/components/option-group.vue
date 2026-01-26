@@ -5,15 +5,13 @@
 </template>
 
 <script setup lang="ts">
+import { provide, readonly, ref } from 'vue'
+
 // Provide a way for children to register and communicate
-const activeChildId = ref<string | null>(null)
+const activeChildId = ref<string | undefined>(undefined)
 
 function toggleChild(childId: string) {
-  if (activeChildId.value === childId) {
-    activeChildId.value = null
-  } else {
-    activeChildId.value = childId
-  }
+  activeChildId.value = activeChildId.value === childId ? undefined : childId
 }
 
 // Provide context to children
