@@ -1,14 +1,11 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@latest/schema.json",
-  "access": "restricted",
-  "baseBranch": "main",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "stormwarning/polychroma" }
-  ],
-  "commit": false,
-  "ignore": [],
-  "linked": [],
-  "privatePackages": { "version": true, "tag": true },
-  "updateInternalDependencies": "patch"
+	"$schema": "https://unpkg.com/@changesets/config@latest/schema.json",
+	"access": "restricted",
+	"baseBranch": "main",
+	"changelog": ["@changesets/changelog-github", { "repo": "stormwarning/polychroma" }],
+	"commit": false,
+	"ignore": [],
+	"linked": [],
+	"privatePackages": { "version": true, "tag": true },
+	"updateInternalDependencies": "patch"
 }
