@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [],
+  "semi": false,
+  "singleQuote": true,
+  "useTabs": true,
+  "overrides": [
+    {
+      "files": ["**/*.css", "**/*.vue"],
+      "options": {
+        "singleQuote": false,
+        "printWidth": 120
+      }
+    }
+  ]
+}

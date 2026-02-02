@@ -4,31 +4,26 @@
   "private": true,
   "description": "Generate better CSS gradients using alternative colour spaces & Bezier interpolation.",
   "author": "Jeff Nelson (https://tidaltheory.io)",
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "changeset": "changeset add",
     "dev": "nuxt dev",
+    "fmt": "oxfmt --check",
     "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "lint:scripts": "eslint '**/*.{js,vue}' --fix --ignore-pattern '.nuxt/**' --ignore-pattern 'dist/**' --ignore-pattern 'static/**'",
     "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
     "prepare": "npx simple-git-hooks",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "preview": "nuxt preview"
   },
-  "type": "module",
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix",
     "*.{css,vue}": "stylelint --fix"
-  },
-  "prettier": {
-    "htmlWhitespaceSensitivity": "strict",
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all"
   },
   "dependencies": {
     "chroma-js": "^2.6.0",
@@ -49,8 +44,8 @@
     "eslint-plugin-vue": "10.7.0",
     "lint-staged": "10.5.x",
     "nuxt": "4.3.0",
+    "oxfmt": "0.27.0",
     "postcss": "^8.4.49",
-    "prettier": "^3.4.2",
     "simple-git-hooks": "2.13.1",
     "stylelint": "13.8.x",
     "tailwindcss": "^3.4.17",
@@ -58,10 +53,10 @@
     "typescript": "^5.7.2",
     "vue": "3.5.27"
   },
-  "overrides": {
-    "@stylistic/eslint-plugin": "5.7.1"
-  },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "overrides": {
+    "@stylistic/eslint-plugin": "5.7.1"
   }
 }
