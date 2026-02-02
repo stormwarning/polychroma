@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@1.5.0/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@latest/schema.json",
   "access": "restricted",
   "baseBranch": "main",
   "changelog": [
@@ -9,5 +9,6 @@
   "commit": false,
   "ignore": [],
   "linked": [],
+  "privatePackages": { "version": true, "tag": true },
   "updateInternalDependencies": "patch"
 }
