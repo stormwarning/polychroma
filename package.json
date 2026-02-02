@@ -40,6 +40,7 @@
     "@nuxtjs/tailwindcss": "6.14.0",
     "@pinia/nuxt": "0.11.3",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "25.2.0",
     "@vite-pwa/nuxt": "1.1.0",
     "@zazen/eslint-config": "7.4.1",
     "@zazen/stylelint-config": "1.0.x",

@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
@@ -79,7 +81,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      // eslint-disable-next-line n/prefer-global/process
       version: process.env.npm_package_version || '2.1.2',
     },
   },
