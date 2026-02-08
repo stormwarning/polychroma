@@ -126,7 +126,7 @@ figure {
 	display: grid;
 	grid-template-rows: auto;
 	grid-template-columns: 1fr;
-	padding-top: 8.5rem;
+	padding-block-start: 8.5rem;
 }
 
 .source {
