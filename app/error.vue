@@ -39,7 +39,7 @@ function handleError() {
 
 <style scoped>
 .title {
-	margin-top: 15px;
+	margin-block-start: 15px;
 }
 
 .info {

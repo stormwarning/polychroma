@@ -26,10 +26,10 @@ defineEmits<{
 <style module>
 .input {
 	display: block;
-	width: 100%;
+	inline-size: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: 'SF Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+	font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
 	line-height: 1;
 	border: 0;
 	border-radius: 0;

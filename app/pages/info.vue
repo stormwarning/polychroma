@@ -76,7 +76,7 @@
 .prose code {
 	padding: 0.1875rem 0.25rem;
 	margin: 0 1px;
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: rgb(0 0 0 / 5%);
 	border-radius: 0.125rem;
 }
 </style>

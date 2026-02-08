@@ -1,11 +1,11 @@
 <template>
 	<div class="range-field" :class="{ 'is-disabled': disabled }">
-		<label v-if="label" class="range-field__label">
+		<label v-if="label" class="range-field-label">
 			<slot>{{ label }}</slot>
 		</label>
 
 		<input
-			class="range-field__input"
+			class="range-field-input"
 			type="range"
 			:disabled="disabled"
 			:max="max"
@@ -49,8 +49,6 @@ function handleInput(event: Event) {
 </script>
 
 <style lang="postcss">
-/* stylelint-disable no-descending-specificity */
-
 :root {
 	--range-thumb-color: var(--blue-7);
 	--range-thumb-focus: var(--blue-5);
@@ -64,29 +62,25 @@ function handleInput(event: Event) {
 	}
 }
 
-.range-field__label {
+.range-field-label {
 	display: block;
 	line-height: 1rem;
 	color: var(--range-track-color);
 }
 
-.range-field__input {
+.range-field-input {
+	inline-size: 100%;
 	appearance: none;
-	width: 100%;
-
-	&:focus {
-		outline: none;
-	}
-
-	&::-ms-track {
-		height: 1rem;
-	}
 
 	&::-ms-fill-lower,
 	&::-ms-fill-upper {
-		height: 2px;
-		margin-bottom: calc(0.5rem - 2px);
+		block-size: 2px;
+		margin-block-end: calc(0.5rem - 2px);
 		background: var(--range-track-color);
+	}
+
+	&::-ms-track {
+		block-size: 1rem;
 	}
 
 	&::-ms-fill-lower {
@@ -94,33 +88,31 @@ function handleInput(event: Event) {
 	}
 
 	&::-moz-range-track {
-		height: 2px;
-		margin-bottom: calc(0.5rem - 2px);
+		block-size: 2px;
+		margin-block-end: calc(0.5rem - 2px);
 		background: var(--range-track-color);
 	}
 
 	&::-moz-progress-bar {
-		margin-inline-start: 0;
-		margin-inline-end: 0;
+		margin-inline: 0;
 	}
 
 	&::-webkit-slider-runnable-track {
-		height: 2px;
-		margin-bottom: calc(0.5rem - 2px);
+		block-size: 2px;
+		margin-block-end: calc(0.5rem - 2px);
 		background: var(--range-track-color);
 	}
 
 	&::-webkit-slider-thumb {
-		width: 1rem;
-		height: 1rem;
+		inline-size: 1rem;
+		block-size: 1rem;
 		margin: 0;
-		margin-top: calc(-0.5rem + 1px);
-		margin-bottom: calc(0.5rem + 1px);
+		margin-block: calc(-0.5rem + 1px) calc(0.5rem + 1px);
+		appearance: none;
 		cursor: pointer;
 		background: var(--range-thumb-color);
 		border: 0;
 		border-radius: 50%;
-		appearance: none;
 
 		&:focus {
 			background: var(--range-thumb-focus);
@@ -128,8 +120,8 @@ function handleInput(event: Event) {
 	}
 
 	&::-ms-thumb {
-		width: 1rem;
-		height: 1rem;
+		inline-size: 1rem;
+		block-size: 1rem;
 		margin: 0;
 		cursor: pointer;
 		background: var(--range-thumb-color);
@@ -142,8 +134,8 @@ function handleInput(event: Event) {
 	}
 
 	&::-moz-range-thumb {
-		width: 1rem;
-		height: 1rem;
+		inline-size: 1rem;
+		block-size: 1rem;
 		margin: 0;
 		cursor: pointer;
 		background: var(--range-thumb-color);
@@ -153,6 +145,10 @@ function handleInput(event: Event) {
 		&:focus {
 			background: var(--range-thumb-focus);
 		}
+	}
+
+	&:focus {
+		outline: none;
 	}
 
 	&:disabled {

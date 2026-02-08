@@ -38,7 +38,7 @@ main {
 	display: grid;
 	grid-area: main;
 	grid-template-areas: 'result' 'navbar' 'content';
-	grid-template-rows: 33vh 4rem 1fr;
+	grid-template-rows: 33vb 4rem 1fr;
 	grid-template-columns: 1fr;
 }
 
